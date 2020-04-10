@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="AI," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="ESTR 3108 ReviewAgentsAgents include humans,robots, softbots, thermostats, etc. The agent function maps from percept histories(sequences) to actions $P-&gt;A$ agent program runs on the physical archit">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ESTR 3108 review">
+<meta property="og:url" content="http://wadmes.github.io/2017/12/18/ESTR%203108%20Review/index.html">
+<meta property="og:site_name" content="NEWAY">
+<meta property="og:description" content="ESTR 3108 ReviewAgentsAgents include humans,robots, softbots, thermostats, etc. The agent function maps from percept histories(sequences) to actions $P-&gt;A$ agent program runs on the physical archit">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-12-17T16:00:00.000Z">
+<meta property="article:modified_time" content="2019-03-21T13:31:29.000Z">
+<meta property="article:author" content="Li Wei">
+<meta property="article:tag" content="AI">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '',
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    fancybox: true,
+    tabs: ,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: 'undefined',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://wadmes.github.io/2017/12/18/ESTR 3108 Review/"/>
+
+
+
+
+
+  <title>ESTR 3108 review | NEWAY</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', '[object Object]', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">NEWAY</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">愿识乾坤大，仍怜草木青</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-reading-notes">
+          <a href="/notes" rel="section">
+            
+            Reading notes
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about-me">
+          <a href="/about" rel="section">
+            
+            About me
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-official-about me">
+          <a href="/cv" rel="section">
+            
+            Official About me
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-resume">
+          <a href="/cv/cv_liwei/cv.pdf" rel="section">
+            
+            Resume
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wadmes.github.io/2017/12/18/ESTR%203108%20Review/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Li Wei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/%5Bobject%20Object%5D">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NEWAY">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ESTR 3108 review</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-18T00:00:00+08:00">
+                2017-12-18
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2019-03-21T21:31:29+08:00">
+                2019-03-21
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/study/" itemprop="url" rel="index">
+                    <span itemprop="name">study</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/18/ESTR%203108%20Review/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2017/12/18/ESTR%203108%20Review/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="ESTR-3108-Review"><a href="#ESTR-3108-Review" class="headerlink" title="ESTR 3108 Review"></a>ESTR 3108 Review</h1><h2 id="Agents"><a href="#Agents" class="headerlink" title="Agents"></a>Agents</h2><p><strong><em>Agents</em></strong> include humans,robots, softbots, thermostats, etc.</p>
+<p>The <strong><em>agent function</em></strong> maps from percept histories(sequences) to actions $P-&gt;A$</p>
+<p><strong><em>agent program</em></strong> runs on the physical architecture to produce f. (prescode)</p>
+<ul>
+<li><strong>Percepts</strong> :sensor reading</li>
+<li><strong>Actions</strong> : output</li>
+<li><strong>Goals</strong> : performance measure ( to achieve the goal )</li>
+<li><strong>Environment</strong> : external world</li>
+</ul>
+<p><strong><em>Rational agent</em></strong>: For each possible percept sequence, a rational agent should choose an action<br>that is expected to <strong><em>maximize its performance measure</em></strong>, given the evidence provided by the <strong><em>percept sequence</em></strong> and whatever <strong><em>built-in knowledge (environment) (capabilities(actions))</em></strong> it has</p>
+<p>Basic types of agents in order of <strong><em>increasing</em></strong> generality:</p>
+<h3 id="Simple-reflex-agents"><a href="#Simple-reflex-agents" class="headerlink" title="Simple reflex agents"></a>Simple reflex agents</h3><p>Agents with <strong><em>condition-action rules</em></strong> </p>
+<h3 id="Model-based-Reflex-agents-with-state"><a href="#Model-based-Reflex-agents-with-state" class="headerlink" title="Model based Reflex agents with state"></a>Model based Reflex agents with state</h3><p>Simple agents that maintain some sort of <strong><em>internal state</em></strong>(arg: state,action,percept,model) of the world (and a model) in order to choose an action.</p>
+<h3 id="Model-based-Goal-based-agents"><a href="#Model-based-Goal-based-agents" class="headerlink" title="Model-based, Goal-based agents"></a>Model-based, Goal-based agents</h3><p>Knowing about the current state of the environment is not always enough to decide what to do.The agent need a GOAL describing the desirable situations. </p>
+<h3 id="Model-based-Utility-based-agents"><a href="#Model-based-Utility-based-agents" class="headerlink" title="Model-based, Utility-based agents"></a>Model-based, Utility-based agents</h3><p>Goals alone are not really enough to generate high-quality behavior. (eg: quicker? safer? cheaper?) }We<br>can only achieve some utilities, or have a compromise action.</p>
+<h3 id="Learning-Agents"><a href="#Learning-Agents" class="headerlink" title="Learning Agents"></a>Learning Agents</h3><p>The <strong><em>learning element</em></strong> responsible for making improvements to the performance element.</p>
+<p>The <strong><em>performance element</em></strong> = previously entire agent: it takes in percepts and decides on actions.</p>
+<p>The <strong><em>critic</em></strong> tells the learning element how well the agent is doing w.r.t. a fixed standard of performance. Necessary because the percepts themselves provide no indication of agent’s success.</p>
+<p>The <strong><em>problem generator</em></strong> - responsible for suggesting problems &amp; actions for new and informative experiences.</p>
+<h3 id="Problem-solving-agents"><a href="#Problem-solving-agents" class="headerlink" title="Problem-solving agents"></a>Problem-solving agents</h3><ol>
+<li>Goal Formation</li>
+<li>Problem formulation: to decide what <em>actions</em> and <em>states</em> to consider</li>
+<li>Search</li>
+<li>Execution</li>
+</ol>
+<h3 id="4-problem-types"><a href="#4-problem-types" class="headerlink" title="4 problem types"></a>4 problem types</h3><h4 id="single-state-problems"><a href="#single-state-problems" class="headerlink" title="single-state problems"></a>single-state problems</h4><p>deterministic, fully observable: consider a single state at a time</p>
+<h4 id="Multiple-state-problems"><a href="#Multiple-state-problems" class="headerlink" title="Multiple state problems"></a>Multiple state problems</h4><p>non-observable: reason about sets of states that it might get to.</p>
+<h4 id="Contingency（偶然性）-problems"><a href="#Contingency（偶然性）-problems" class="headerlink" title="Contingency（偶然性） problems"></a>Contingency（偶然性） problems</h4><p>nondeterministic and/or partially observable: calculates a whole tree of actions rather than a single action sequence</p>
+<h4 id="Exploration-problems"><a href="#Exploration-problems" class="headerlink" title="Exploration problems"></a>Exploration problems</h4><p>unknown state space: agent must experiment, discovering the actions and states.</p>
+<p><strong><em>state space</em></strong> : The set of all states reachable from the initial state by any sequence of actions</p>
+<h2 id="Tree-Search-alg"><a href="#Tree-Search-alg" class="headerlink" title="Tree Search alg"></a>Tree Search alg</h2><p>Basic idea: </p>
+<p>Current state - generate a new set of states (expanding the state) - choose one (expanding state) by a search strategy to expand - search tree with search nodes</p>
+<h3 id="Evaluation-methods"><a href="#Evaluation-methods" class="headerlink" title="Evaluation methods"></a>Evaluation methods</h3><ul>
+<li>completeness. Always find a solution if exists?</li>
+<li>time complexity: number of nodes</li>
+<li>space complexity: maximum number of nodes in memory</li>
+<li>optimality: always find a least-cost solution?</li>
+</ul>
+<h3 id="BFS"><a href="#BFS" class="headerlink" title="BFS"></a>BFS</h3><ul>
+<li>FIFO queue</li>
+<li>complete</li>
+<li>time and space: O($b^{d+1}$) b: branching factor, d:depth of optimal solution</li>
+<li>optimal(if cost = 1 per step)</li>
+</ul>
+<h3 id="Uniform-cost-search"><a href="#Uniform-cost-search" class="headerlink" title="Uniform cost search"></a>Uniform cost search</h3><ul>
+<li>expand the lowerst-cost node rather than lowest-depth node.</li>
+<li>complete </li>
+<li>time: number of nodes with g &lt;= cost of optimal solution. g: path cost</li>
+<li>space: number of nodes with g &lt;= cost of optimal solution</li>
+<li>optimal</li>
+</ul>
+<h3 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h3><ul>
+<li>LIFO queue</li>
+<li>not complete, fail in infinite depth spaces</li>
+<li>O($b^m$) m: max depth of search tree, b: branching factor</li>
+<li>space: O(bm)</li>
+<li>optimal if cost same per step</li>
+</ul>
+<h3 id="Depth-limited-search"><a href="#Depth-limited-search" class="headerlink" title="Depth limited search"></a>Depth limited search</h3><p>depth first search with depth limit L</p>
+<h3 id="Iterative-deepening-search"><a href="#Iterative-deepening-search" class="headerlink" title="Iterative deepening search"></a>Iterative deepening search</h3><p>iterate limit L from 0 to infinite</p>
+<ul>
+<li>complete</li>
+<li>time: O($b^d$)</li>
+<li>space: O(bd)</li>
+<li>optimal if cost same per step</li>
+</ul>
+<h3 id="Best-first-search"><a href="#Best-first-search" class="headerlink" title="Best first search"></a>Best first search</h3><p>Nodes are <strong><em>ordered</em></strong> so that the best evaluation is <strong><em>expanded first</em></strong>. </p>
+<h4 id="Greedy-search"><a href="#Greedy-search" class="headerlink" title="Greedy search"></a>Greedy search</h4><ul>
+<li>Evaluation function = estimation of cost from node n to the closest goal, h(n)</li>
+<li>h can be any function as long as h(n) = 0 when n = goal such as 直线距离</li>
+<li>greedy search: best first search that uses h to select the next node to expand</li>
+<li>not complete(stuck in loop)</li>
+<li>time, space: O($b^m$), m: max depth of search tree ( keep all node in memory )</li>
+<li>not optimal</li>
+</ul>
+<h4 id="A-search"><a href="#A-search" class="headerlink" title="A search"></a>A search</h4><ul>
+<li>evaluation function  f = g(n) + h(n) g:cost so far to reach n</li>
+<li>0&lt;=h(n)&lt;= true cost from n to goal</li>
+<li>complete, unless inifinity nodes with f&lt;= f(Goal)</li>
+<li>time, exponential in [error in h * length of solution]</li>
+<li>space. keep all nodes</li>
+<li>optimal </li>
+<li>no other optimal alg is is guaranteed to expand fewer nodes than A (没expand all f 小于goal的 node， 就有可能miss optimal solution)</li>
+</ul>
+<h5 id="Dominance"><a href="#Dominance" class="headerlink" title="Dominance"></a>Dominance</h5><p>if h2 &gt; h1 for all n, then h2 dominates h1 and is better</p>
+<p>$N = 1 + b^1 + b^2 + … + b^d $</p>
+<p>N:total number of expanded nodes, b: effective branching factor d: solution depth. use b to determine the h’s overall usefulness.</p>
+<h3 id="Recursive-Best-First-Search-RBFS"><a href="#Recursive-Best-First-Search-RBFS" class="headerlink" title="Recursive Best First Search RBFS"></a>Recursive Best First Search RBFS</h3><pre><code>          1.Deterministic2.Stochastic
+</code></pre><p>Single point    Hill-climbing     Simulator A</p>
+<p>Multiple poi  Multi-start     GA</p>
+<p>Mul: Send whole class to search </p>
+<h3 id="Hill-climbing"><a href="#Hill-climbing" class="headerlink" title="Hill climbing"></a>Hill climbing</h3><p>如果邻居最大值 &lt; current -&gt; return</p>
+<p>else current = 邻居最大值</p>
+<p>problem: stuck on local max</p>
+<h3 id="Simulated-annealing"><a href="#Simulated-annealing" class="headerlink" title="Simulated annealing"></a>Simulated annealing</h3><ul>
+<li>escape local max by allowing some “ bad “ moves ( next = randomly selected) but gradually decrease their size and frequency</li>
+<li>if next = better, always excuted</li>
+<li>$p = e^{\Delta E/T}$ </li>
+</ul>
+<h3 id="Genetic-algorithms"><a href="#Genetic-algorithms" class="headerlink" title="Genetic algorithms"></a>Genetic algorithms</h3><p>选择初始生命种群(initial population)</p>
+<p>​    评价种群中的个体适应度(fitness function)</p>
+<p>​    以比例原则（分数高的挑中机率也较高）选择产生下一个种群。不仅仅挑分数最高的的原因是这么做可能收敛到局部的最佳点，而非整体的。</p>
+<p>​    改变该种群（交叉和变异）(crossover mutation)</p>
+<p>直到停止循环的条件满足</p>
+<h2 id="Game-play"><a href="#Game-play" class="headerlink" title="Game play"></a>Game play</h2><h3 id="Minimax"><a href="#Minimax" class="headerlink" title="Minimax"></a>Minimax</h3><ul>
+<li>complete if tree is finite</li>
+<li>optimal if opponent is optimal</li>
+<li>time ：$O(b^m)$</li>
+<li>space: O(bm) depth first</li>
+</ul>
+<p>Resource limits: cutoff test: depth limit ; evaluation function:= estimated desirability of position</p>
+<h4 id="Evaluation-function"><a href="#Evaluation-function" class="headerlink" title="Evaluation function"></a>Evaluation function</h4><ul>
+<li>agree with the utility function on terminal states</li>
+<li>not too long</li>
+<li>accurately reflect the actual chances of winning</li>
+</ul>
+<h3 id="Qui’escence-search"><a href="#Qui’escence-search" class="headerlink" title="Qui’escence search"></a>Qui’escence search</h3><p>Expand non-quiescent(静) positions until quiescent positions are reached.</p>
+<h4 id="Alpha-Beta-pruning"><a href="#Alpha-Beta-pruning" class="headerlink" title="Alpha-Beta pruning"></a>Alpha-Beta pruning</h4><p>compute the correct minimax decision without looking at every node in the search tree.</p>
+<p>perfect order: time = $O(b^{m/2})$</p>
+<h2 id="Logic"><a href="#Logic" class="headerlink" title="Logic"></a>Logic</h2><p><strong><em>Syntax</em></strong> defines the sentences in the language</p>
+<p><strong><em>Semantics</em></strong> define the meaning of sentences </p>
+<p>m is a  <strong><em>model</em></strong> of a sentence s if s in true in m</p>
+<p>M(s) = set of all models of s</p>
+<p>KB entails s  iff M(KB) belongs to M(s)</p>
+<ul>
+<li>Soundness: i is sound if whenever KB entails(i) s, then KB entails s</li>
+<li>Completeness: i is complete if whenever KB entails s, then Kb entails(i) s. Derivations can produce all entailed sentences </li>
+</ul>
+<p>Valid: true in all models</p>
+<p>Satisfiable: true in some models</p>
+<p>Unsatisfiable: true in no models</p>
+<h3 id="Horn-Form"><a href="#Horn-Form" class="headerlink" title="Horn Form"></a>Horn Form</h3><p>conjunction of Horn clauses</p>
+<p><strong><em>Horn clauses</em></strong></p>
+<p>proposition symbol || conjucton of symbols -&gt; symbol</p>
+<h3 id="Backward-chaining"><a href="#Backward-chaining" class="headerlink" title="Backward chaining"></a>Backward chaining</h3><p>1.check if q is known already </p>
+<p>2.prove by BC all premises of some rules concluding q</p>
+<ul>
+<li><strong>Forward chaining</strong><ul>
+<li>data-driven</li>
+<li>may do lots of works that is irrelevant to the goal</li>
+</ul>
+</li>
+<li><strong>Backward chaining</strong><ul>
+<li>goal-driven</li>
+<li>complexity of BC can be much less than linear in size of KB</li>
+</ul>
+</li>
+</ul>
+<h3 id="Resolution"><a href="#Resolution" class="headerlink" title="Resolution"></a>Resolution</h3><h4 id="CNF-universal"><a href="#CNF-universal" class="headerlink" title="CNF-universal"></a>CNF-universal</h4><p>conjunction of “disjunctions of literals”</p>
+<ul>
+<li>$ a\leftrightarrow b\Rightarrow(a\rightarrow b) \wedge(b\rightarrow a)$</li>
+<li>$a\rightarrow b\Rightarrow \neg a \vee b$</li>
+<li>$ \neg( a \vee b)\Rightarrow \neg a \wedge \neg b$</li>
+<li>$(a \wedge b) \vee c \Rightarrow (a \vee c) \wedge ( b \vee c)$</li>
+</ul>
+<h4 id="Resolution-inference-rule"><a href="#Resolution-inference-rule" class="headerlink" title="Resolution inference rule"></a>Resolution inference rule</h4><p>sound and complete</p>
+<p>To proof Kb entails a , by contradiction, show that Kb and not a unsatisfiable</p>
+<h2 id="First-Order-Logic"><a href="#First-Order-Logic" class="headerlink" title="First Order Logic"></a>First Order Logic</h2><ul>
+<li>Terms: Function(Term,…) | constant | variable</li>
+<li>atomic sentences: a predicate symbol followed by a parenthesized list of terms.(also an equality)</li>
+<li>complex sentences: logical connectives (and or) </li>
+<li>Quantifier, for all, exist one</li>
+</ul>
+<p><strong>well formed formula/wff</strong>: for sentences that have all their variables properly introduced.</p>
+<p>FOL: one can quantify over objects but not over relations or functions on these object</p>
+<p>Higher order logic : quantify over relations and functions</p>
+<p>$(\lambda x,y\ x^2-y^2)(25,24) = 25^2 - 24^2 = 49$</p>
+<p>E! = unique</p>
+<h3 id="Universal-instantiation-Existential-instantiation"><a href="#Universal-instantiation-Existential-instantiation" class="headerlink" title="Universal instantiation / Existential instantiation"></a>Universal instantiation / Existential instantiation</h3><p>UI can be applied several times to <strong>add</strong> new sentences, the new KB is <strong>logically equivalent</strong></p>
+<p>to the old</p>
+<p>EI can be applied <strong>once</strong> to <strong>replace</strong> the existential sentence, the new KB is <strong>not</strong> equivalent to the old.</p>
+<h3 id="Unification"><a href="#Unification" class="headerlink" title="Unification"></a>Unification</h3><p>UNIFY(p,q) = theta where SUBST(theta,p) = SUBST(theta, q)</p>
+<h3 id="Backward-channing-and-FC"><a href="#Backward-channing-and-FC" class="headerlink" title="Backward channing and FC"></a>Backward channing and FC</h3><ul>
+<li>BWC<ul>
+<li>space is linear in size of proof</li>
+<li>incomplete due to infinite loops(checking current goal against every goal on stack)</li>
+<li>inefficient due to repeated sub goals ( caching previous results)</li>
+</ul>
+</li>
+<li>FWC<ul>
+<li>sound and complete</li>
+<li>may not terminate in general if alpha is not entailed</li>
+<li>entailment with definite clauses is semi-decidable</li>
+</ul>
+</li>
+</ul>
+<h2 id="Learning-From-Examples"><a href="#Learning-From-Examples" class="headerlink" title="Learning From Examples"></a>Learning From Examples</h2><p><strong>Decision Tree</strong> not a good way to represent the function because the truth table is exponentially large in the number of attributes</p>
+<ul>
+<li>If there are no examples left, it means that no such example has been observed, and we return the majority classification of the node’s parent.</li>
+<li>If there are no attributes left, but both +ve and -ve examples, which means that these examples have exactly the same description, but different classifications. This happens when <ul>
+<li>noise</li>
+<li>not fully describe</li>
+<li>the domain is non-deterministic</li>
+</ul>
+</li>
+</ul>
+<p><strong>Ockham’s razor.</strong>The most likely hypothesis is the simplest one that is consistent with all observations.</p>
+<p><strong>Information content I</strong></p>
+<p>$I(P(v_1),…,P(v_n)) = \sum-P(v_i)log_2P(v_i)$</p>
+<p>P is smaller, then -log P is bigger</p>
+<p>$Gain(A) = I(p/(p+n), n/(n+p)) - Reminder(A)$</p>
+<p>$Reminder(A) = \sum\frac{p_i+n_i}{p+n}I(p_i/{p_i+n_i},n_i/p_i+n_i)$</p>
+<p>We select features with largest Gain.</p>
+<ul>
+<li>Fasle negative: the hypothesis must generalization: C2(x) implies C1(x). C2 is to be generalized<ul>
+<li>Dropping conditions || add OR conditions</li>
+</ul>
+</li>
+<li>False positive: specialization. special = contradiction</li>
+</ul>
+<p><strong>Sample Size</strong>: $m &gt;= 1/e ( ln 1/o + ln|H|)$</p>
+<p>e = max error o = error’s probablity H= number of possible hypothesis</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/AI/" rel="tag"># AI</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/08/%E6%B8%AF%E7%8B%AC%E8%80%8C%E8%AE%BA/" rel="next" title="致楼上港独言论">
+                <i class="fa fa-chevron-left"></i> 致楼上港独言论
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/24/csci3230-HW3/" rel="prev" title="CSCI3230 HW3">
+                CSCI3230 HW3 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/%5Bobject%20Object%5D"
+                alt="Li Wei" />
+            
+              <p class="site-author-name" itemprop="name">Li Wei</p>
+              <p class="site-description motion-element" itemprop="description">人生注定是一个人的旅行，但就算孤独也要做一直前行的人啊</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">89</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/wadmes" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:werry715@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://y.qq.com/n/yqq/playlist/3076569977.html" target="_blank" title="Music">
+                      
+                        <i class="fa fa-fw fa-music"></i>Music</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://stackoverflow.com/users/8369603/werry-lee" target="_blank" title="SO">
+                      
+                        <i class="fa fa-fw fa-stack-overflow"></i>SO</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://steamcommunity.com/id/wadmes/" target="_blank" title="Steam">
+                      
+                        <i class="fa fa-fw fa-steam"></i>Steam</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-globe"></i>
+                
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://wadmes.github.io/2019/12/11/EDA-family-tree/" title="EDA family tree" target="_blank">EDA family tree</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://wadmes.github.io/daily/" title="每日头条" target="_blank">每日头条</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://wadmes.github.io/english/" title="English study notes" target="_blank">English study notes</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://edu.sina.com.cn/gaokao/2015-05-13/1618468681.shtml" title="小爷当年的高考满分作文" target="_blank">小爷当年的高考满分作文</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ESTR-3108-Review"><span class="nav-number">1.</span> <span class="nav-text">ESTR 3108 Review</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Agents"><span class="nav-number">1.1.</span> <span class="nav-text">Agents</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Simple-reflex-agents"><span class="nav-number">1.1.1.</span> <span class="nav-text">Simple reflex agents</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Model-based-Reflex-agents-with-state"><span class="nav-number">1.1.2.</span> <span class="nav-text">Model based Reflex agents with state</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Model-based-Goal-based-agents"><span class="nav-number">1.1.3.</span> <span class="nav-text">Model-based, Goal-based agents</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Model-based-Utility-based-agents"><span class="nav-number">1.1.4.</span> <span class="nav-text">Model-based, Utility-based agents</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Learning-Agents"><span class="nav-number">1.1.5.</span> <span class="nav-text">Learning Agents</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Problem-solving-agents"><span class="nav-number">1.1.6.</span> <span class="nav-text">Problem-solving agents</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-problem-types"><span class="nav-number">1.1.7.</span> <span class="nav-text">4 problem types</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#single-state-problems"><span class="nav-number">1.1.7.1.</span> <span class="nav-text">single-state problems</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Multiple-state-problems"><span class="nav-number">1.1.7.2.</span> <span class="nav-text">Multiple state problems</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Contingency（偶然性）-problems"><span class="nav-number">1.1.7.3.</span> <span class="nav-text">Contingency（偶然性） problems</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Exploration-problems"><span class="nav-number">1.1.7.4.</span> <span class="nav-text">Exploration problems</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tree-Search-alg"><span class="nav-number">1.2.</span> <span class="nav-text">Tree Search alg</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Evaluation-methods"><span class="nav-number">1.2.1.</span> <span class="nav-text">Evaluation methods</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BFS"><span class="nav-number">1.2.2.</span> <span class="nav-text">BFS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Uniform-cost-search"><span class="nav-number">1.2.3.</span> <span class="nav-text">Uniform cost search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DFS"><span class="nav-number">1.2.4.</span> <span class="nav-text">DFS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Depth-limited-search"><span class="nav-number">1.2.5.</span> <span class="nav-text">Depth limited search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Iterative-deepening-search"><span class="nav-number">1.2.6.</span> <span class="nav-text">Iterative deepening search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Best-first-search"><span class="nav-number">1.2.7.</span> <span class="nav-text">Best first search</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Greedy-search"><span class="nav-number">1.2.7.1.</span> <span class="nav-text">Greedy search</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#A-search"><span class="nav-number">1.2.7.2.</span> <span class="nav-text">A search</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Dominance"><span class="nav-number">1.2.7.2.1.</span> <span class="nav-text">Dominance</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Recursive-Best-First-Search-RBFS"><span class="nav-number">1.2.8.</span> <span class="nav-text">Recursive Best First Search RBFS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hill-climbing"><span class="nav-number">1.2.9.</span> <span class="nav-text">Hill climbing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Simulated-annealing"><span class="nav-number">1.2.10.</span> <span class="nav-text">Simulated annealing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Genetic-algorithms"><span class="nav-number">1.2.11.</span> <span class="nav-text">Genetic algorithms</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Game-play"><span class="nav-number">1.3.</span> <span class="nav-text">Game play</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Minimax"><span class="nav-number">1.3.1.</span> <span class="nav-text">Minimax</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Evaluation-function"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">Evaluation function</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Qui’escence-search"><span class="nav-number">1.3.2.</span> <span class="nav-text">Qui’escence search</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Alpha-Beta-pruning"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">Alpha-Beta pruning</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Logic"><span class="nav-number">1.4.</span> <span class="nav-text">Logic</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Horn-Form"><span class="nav-number">1.4.1.</span> <span class="nav-text">Horn Form</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Backward-chaining"><span class="nav-number">1.4.2.</span> <span class="nav-text">Backward chaining</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Resolution"><span class="nav-number">1.4.3.</span> <span class="nav-text">Resolution</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CNF-universal"><span class="nav-number">1.4.3.1.</span> <span class="nav-text">CNF-universal</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Resolution-inference-rule"><span class="nav-number">1.4.3.2.</span> <span class="nav-text">Resolution inference rule</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#First-Order-Logic"><span class="nav-number">1.5.</span> <span class="nav-text">First Order Logic</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Universal-instantiation-Existential-instantiation"><span class="nav-number">1.5.1.</span> <span class="nav-text">Universal instantiation &#x2F; Existential instantiation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Unification"><span class="nav-number">1.5.2.</span> <span class="nav-text">Unification</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Backward-channing-and-FC"><span class="nav-number">1.5.3.</span> <span class="nav-text">Backward channing and FC</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Learning-From-Examples"><span class="nav-number">1.6.</span> <span class="nav-text">Learning From Examples</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-[object Object]"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Wei</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v="></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v="></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v="></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v="></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v="></script>
+<script type="text/javascript" src="/js/src/post-details.js?v="></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v="></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: true,
+        appId: 'NmNqnbed4p8koRJWwGm6SdrW-gzGzoHsz',
+        appKey: 'ECnYjjxnwouXPYlJjrjLJhv9',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "./public/search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
