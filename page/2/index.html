@@ -209,6 +209,107 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://wadmes.github.io/2020/02/06/fused_dropout%20not%20implemented%20for%20long/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/liwei3.jpg">
+      <meta itemprop="name" content="Li Wei">
+      <meta itemprop="description" content="人生注定是一个人的旅行，但就算孤独也要做一直前行的人啊">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NEWAY">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/06/fused_dropout%20not%20implemented%20for%20long/" class="post-title-link" itemprop="url">PyTorch implementation中的挫折</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-06 13:04:07" itemprop="dateCreated datePublished" datetime="2020-02-06T13:04:07+08:00">2020-02-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-02-07 16:24:51" itemprop="dateModified" datetime="2020-02-07T16:24:51+08:00">2020-02-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/study/" itemprop="url" rel="index"><span itemprop="name">study</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2020/02/06/fused_dropout%20not%20implemented%20for%20long/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/06/fused_dropout%20not%20implemented%20for%20long/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="PyTorch-implement-Color-GCN中的挫折"><a href="#PyTorch-implement-Color-GCN中的挫折" class="headerlink" title="PyTorch implement Color-GCN中的挫折"></a>PyTorch implement Color-GCN中的挫折</h1><h2 id="Dropout-amp-Long"><a href="#Dropout-amp-Long" class="headerlink" title="Dropout &amp; Long"></a>Dropout &amp; Long</h2><p>用Pytorch Implement GCN的时候，有一个error卡了我一天，google也没相关的答案：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fused_dropout not implemented <span class="keyword">for</span> <span class="string">'long'</span></span><br></pre></td></tr></table></figure>
+<p>自己找了会才发现不是dropout这个value的问题，而是input feature是 <code>long</code>。。。原来torch.Tensor([integer])会默认给int64(Long)而不是int32.。。真是奇怪的feature呢。</p>
+<h2 id="Cuda-device"><a href="#Cuda-device" class="headerlink" title="Cuda device"></a>Cuda device</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RuntimeError: Expected object of device <span class="built_in">type</span> cuda but got device <span class="built_in">type</span> cpu <span class="keyword">for</span> argument <span class="comment">#2 'mat2' in call to _th_mm</span></span><br></pre></td></tr></table></figure>
+<p>data,features,model全部都cuda()了，结果还是有问题。一个小时后的思索后。本侦探再次破案：</p>
+<p>model.cuda() 这个func应该是把所有model中的Tensor 调用一遍 cuda()，大概伪代码就是：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> Var <span class="keyword">in</span> model:</span><br><span class="line">	Var.cuda()</span><br></pre></td></tr></table></figure>
+<p>但是问题在于！</p>
+<p>如果Var不是Tensor 而是一个list（别问为啥会是list，菜鸡最喜欢的就是list）</p>
+<p>那么Var.cuda()就失效了，这样就需要在initilize的时候就遍历list里面所有的tensor，并调用tensor.to(‘device’)</p>
+<h2 id="Floating-point-exception-core-dumped"><a href="#Floating-point-exception-core-dumped" class="headerlink" title="Floating point exception (core dumped)"></a>Floating point exception (core dumped)</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Floating point exception (core dumped)</span><br></pre></td></tr></table></figure>
+<p>网上查了下 这个就是某一步计算分母为0的error。</p>
+<p>但是蛋疼的是 没有指示哪一行有错。而且python（或者说dgl还是pytorch）有个蛋疼的feature是这个exception在还没来得及print的时候就会直接跳出程序。（也就是说还不能用简单的print来定位）</p>
+<p>最后用IPython embed()很蠢的一步一步。。发现问题是 如果dgl.Graph没有边(G.number_of_edges == 0)，那么dgl自己的GATConv （Graph Attention Convolution会有问题），因此加了个dirty code判断这个情况，如果属实就直接生成一个zero vector（其实按道理应该是一个input feature itself，但是在这个work里面（graph color)反正没有边的图就没有利用价值，所以直接变成0）</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://wadmes.github.io/2020/02/02/%E9%AD%94%E5%B9%BB%E7%9A%842020/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1144,251 +1245,10 @@ H^{(k+1)} = activation((A+I)H^kW) \\A = adjacent \ matrix \\H^0 = features \ of 
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://wadmes.github.io/2019/12/11/EDA-family-tree/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/liwei3.jpg">
-      <meta itemprop="name" content="Li Wei">
-      <meta itemprop="description" content="人生注定是一个人的旅行，但就算孤独也要做一直前行的人啊">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="NEWAY">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/11/EDA-family-tree/" class="post-title-link" itemprop="url">EDA family tree</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2019-12-11 19:11:53 / Modified: 21:20:23" itemprop="dateCreated datePublished" datetime="2019-12-11T19:11:53+08:00">2019-12-11</time>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2019/12/11/EDA-family-tree/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/12/11/EDA-family-tree/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>This family tree is only recorded by my supervisor and me such that it cannot certainly contain every famous professor due to my ignorance. Especially, this tree focuses on Chinese schloars…</p>
-</blockquote>
-<h2 id="MIT"><a href="#MIT" class="headerlink" title="MIT"></a>MIT</h2><ul>
-<li><a href="https://www.internethalloffame.org/about/advisory-board/cl-liu" target="_blank" rel="noopener">C L Liu</a> (MIT-&gt;UIUC-&gt;NTHU)  <ul>
-<li><a href="http://vast.cs.ucla.edu/people/faculty/jason-cong" target="_blank" rel="noopener">Jason Cong</a> (UIUC’90-&gt;UCLA)      <ul>
-<li><a href="http://www.cs.binghamton.edu/~pmadden/" target="_blank" rel="noopener">Patrick H. Madden</a> (UCLA’96-&gt;Binghamton)   </li>
-<li><a href="https://engineering.purdue.edu/~chengkok/" target="_blank" rel="noopener">Cheng-Kok Koh</a> (UCLA’98-&gt;Purdue)    </li>
-<li><a href="https://www.ee.ucla.edu/lei-he/" target="_blank" rel="noopener">Lei He</a> (UCLA’99-&gt;UW Madison-&gt;UIUC)        <ul>
-<li><a href="http://faculty.sustech.edu.cn/yuh3/en/" target="_blank" rel="noopener">Hao Yu</a> (UCLA’07-&gt;NTU-&gt;SUSTech)        </li>
-<li><a href="https://www3.nd.edu/~scl/index.html" target="_blank" rel="noopener">Yiyu Shi</a> (UCLA’09-&gt;U Notre Dame)         </li>
-</ul>
-</li>
-<li><a href="http://users.ece.utexas.edu/~dpan/" target="_blank" rel="noopener">David Z. Pan</a> (UCLA’00-&gt;UT Austin)        <ul>
-<li><a href="http://www.cse.cuhk.edu.hk/~byu/" target="_blank" rel="noopener">Bei Yu</a> (UT Austin’14-&gt;CUHK)        </li>
-<li><a href="http://yibolin.com/" target="_blank" rel="noopener">Yibo Lin</a> (UT Austin’18-&gt;北大)     </li>
-</ul>
-</li>
-<li><a href="http://limsk.ece.gatech.edu/" target="_blank" rel="noopener">Sung-Kyu Lim</a> (UCLA’00-&gt;GaTech)     </li>
-<li><a href="http://dchen.ece.illinois.edu/" target="_blank" rel="noopener">Deming Chen</a> (UCLA’05-&gt;UIUC)     </li>
-<li><a href="http://www.csl.cornell.edu/~zhiruz/" target="_blank" rel="noopener">Zhiru Zhang</a> (UCLA’07-&gt;Xilinx-&gt;Cornell)     </li>
-<li><a href="https://ceca.pku.edu.cn/people/faculty/lgj/" target="_blank" rel="noopener">Guojie Luo</a> (UCLA’11-&gt;北大)  </li>
-</ul>
-</li>
-<li><a href="https://ece.illinois.edu/directory/profile/mdfwong" target="_blank" rel="noopener">Martin D.F. Wong</a> (UIUC-&gt;UT Austin-&gt;UIUC-&gt;CUHK)     <ul>
-<li><a href="http://www.cs.nthu.edu.tw/~tcwang/" target="_blank" rel="noopener">Ting-Chi Wang</a> (UT Austin’94-&gt;NTHU)     </li>
-<li><a href="http://cc.ee.ntu.edu.tw/~ywchang/" target="_blank" rel="noopener">Yao-Wen Chang</a> (UT Austin’96-&gt;NCTU-&gt;NTU)        <ul>
-<li><a href="http://www.ee.ntu.edu.tw/profile1?id=1060726" target="_blank" rel="noopener">Iris Hui-Ru Jiang </a>(NTU’05-&gt;NTCU-&gt;NTU)        </li>
-<li><a href="http://www.cs.nthu.edu.tw/~tyho/" target="_blank" rel="noopener">Tsung-Yi Ho</a> (NTU’06-&gt;NCKU-&gt;NTHU)        </li>
-<li><a href="http://140.118.107.57/profile.php?tid=6699" target="_blank" rel="noopener">Shao-Yun Fang</a> (NTU-&gt;NTUST)     </li>
-</ul>
-</li>
-<li><a href="http://www.cs.nthu.edu.tw/~wkmak/" target="_blank" rel="noopener">Wai-Kei Mak</a> (UT Austin’98-&gt;SFU-&gt;NTHU)     </li>
-<li><a href="http://www.cse.cuhk.edu.hk/~fyyoung/" target="_blank" rel="noopener">Evangeline F.Y. Young</a> (UT Austin’99-&gt;CUHK)     </li>
-<li><a href="http://users.eecs.northwestern.edu/~haizhou/" target="_blank" rel="noopener">Hai Zhou</a> (UT Austin’99-&gt;Northwestern)        <ul>
-<li><a href="http://www.ece.iit.edu/~jwang/" target="_blank" rel="noopener">Jia Wang </a>(Northwestern’08-&gt;IIT)     </li>
-</ul>
-</li>
-<li><a href="http://home.engineering.iastate.edu/~cnchu/" target="_blank" rel="noopener">Chris Chu</a> (UT Austin’99-&gt;ISU)        </li>
-<li><a href="https://tsung-wei-huang.github.io/" target="_blank" rel="noopener">Tsung-Wei Huang</a> (UIUC’17-&gt;Utah)</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="https://www2.eecs.berkeley.edu/Faculty/Homepages/brayton.html" target="_blank" rel="noopener">Robert K. Brayton</a> (MIT’61-&gt;Berkeley)  <ul>
-<li><a href="http://cc.ee.ntu.edu.tw/~jhjiang/" target="_blank" rel="noopener">Jie-Hong Roland Jiang</a> (Berkeley’04&gt;NTU)  </li>
-<li><a href="https://people.eecs.berkeley.edu/~alanmi/" target="_blank" rel="noopener">Alan Mishchenko</a> (NAS’02-&gt;Berkeley)</li>
-</ul>
-</li>
-</ul>
-<h2 id="Stanford"><a href="#Stanford" class="headerlink" title="Stanford"></a>Stanford</h2><ul>
-<li><a href="https://www2.eecs.berkeley.edu/Faculty/Homepages/kuh.html" target="_blank" rel="noopener">Ernest S. Kuh</a> (Stanford’52-&gt;Berkeley) <ul>
-<li><a href="https://ieeexplore.ieee.org/author/37063749700" target="_blank" rel="noopener">Yoji Kajitani</a> (TIT)  </li>
-<li><a href="http://www.eps.sci.waseda.ac.jp/english/teachers_popup/goto.html" target="_blank" rel="noopener">Satoshi Goto</a> (Waseda) </li>
-<li><a href="http://cseweb.ucsd.edu/~kuan/" target="_blank" rel="noopener">C K Cheng</a> (Berkeley’84-&gt;UCSD)  </li>
-<li><a href="https://seng.ust.hk/about/people/faculty/kwang-ting-tim-cheng?id=326" target="_blank" rel="noopener">Tim Cheng</a> (Berkeley’88-&gt;UCSB-&gt;HKUST)  </li>
-<li><a href="http://www.mpedram.com/" target="_blank" rel="noopener">Massoud Pedram</a> (Berkeley’89-&gt;USC)      <ul>
-<li><a href="https://www.ece.cmu.edu/directory/bios/marculescu-radu.html" target="_blank" rel="noopener">Radu Marculescu</a> (USC’98-&gt;CMU)      </li>
-<li><a href="https://users.ece.cmu.edu/~dianam/" target="_blank" rel="noopener">Diana Marculescu</a> (USC’98-&gt;CMU-&gt;UT Austin)      </li>
-<li><a href="http://hydrogen.syr.edu/~qqiu/" target="_blank" rel="noopener">Qinru Qiu</a>(USC’01-&gt;SYR)      </li>
-<li><a href="https://coe.northeastern.edu/people/wang-yanzhi/" target="_blank" rel="noopener">Yanzhi Wang</a>(USC’14-&gt;NEU)      </li>
-<li><a href="https://web.northeastern.edu/xuelin/" target="_blank" rel="noopener">Xue Lin</a> (USC’16-&gt;NEU)  </li>
-</ul>
-</li>
-<li><a href="https://vlsicad.ucsd.edu/~abk/" target="_blank" rel="noopener">Andrew B. Kahng</a> (UCSD’89-&gt;UCLA-&gt;UCSD)      <ul>
-<li><a href="http://www.cs.virginia.edu/~robins/" target="_blank" rel="noopener">Gabriel Robins</a> (UCLA’92-&gt;VT)      </li>
-<li><a href="https://vivo.brown.edu/display/sreda" target="_blank" rel="noopener">Sherief Reda</a> (UCSD’96-&gt;Brown)      </li>
-<li><a href="https://web.eecs.umich.edu/~imarkov/" target="_blank" rel="noopener">Igor Markov</a> (UCSD’01-&gt;UMich)    </li>
-</ul>
-</li>
-<li><a href="https://iee.ucsb.edu/people/malgorzata-marek-sadowska" target="_blank" rel="noopener">Malgorzata Marek-Sadowska</a> (Berkeley-&gt;UCSB)      <ul>
-<li><a href="https://www.easylogic.hk/about" target="_blank" rel="noopener">David Wu</a> (UCSB’93-&gt;CUHK-&gt;EasyLogic)      </li>
-<li><a href="http://www.cs.nthu.edu.tw/~scchang/" target="_blank" rel="noopener">Shih-Chieh Chang</a> (UCSB’94-&gt;NTHU)  </li>
-</ul>
-</li>
-<li><a href="https://ieeexplore.ieee.org/author/37085361405" target="_blank" rel="noopener">Satoshi Goto</a> (Waseda Univ.)  </li>
-<li><a href="https://www.tsinghua.edu.cn/publish/csen/4623/2010/20101223231437873460518/20101223231437873460518_.html" target="_blank" rel="noopener">Xianlong Hong</a> (Tsinghua Univ.)</li>
-</ul>
-</li>
-<li><a href="https://www.cerc.utexas.edu/~jaa/" target="_blank" rel="noopener">Jacob Abraham</a> (Stanford’74-&gt;UIUC-&gt;UT Austin)  <ul>
-<li><a href="https://engineering.purdue.edu/ECE/People/ptProfile?resource_id=3085" target="_blank" rel="noopener">Kaushik Roy </a>(UIUC’90-&gt;Purdue)      <ul>
-<li><a href="https://ece.duke.edu/faculty/yiran-chen" target="_blank" rel="noopener">Yiran Chen</a> (Purdue’05-&gt;Pittsburgh-&gt;Duke)      </li>
-<li><a href="https://ece.duke.edu/faculty/hai-helen-li" target="_blank" rel="noopener">Hai Li</a> (Purdue’04-&gt;NYU-&gt;Pittsburgh-&gt;Duke)      </li>
-<li><a href="http://www.eecs.ucf.edu/~dfan/" target="_blank" rel="noopener">Deliang Fan</a> (Purdue’15-&gt;UCF-&gt;ASU)  </li>
-</ul>
-</li>
-<li><a href="https://shobhav.ece.illinois.edu/" target="_blank" rel="noopener">Shobha Vasudevan</a> (UT Austin’07-&gt;UIUC)</li>
-</ul>
-</li>
-<li><a href="https://mwolf.unl.edu/marilyn-c-wolf" target="_blank" rel="noopener">Marilyn Wolf</a> (Stanford’84-&gt;Princeton-&gt;GaTech)  <ul>
-<li><a href="https://www.ece.ucsb.edu/~yuanxie/" target="_blank" rel="noopener">Yuan Xie</a> (Princeton’99-&gt;PSU-&gt;UCSB)      <ul>
-<li><a href="https://eecs.pku.edu.cn/info/1504/6956.htm" target="_blank" rel="noopener">Guangyu Sun</a> (PSU’11-&gt;北大)      </li>
-<li><a href="https://cseweb.ucsd.edu/~jzhao/" target="_blank" rel="noopener">Jisheng Zhao</a>(PSU’14-&gt;UCSD)  </li>
-</ul>
-</li>
-<li><a href="https://eexu.home.ece.ust.hk/" target="_blank" rel="noopener">Jiang Xu</a> (Princeton’05-&gt;HKUST)      <ul>
-<li><a href="http://english.seiee.sjtu.edu.cn/english/detail/2128_1921.htm" target="_blank" rel="noopener">Yaoyao Ye</a> (HKUST’13-&gt;HUAWEI-&gt;SJTU)      </li>
-<li><a href="https://www.ntu.edu.sg/home/liu/" target="_blank" rel="noopener">Weichen Liu</a> (HKUST-&gt;CQU-&gt;NTU)</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="Berkeley"><a href="#Berkeley" class="headerlink" title="Berkeley"></a>Berkeley</h2><ul>
-<li><a href="https://www2.eecs.berkeley.edu/Faculty/Homepages/keutzer.html" target="_blank" rel="noopener">Kurt Keutzer</a> (Indiana’84-&gt;Berkeley)  <ul>
-<li><a href="http://web.eecs.umich.edu/faculty/sylvester/" target="_blank" rel="noopener"> Dennis Sylvester</a> (Berkeley’99-&gt;UMICH)       <ul>
-<li><a href="http://web.eecs.umich.edu/faculty/sylvester/" target="_blank" rel="noopener"> </a><a href="http://faculty.engineering.asu.edu/jseo/" target="_blank" rel="noopener">Jae-sun Seo</a> (UMICH’10-&gt;ASU)     </li>
-<li><a href="http://web.eecs.umich.edu/faculty/sylvester/" target="_blank" rel="noopener"> </a><a href="https://www.ee.columbia.edu/mingoo-seok" target="_blank" rel="noopener">Mingoo Seok</a>(UMICH’11-&gt;columbia)       </li>
-<li><a href="https://www.soe.ucsc.edu/people/mrg" target="_blank" rel="noopener">Matt Guthaus</a>(UMICH’06-&gt;UCSC)</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="https://www2.eecs.berkeley.edu/Faculty/Homepages/hu.html" target="_blank" rel="noopener">Chenming Hu</a> (Berkeley’73-&gt;Berkeley)  <ul>
-<li><a href="https://isearch.asu.edu/profile/749044" target="_blank" rel="noopener">Yu Cao</a> (Berkeley’02-&gt;ASU)  </li>
-<li><a href="http://users.ece.utexas.edu/~michael/" target="_blank" rel="noopener">Michael Orshansky</a> (Berkeley’04-&gt;UT Austin)</li>
-</ul>
-</li>
-<li><a href="https://www2.eecs.berkeley.edu/Faculty/Homepages/sangiovanni-vicentelli.html" target="_blank" rel="noopener">Alberto L. Sangiovanni-Vincentelli</a> (Berkeley)  <ul>
-<li><a href="https://si2.epfl.ch/~demichel/" target="_blank" rel="noopener"> Giovanni De Micheli </a>(Berkeley’83-&gt;Stanford-&gt;EPFL)      <ul>
-<li><a href="https://engineering.purdue.edu/ECE/People/ptProfile?resource_id=3355" target="_blank" rel="noopener">Yung-Hsiang Lu</a> (Stanford’02-&gt;Purdue)    </li>
-<li><a href="http://users.ece.gatech.edu/~mooney/" target="_blank" rel="noopener">Vincent John Mooney III</a> (Stanford’97-&gt;Georgia Tech)</li>
-<li><a href="http://cseweb.ucsd.edu/~trosing/" target="_blank" rel="noopener">Tajana Simunic</a> (Stanford’01-&gt;UCSD)</li>
-<li><a href="http://www.dcc.ufmg.br/~coelho" target="_blank" rel="noopener">Claudionor José Nunes Coelho Junior</a> (Stanford’96-&gt;UFMG)</li>
-<li><a href="https://ee.ethz.ch/the-department/faculty/professors/person-detail.MTk0MjM0.TGlzdC80MTEsMTA1ODA0MjU5.html" target="_blank" rel="noopener">Luca Benini</a> (Stanford’97-&gt;ETH)</li>
-<li><a href="http://mesl.ucsd.edu/gupta/" target="_blank" rel="noopener">Rajesh Gupta</a> (Stanford’93-&gt;UCSD)  </li>
-<li><a href="http://data.snu.ac.kr/" target="_blank" rel="noopener">Sungroh Yoon</a> <a href="https://ece.vt.edu/people/profile/zeng" target="_blank" rel="noopener"> </a>(Stanford’04-&gt;SNU)    </li>
-<li><a href="http://dtl.yonsei.ac.kr/dtl_professor.html" target="_blank" rel="noopener">Eui-Young Chung</a> <a href="https://ece.vt.edu/people/profile/zeng" target="_blank" rel="noopener"> </a>(Stanford’02-&gt;Yousei)  </li>
-</ul>
-</li>
-<li><a href="https://viterbi.usc.edu/directory/faculty/Nuzzo/Pierluigi" target="_blank" rel="noopener"> Pierluigi Nuzzo</a>(Berkeley-&gt;USC)  </li>
-<li><a href="https://viterbi.usc.edu/directory/faculty/Nuzzo/Pierluigi" target="_blank" rel="noopener"> </a><a href="http://www.bu.edu/eng/profile/douglas-densmore/" target="_blank" rel="noopener">Douglas Densmore</a> (Berkeley -&gt; Boston)  </li>
-<li><a href="https://viterbi.usc.edu/directory/faculty/Nuzzo/Pierluigi" target="_blank" rel="noopener"> </a><a href="http://www.mit.edu/~dluca/" target="_blank" rel="noopener">Luca Daniel</a>(Berkeley’03-&gt;MIT)      <ul>
-<li><a href="https://www.ece.ucsb.edu/~zhengzhang/" target="_blank" rel="noopener">Zheng Zhang</a> (MIT’15-&gt;UCSB)  </li>
-</ul>
-</li>
-<li><a href="http://www.cs.columbia.edu/~luca/" target="_blank" rel="noopener">Luca Carloni</a> (Berkeley -&gt; Columbia)  </li>
-<li><a href="https://www.rle.mit.edu/people/directory/jacob-white/" target="_blank" rel="noopener">Jacob K. White </a>(Berkeley‘85 -&gt; MIT)  </li>
-<li><a href="https://casinovi.ece.gatech.edu/" target="_blank" rel="noopener">Giorgio Casinovi</a> (Berkeley -&gt; Georgia Tech)  </li>
-<li><a href="https://en.wikipedia.org/wiki/Shyu_Jyuo-min" target="_blank" rel="noopener">Shyu Jyuo-min </a>(Berkeley’88 -&gt; NTU)  </li>
-<li><a href="http://www.cs.columbia.edu/~luca/" target="_blank" rel="noopener">Luca Carloni</a> (Berkeley -&gt; Columbia)  </li>
-<li><a href="https://www.mccormick.northwestern.edu/research-faculty/directory/profiles/zhu-qi.html" target="_blank" rel="noopener">Qi Zhu</a> (Berkeley’08&gt;UCR-&gt;NWU)  </li>
-<li><a href="https://ece.vt.edu/people/profile/zeng" target="_blank" rel="noopener">Haibo Zeng </a>(Berkeley’08-&gt;VT)</li>
-</ul>
-</li>
-</ul>
-<h2 id="CMU"><a href="#CMU" class="headerlink" title="CMU"></a>CMU</h2><ul>
-<li><a href="https://www.cs.cmu.edu/~bryant/" target="_blank" rel="noopener">Randy Bryant</a> (CMU)  <ul>
-<li><a href="https://www2.eecs.berkeley.edu/Faculty/Homepages/seshia.html" target="_blank" rel="noopener">Sanjit A. Seshia</a> (CMU’05-&gt;Berkeley)      <ul>
-<li><a href="https://www.bu.edu/eng/profile/39799/" target="_blank" rel="noopener">Wenchao Li</a> (Berkeley’13-&gt;Boston)      </li>
-<li><a href="https://dorsa.fyi/" target="_blank" rel="noopener">Dorsa Sadigh</a> (Berkeley-&gt;Stanford)</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="https://www.ece.cmu.edu/directory/bios/pileggi-larry.html" target="_blank" rel="noopener">Larry Pileggi</a> (CMU’89-&gt;UT Austin-&gt;CMU) <ul>
-<li><a href="https://engineering.ucsb.edu/people/peng-li" target="_blank" rel="noopener">Peng Li</a> (CMU’04-&gt;TAMU-&gt;UCSB)   </li>
-<li><a href="https://ece.duke.edu/faculty/xin-li" target="_blank" rel="noopener">Xin Li</a> (CMU’05-&gt;CMU-&gt;Duke)</li>
-</ul>
-</li>
-</ul>
-<h2 id="UIUC"><a href="#UIUC" class="headerlink" title="UIUC"></a>UIUC</h2><ul>
-<li><a href="http://people.ece.umn.edu/~sachin/" target="_blank" rel="noopener">Sachin Sapatnekar</a> (UIUC’92-&gt;ISU-&gt;UMN)  <ul>
-<li><a href="https://cesg.tamu.edu/faculty/jiang-hu/" target="_blank" rel="noopener">Jiang Hu</a> (UMN’00-&gt;TAMU)  </li>
-<li><a href="http://faculty.sist.shanghaitech.edu.cn/faculty/zhoupq/" target="_blank" rel="noopener">Pingqiang Zhou</a> (UMN’13-&gt;ShanghaiTech)</li>
-</ul>
-</li>
-<li><a href="http://cseweb.ucsd.edu/~hu/" target="_blank" rel="noopener">T. C. Hu</a> (UIUC’56-&gt; UCB-&gt;UWisc-&gt;UCS)</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1455,7 +1315,7 @@ H^{(k+1)} = activation((A+I)H^kW) \\A = adjacent \ matrix \\H^0 = features \ of 
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">90</span>
+          <span class="site-state-item-count">91</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

@@ -3304,4 +3304,14 @@ H^{(k+1)} = activation((A+I)H^kW) \\A = adjacent \ matrix \\H^0 = features \ of 
         <tag>memo</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Transformer: Attention is all you need</title>
+    <url>/2020/04/26/Transformer-Attention-is-all-you-need/</url>
+    <content><![CDATA[<p><img src="/figures/1559989480817-20200426021052842.png" alt="本地路径和服务器路径一致"></p>
+]]></content>
+      <tags>
+        <tag>DNN</tag>
+        <tag>AI</tag>
+      </tags>
+  </entry>
 </search>
