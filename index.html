@@ -234,7 +234,16 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-04-26 02:07:16 / Modified: 02:11:02" itemprop="dateCreated datePublished" datetime="2020-04-26T02:07:16+08:00">2020-04-26</time>
+              <time title="Created: 2020-04-26 02:07:16 / Modified: 14:26:38" itemprop="dateCreated datePublished" datetime="2020-04-26T02:07:16+08:00">2020-04-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/study/" itemprop="url" rel="index"><span itemprop="name">study</span></a>
+                </span>
             </span>
 
           
@@ -262,7 +271,59 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><img src="/figures/1559989480817-20200426021052842.png" alt="本地路径和服务器路径一致"></p>
+          <p>建议配合 <a href="https://www.bilibili.com/video/av56239558?from=search&amp;seid=14406218127146760248" target="_blank" rel="noopener">https://www.bilibili.com/video/av56239558?from=search&amp;seid=14406218127146760248</a> 食用。</p>
+<p>关于read paper：我个人觉得有两块要读（思考）：一块是算法上，有什么interesting或者amazing的算法值得学习。另一块就是经验、思想上，作者是如何提出这个方法的，这个方法背后蕴藏了什么思想/经验。</p>
+<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><ul>
+<li>RNN不利于parallelization</li>
+<li>Attention可以无视sequence距离挖掘信息。（我爱这个笑着眼睛像月牙弯弯每天都像阳光一样点亮我的你-&gt; key information：我爱你）</li>
+<li>如今的attention（16年）仍然是和RNN一起出现(used in conjunction with recurrent network)</li>
+<li>现在的work：要么不能并行。要么可以并行（例如CNN）却不能挖掘远处关联。（我爱月牙弯弯）</li>
+<li>Tranformer：第一个完全利用self-attention计算input和output的representation。（不用RNN，CNN）</li>
+</ul>
+<p>Include 反义词： preclude 排除，杜绝：This inherently sequential nature precludes parallelization within training examples</p>
+<p>albeit：尽管</p>
+<h2 id="Model-Architecture"><a href="#Model-Architecture" class="headerlink" title="Model Architecture"></a>Model Architecture</h2><p>Overview:</p>
+<p><img src="/figures/image-20200426111253973.png" alt="image-20200426111253973"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">At each step: (sequence to sequence should be generated step by step)</span><br><span class="line">	middle sequence z &#x3D; Encoder(Input sequence x(我爱你))</span><br><span class="line">	output sequence y_t &#x3D; Decoder(z,y_&#123;t-1&#125;)</span><br><span class="line">	注意：图中右下角的output为之前的输出。</span><br></pre></td></tr></table></figure>
+<h3 id="Encoder"><a href="#Encoder" class="headerlink" title="Encoder"></a>Encoder</h3><ul>
+<li>LayerNorm(x + multi-head(x))</li>
+<li>LayerNorm(x + feedforward(x))</li>
+<li>keys,values,querys: input x</li>
+</ul>
+<h3 id="Decoder"><a href="#Decoder" class="headerlink" title="Decoder"></a>Decoder</h3><ul>
+<li><p>Addtional sublayer compared with Encoder: Masked attention layer(ensures that the predictions for position i can depend only on the known outputs at positions less than i.)</p>
+</li>
+<li><p>Keys, values: middle sequence from encoder</p>
+</li>
+<li>querys: Masked multi-head attention</li>
+</ul>
+<h3 id="Self-attention"><a href="#Self-attention" class="headerlink" title="Self-attention"></a>Self-attention</h3><p>A <strong>mapping</strong> from a query and a set of key-value pairs to an output</p>
+<p>output:  a <strong>weighted sum</strong> of the values, where the weight assigned to each value is computed by a compatibility function（适合性方程？总之就是计算相似度） of the query with the corresponding key.</p>
+<p><img src="/figures/image-20200426115525168.png" alt="image-20200426115525168"></p>
+<p>$Q: [seq,d_k], K:[seq,d_k],V:[seq,d_v]$</p>
+<p>$seq$: sequence length</p>
+<p>注意 原x dimension 为$d_{model}$， 经过linear projection转化为 $d_k,d_v$ dimension</p>
+<h3 id="Multi-head"><a href="#Multi-head" class="headerlink" title="Multi-head"></a>Multi-head</h3><p>$x:[d<em>{model}] =&gt; [h *d_v]=&gt;[d</em>{model}] $</p>
+<p>h：head数目。（multihead最后concat起来，所以是$h*d_v$）</p>
+<p>再经过一次linear transform到$d_{model}$</p>
+<h3 id="Positional-Encoding"><a href="#Positional-Encoding" class="headerlink" title="Positional Encoding"></a>Positional Encoding</h3><p>常见的position方法就是one-hot encoding，但显然不能input dimension匹配，而且若用one-hot encoding 直接sum 未免显得太蠢。</p>
+<p>Transformer提出了利用正余弦的方法：</p>
+<p><img src="/figures/image-20200426140105603.png" alt="image-20200426140105603"></p>
+<p>PE即为目标embedding。pos为word所处位置，2i即为 $d_{model}$中的维度之一。</p>
+<ul>
+<li>PE(:,x)即为$x_{th}$ dimensition下所有position的维度。 可以看到是一个周期函数</li>
+<li>PE(x,:)即为$x_{th}$ position下的embedding，是一个从波长为2pi 到 10000 * 2pi的函数。</li>
+</ul>
+<p>但这里反直觉的是 PE是和input直接相加。而不是concat。。。 奇怪呢。</p>
+<p>Dropout -&gt; Residual -&gt; Layer Normalization (Some papers claim that layer normalization should be in the sub-layer instead of behind residual summation)</p>
+<h2 id="Why-self-attention"><a href="#Why-self-attention" class="headerlink" title="Why self-attention"></a>Why self-attention</h2><ul>
+<li># of operations</li>
+<li>Parallel</li>
+<li>path length between long-range dependencies in the network</li>
+</ul>
+<h2 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h2><ul>
+<li>Dropout 效果明显</li>
+</ul>
 
       
     </div>
