@@ -36,6 +36,14 @@ The functions and corresponding input can be found in the '.h' file.
 <li>Q: When I was doing the lab 3-1, I just replace all '#' in ucode3 by '0'. And the "PC", "IR", "MDR", "MAR", "BUS" are all different from the golden results. Only the State_number and the display after "run x" matches. Is this normal or I have to check my code in .c?
 </br></br>A: You need to replace # by correct 1/0 to obtain the golden solution
 </li></br></br>
+<li>Q: after I finish the logic in "eval_micro_sequencer()", how can i update the address of next state and what should be set as next latch state number?
+  Is that next latch state number = address of next state = the result of the multiplexer?
+</br></br>A: Yes, next latch state number = address of next state = the result of the multiplexer and you can set the microinstruction of next latch by the following command:
+memcpy(NEXT_LATCHES.MICROINSTRUCTION, CONTROL_STORE[NEXT_LATCHES.STATE_NUMBER], sizeof(int)*CONTROL_STORE_BITS);
+</li></br></br>
+<li>Q: When I was doing the lab 3-1, I just replace all '#' in ucode3 by '0'. And the "PC", "IR", "MDR", "MAR", "BUS" are all different from the golden results. Only the State_number and the display after "run x" matches. Is this normal or I have to check my code in .c?
+</br></br>A: You need to replace # by correct 1/0 to obtain the golden solution
+</li></br></br>
 
 
 </ol>
