@@ -3171,11 +3171,6 @@ H^{(k+1)} = activation((A+I)H^kW) \\A = adjacent \ matrix \\H^0 = features \ of 
       </tags>
   </entry>
   <entry>
-    <title>那些花儿</title>
-    <url>/2020/02/22/%E9%82%A3%E4%BA%9B%E8%8A%B1%E5%84%BF/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>香港购眼镜记</title>
     <url>/2018/01/10/%E9%A6%99%E6%B8%AF%E8%B4%AD%E7%9C%BC%E9%95%9C%E8%AE%B0/</url>
     <content><![CDATA[<p>这一年来眼睛经常感到疲倦，再加之镜腿断了，于是想要换个合适的眼镜。</p>
@@ -3364,31 +3359,49 @@ H^{(k+1)} = activation((A+I)H^kW) \\A = adjacent \ matrix \\H^0 = features \ of 
       </tags>
   </entry>
   <entry>
-    <title>PyTorch Study</title>
-    <url>/2020/05/11/PyTorch-Study/</url>
-    <content><![CDATA[<h2 id="Torch-gather"><a href="#Torch-gather" class="headerlink" title="Torch.gather"></a>Torch.gather</h2><p>有一串index 和一个index对应的value， 想通过index取出所有对应value</p>
-<pre><code>torch.gather(input, dim, index, out=None) → Tensor
-Gathers values along an axis specified by dim.
-For a 3-D tensor the output is specified by:
-
-out[i][j][k] = input[index[i][j][k]][j][k]  # dim=0
-out[i][j][k] = input[i][index[i][j][k]][k]  # dim=1
-out[i][j][k] = input[i][j][index[i][j][k]]  # dim=2
-
-Parameters:    
-
-    input (Tensor) – The source tensor
-    dim (int) – The axis along which to index
-    index (LongTensor) – The indices of elements to gather
-    out (Tensor, optional) – Destination tensor
-
-Example:
-</code></pre>]]></content>
+    <title>ICCAD Proj 总结</title>
+    <url>/2020/06/01/PyTorch-Study/</url>
+    <content><![CDATA[<p>离ICCAD还有三星期的时候和老板说想放弃投ICCAD，最后在他的“威逼利诱”下，再加之自己的年轻气盛还是答应了并全力以赴的完成了。想想也是蛮了不起的，不过最后一两个星期实在是太累了点，希望以后还是少点这么肝的时候吧。</p>
+<p>这大概一个月，一边做proj一边就有新的感触，每有一个感触，都会自己先记一笔，然后不知不觉的备忘录上就塞满了感触。。。现在一次性都记下来当作以后的吸取教训吧。</p>
+<h2 id="Idea-amp-Paper-Review"><a href="#Idea-amp-Paper-Review" class="headerlink" title="Idea &amp; Paper Review"></a>Idea &amp; Paper Review</h2><p>前面两个proj 都分成了c++ 和python/pytorch两个板块，因为比较尊重本科生的意见，所以都让他们先选负责的板块（所以都是选的python）。但是有个严重问题：pytorch部分往往和整个proj的idea相关，所以让本科生看paper 找idea实在是好刚没用在刀刃上。因此 两个proj都耽误了比较长的时间。好在自己看paper 总结idea的水平还是比较高了，后面都很快的调整好了方向。</p>
+<p>以后在我看来本科生的帮助应该是：</p>
+<ul>
+<li>跑实验这种大家都需要时间成本，而且学习成本较低的work</li>
+<li>画图，implementation就取决于本科生的学习能力和是否有过类似经验了。倘若我和ta都没学过，那让ta来学一下画图也可以（学习成本一个人花费就可以了）</li>
+<li>整个idea方向，除非是比较厉害的本科生（这么看我当年其实还是蛮厉害的，在南科大work都是我来看paper想idea），否则应该是我来看paper 总结，想idea，同时简单的传达意思给ta。毕竟确实我看paper的经验，水平肯定高过大部分本科生的。</li>
+</ul>
+<p>最后再吐槽下吧，好羡慕南科大有那么多本科生帮忙，然后本科生也有各种1/2/3作paper，实在是双赢。CU的本科教育就花在了倾庄、人文教育上了（当然有research，但是比起内地学校有组织的research还是差远了）。</p>
+<h2 id="Coding-style"><a href="#Coding-style" class="headerlink" title="Coding style"></a>Coding style</h2><p>这是看了DGCNN的mit学长的code发出的感慨。感觉任何语言，尤其python，必须要有一套自己习惯的coding style，包括但不限于：</p>
+<ul>
+<li>argments</li>
+<li>i/o</li>
+<li>error exception handling</li>
+<li>model architecture</li>
+</ul>
+<p>这样的话，自己implementation的时候会方便很多，同时本科小朋友帮忙跑实验也会简单很多（改参数就可以）。哦对了，还有一个要习惯用git。。</p>
+<h2 id="Torch-Tensor-Operation"><a href="#Torch-Tensor-Operation" class="headerlink" title="Torch Tensor Operation"></a>Torch Tensor Operation</h2><p>这算是implementation时候的一个点吧。之前习惯了for loop，这次用多了pytorch tensor后发现实在是太爽了。不仅是速度提升（1000x），整个code 也elegant很多。说下从for loop 转成tensor operation的大概idea吧：</p>
+<ul>
+<li>如果index 不影响operation的话，可以直接用tensor[:]操作</li>
+<li>如果影响就需要 生成一个index tensor <ul>
+<li>灵活利用torch gather（有一串index 和一个index对应的value， 想通过index取出所有对应value）</li>
+<li>利用torch where 来代替 if else</li>
+</ul>
+</li>
+</ul>
+<p>晒一下自己生成kbbox（对于每个点，return k个最近的且两点bbox间没有第三个点的所有neighbors）的elegant code吧（对比for loop):</p>
+<p>For loop version:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> size <span class="keyword">in</span> range(SIZE_OF_NET):</span><br><span class="line">    num_of_sample = int(size)</span><br><span class="line">    data = train_data[size].cpu()</span><br><span class="line">    <span class="comment"># data = train_data[size]</span></span><br><span class="line">    <span class="keyword">if</span>(len(data) == <span class="number">0</span>):</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    index = torch.zeros([data.size(<span class="number">0</span>),data.size(<span class="number">1</span>),num_of_sample]) <span class="comment">#B,N,K</span></span><br><span class="line">    <span class="keyword">for</span> N <span class="keyword">in</span> range(data.size(<span class="number">1</span>)):</span><br><span class="line">        <span class="comment">#initialize all value as current node index N</span></span><br><span class="line">        index[:,N,:] = N</span><br><span class="line">    <span class="comment">#for each batch B</span></span><br><span class="line">    max_sample = <span class="number">0</span></span><br><span class="line">    print(<span class="string">"PROCESS "</span>,size)</span><br><span class="line">    <span class="keyword">for</span> B <span class="keyword">in</span> range(len(data)): </span><br><span class="line">        <span class="comment">#for each node N</span></span><br><span class="line">        <span class="keyword">if</span>(B % <span class="number">1000</span> == <span class="number">0</span>):</span><br><span class="line">            print(<span class="string">"PROCESS "</span>,size,B)</span><br><span class="line">        <span class="keyword">for</span> N <span class="keyword">in</span> range(data.size(<span class="number">1</span>)):</span><br><span class="line">            sample = <span class="number">0</span></span><br><span class="line">            <span class="comment">#We then check each point Q: whether the bounding box between Q and K has no other points, if yes, we add Q in index[B,N,:]</span></span><br><span class="line">            <span class="keyword">for</span> Q <span class="keyword">in</span> range(data.size(<span class="number">1</span>)):</span><br><span class="line">                <span class="keyword">if</span>(Q == N):</span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line">                <span class="comment">#Coordinate of Q related to N</span></span><br><span class="line">                C_QN = data[B,Q,:] - data[B,N,:]</span><br><span class="line">                is_index = <span class="literal">True</span></span><br><span class="line">                <span class="keyword">for</span> J <span class="keyword">in</span> range(data.size(<span class="number">1</span>)):</span><br><span class="line">                    <span class="keyword">if</span>(J == Q <span class="keyword">or</span> J == N):</span><br><span class="line">                        <span class="keyword">continue</span></span><br><span class="line">                    C_JN = data[B,J,:] - data[B,N,:]</span><br><span class="line">                    <span class="keyword">if</span> ((C_JN*C_QN) &gt; (C_JN * C_JN)).min():</span><br><span class="line">                        <span class="comment"># print("Q cannot be index of N due to J",C_QN,C_JN)</span></span><br><span class="line">                        is_index = <span class="literal">False</span></span><br><span class="line">                        <span class="keyword">break</span></span><br><span class="line">                <span class="keyword">if</span>(is_index):</span><br><span class="line">                    sample += <span class="number">1</span></span><br><span class="line">                    index[B,N,sample] = Q</span><br><span class="line">            <span class="keyword">if</span>(sample &gt; max_sample):</span><br><span class="line">                max_sample = sample</span><br><span class="line">    print(<span class="string">"PROCESS "</span>,size, <span class="string">"max_sample: "</span>,max_sample)</span><br><span class="line">    torch.save(index[:,:,:max_sample+<span class="number">1</span>],<span class="string">"../../data/tree/"</span>+str(size))</span><br></pre></td></tr></table></figure>
+<p>Tensor operation version:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#data : raw distance data (B,N,2)</span></span><br><span class="line">data = tensor</span><br><span class="line"><span class="keyword">if</span>(len(data) == <span class="number">0</span>):</span><br><span class="line">    <span class="keyword">continue</span></span><br><span class="line"><span class="comment"># print(tensor.size())</span></span><br><span class="line">B,N,_ = data.size()</span><br><span class="line"><span class="comment"># data = train_data[size]</span></span><br><span class="line"><span class="comment"># print(tensor[0])</span></span><br><span class="line"><span class="comment">#inner : (B,N,2) * (B,2,N) = (B,N,N )</span></span><br><span class="line">inner = <span class="number">-2</span> * torch.matmul(data,data.transpose(<span class="number">2</span>, <span class="number">1</span>))</span><br><span class="line">xx = torch.sum(data ** <span class="number">2</span>, dim=<span class="number">2</span>, keepdim=<span class="literal">True</span>)</span><br><span class="line"><span class="comment">#pairwise_distance: relative distance between N1 &amp; N2 (B,N1,N2) </span></span><br><span class="line">pairwise_distance = -xx - inner - xx.transpose(<span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line"><span class="comment"># print("pairwise_distance",pairwise_distance[0])</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># BNN2 = data.view(B,N,1,2).repeat(1,1,N,1)</span></span><br><span class="line"><span class="comment"># BQQ2 = data.view(B,1,N,2).repeat(1,N,1,1)</span></span><br><span class="line"><span class="comment"># print("BNN2",BNN2[0][0])</span></span><br><span class="line"><span class="comment"># print("BQQ2",BQQ2[0][0])</span></span><br><span class="line"><span class="comment">#BNQ2: value in (b,n,q) is the relative coordinates between node n and node q at b_th batch.</span></span><br><span class="line"><span class="comment"># BNQ2 = BNN2 - BQQ2</span></span><br><span class="line">BNQ2 = data.view(B,N,<span class="number">1</span>,<span class="number">2</span>) - data.view(B,<span class="number">1</span>,N,<span class="number">2</span>)</span><br><span class="line"><span class="comment"># print("BNQ2",BNQ2[0][0])</span></span><br><span class="line"><span class="comment">#CQN: value in (b,n,q,j) is the relative coordinates between node n and node q at b_th batch.</span></span><br><span class="line"><span class="comment">#CJN: value in (b,n,q,j) is the relative coordinates between node n and node j at b_th batch.</span></span><br><span class="line"><span class="comment">#UPDATE: The view step here is not neccesary since pytorch will automatically scale the tensor shape</span></span><br><span class="line">CQN = BNQ2.view(B,N,N,<span class="number">1</span>,<span class="number">2</span>)</span><br><span class="line">CJN = BNQ2.view(B,N,<span class="number">1</span>,N,<span class="number">2</span>)</span><br><span class="line"><span class="comment"># print("CQN",CQN[0][0])</span></span><br><span class="line"><span class="comment"># print("CJN",CJN[0][0])</span></span><br><span class="line"><span class="comment">#BNQJ: value in (b,n,q,j) indicates that when n is the centroid, whether j is in the bounding box of q and n (and such makes q not connected to j)</span></span><br><span class="line"><span class="comment">#True means the j influences q</span></span><br><span class="line">BNQJ = (CQN*CJN &gt; CJN*CJN).min(<span class="number">-1</span>)[<span class="number">0</span>]</span><br><span class="line"><span class="comment"># print("BNQJ",BNQJ[0][0])</span></span><br><span class="line"><span class="comment">#BNQJ: value in (b,n,q) indicates that when n is the centroid, whether q cannot connect to n</span></span><br><span class="line"><span class="comment">#True mans q cannot conncet n</span></span><br><span class="line">BNQ = BNQJ.max(<span class="number">-1</span>)[<span class="number">0</span>]</span><br><span class="line"><span class="comment"># print("BNQ",BNQ[0])</span></span><br><span class="line"><span class="comment">#For those q who cannot connect to n (which is exactly True in BNQ), we assign a large distance value(10000)</span></span><br><span class="line">_,index = ((pairwise_distance - (BNQ.long() * <span class="number">10000</span>))).topk(k=<span class="number">4</span>,dim = <span class="number">2</span>)</span><br><span class="line"><span class="comment"># print("index",index[0])</span></span><br><span class="line"><span class="comment"># exit()</span></span><br><span class="line">torch.save(index,<span class="string">"../../data/tree/kbbox_"</span>+str(i)+<span class="string">'_'</span>+str(j))</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这个work应该是自己这么多work里面最满意的一个了？虽然比较仓促，但是整个story是连贯的，对应方法也不是和一般dl-based work一样讲究一个玄学，基本都是有规律有原因能解释的。最后的结果也是比较满意（最后两三天的时候加上了FLUTE的结果实在是不太行，临时把FLUTE remove了，最后一天才算出结果。。也是没谁了）</p>
+<p>这个要是结果ICCAD没中可就滑稽了。投paper这个东西就真的可以叫做玄学了。ß</p>
+]]></content>
       <categories>
         <category>study</category>
       </categories>
       <tags>
         <tag>DNN</tag>
+        <tag>EDA</tag>
         <tag>AI</tag>
       </tags>
   </entry>

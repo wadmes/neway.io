@@ -209,130 +209,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://wadmes.github.io/2018/01/08/STAT2006-01/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/liwei4.jpg">
-      <meta itemprop="name" content="Li Wei">
-      <meta itemprop="description" content="人生注定是一个人的旅行，但就算孤独也要做一直前行的人啊">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="NEWAY">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/01/08/STAT2006-01/" class="post-title-link" itemprop="url">STAT2006_01</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2018-01-08 14:54:43" itemprop="dateCreated datePublished" datetime="2018-01-08T14:54:43+08:00">2018-01-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-03-21 21:36:19" itemprop="dateModified" datetime="2019-03-21T21:36:19+08:00">2019-03-21</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/study/" itemprop="url" rel="index"><span itemprop="name">study</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2018/01/08/STAT2006-01/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2018/01/08/STAT2006-01/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h1><h4 id="Probability-distributions"><a href="#Probability-distributions" class="headerlink" title="Probability distributions"></a>Probability distributions</h4><ul>
-<li>Uniform</li>
-<li>Poisson <ul>
-<li>Discrete</li>
-<li>Parameter: $\lambda$ </li>
-<li>$P(X = k) = \frac {e^{-\lambda}\lambda^k}{k!}$</li>
-</ul>
-</li>
-<li>Normal</li>
-<li><strong>t-dis???</strong></li>
-<li>Chi-square 卡方分布<ul>
-<li><strong>k</strong>个<a href="https://zh.wikipedia.org/wiki/%E7%B5%B1%E8%A8%88%E7%8D%A8%E7%AB%8B" target="_blank" rel="noopener">独立</a>的标准<a href="https://zh.wikipedia.org/wiki/%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83" target="_blank" rel="noopener">正态分布</a>变量的平方和</li>
-<li>parameter:k</li>
-</ul>
-</li>
-<li>Cauchy</li>
-</ul>
-<h4 id="Benford’s-Law"><a href="#Benford’s-Law" class="headerlink" title="Benford’s Law"></a>Benford’s Law</h4><p>$P(d) = log<em>{10}(d+1)-log</em>{10}(d)$, where d is the case that <em>the first digit of the data is d</em></p>
-<h1 id="Ch-1"><a href="#Ch-1" class="headerlink" title="Ch 1"></a>Ch 1</h1><p><strong>Sample space:</strong> $S$</p>
-<p><strong>event</strong>: </p>
-<ul>
-<li>subset of $S$</li>
-<li>measurable, (can assign a probability)</li>
-<li>subset is NOT event</li>
-</ul>
-<h4 id="Conditional-Probability"><a href="#Conditional-Probability" class="headerlink" title="Conditional Probability:"></a>Conditional Probability:</h4><p>$P(A|B) = \frac{P(A\cap B)}{P(B)}$</p>
-<h4 id="Bayes-theorem"><a href="#Bayes-theorem" class="headerlink" title="Bayes theorem"></a>Bayes theorem</h4><p>$P(A) = \sum{P(A\cap B_i)}$</p>
-<p>Now: We want to know: if A happened, what are the p of different B?</p>
-<p>$P(B_j|A) = \frac{P(A\cap B_j)}{P(A)}$</p>
-<p>$P(A\cap B_j) = P(A|B_j)P(B_j)$</p>
-<h5 id="Bayes-theorem-definition"><a href="#Bayes-theorem-definition" class="headerlink" title="Bayes theorem definition:"></a>Bayes theorem definition:</h5><p>Consider a partition $B_j$ of $S$ and event $A$:</p>
-<p>$P(B_j|A) = \frac{P(A\cap B_j)}{P(A)}= \frac{P(A|B_j)P(B_j)}{\sum{P(A|B_i)P(B_i)}}​$</p>
-<h5 id="Monty-Hall-Problem"><a href="#Monty-Hall-Problem" class="headerlink" title="Monty Hall Problem"></a>Monty Hall Problem</h5><p>$B_j = C_2|X_1, A = H_3|X_1$</p>
-<h1 id="Ch-2-Discrete-Random-Variables"><a href="#Ch-2-Discrete-Random-Variables" class="headerlink" title="Ch 2 Discrete Random Variables"></a>Ch 2 Discrete Random Variables</h1><p><strong>Mean</strong> is the quantity a that minimizes $min_aE(X-a)^2$</p>
-<p><strong>Variance</strong> $(x-E(x))^2$</p>
-<p><strong>Moment generating function</strong> = mgf = summary of the overall random behavior</p>
-<p><strong>median</strong> $min_b |x-b|$</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://wadmes.github.io/2018/01/01/Happy-Newyear/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1523,6 +1399,101 @@
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://wadmes.github.io/2014/09/19/%E4%BD%A0%E4%BB%AC%E8%A2%AB%E5%86%99%E5%9C%A8%E6%88%91%E7%9A%84%E5%BF%83%E9%87%8C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/liwei4.jpg">
+      <meta itemprop="name" content="Li Wei">
+      <meta itemprop="description" content="人生注定是一个人的旅行，但就算孤独也要做一直前行的人啊">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NEWAY">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2014/09/19/%E4%BD%A0%E4%BB%AC%E8%A2%AB%E5%86%99%E5%9C%A8%E6%88%91%E7%9A%84%E5%BF%83%E9%87%8C/" class="post-title-link" itemprop="url">你们被写在我的心里</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2014-09-19 16:58:19" itemprop="dateCreated datePublished" datetime="2014-09-19T16:58:19+08:00">2014-09-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-03-21 21:37:00" itemprop="dateModified" datetime="2019-03-21T21:37:00+08:00">2019-03-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/life/" itemprop="url" rel="index"><span itemprop="name">life</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2014/09/19/%E4%BD%A0%E4%BB%AC%E8%A2%AB%E5%86%99%E5%9C%A8%E6%88%91%E7%9A%84%E5%BF%83%E9%87%8C/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2014/09/19/%E4%BD%A0%E4%BB%AC%E8%A2%AB%E5%86%99%E5%9C%A8%E6%88%91%E7%9A%84%E5%BF%83%E9%87%8C/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          my favorite LOL player?
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2014/09/19/%E4%BD%A0%E4%BB%AC%E8%A2%AB%E5%86%99%E5%9C%A8%E6%88%91%E7%9A%84%E5%BF%83%E9%87%8C/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
@@ -1593,7 +1564,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">93</span>
+          <span class="site-state-item-count">92</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
