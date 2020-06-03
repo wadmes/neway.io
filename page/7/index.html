@@ -209,6 +209,296 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://wadmes.github.io/2018/07/28/EIE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/liwei4.jpg">
+      <meta itemprop="name" content="Li Wei">
+      <meta itemprop="description" content="人生注定是一个人的旅行，但就算孤独也要做一直前行的人啊">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NEWAY">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/07/28/EIE/" class="post-title-link" itemprop="url">EIE, Efficient Inference Engine on Compressed Deep Neural Network</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-07-28 17:50:29" itemprop="dateCreated datePublished" datetime="2018-07-28T17:50:29+08:00">2018-07-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-12-11 18:22:17" itemprop="dateModified" datetime="2019-12-11T18:22:17+08:00">2019-12-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/paper/" itemprop="url" rel="index"><span itemprop="name">paper</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2018/07/28/EIE/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2018/07/28/EIE/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="EIE-Efficient-Inference-Engine-on-Compressed-Deep-Neural-Network"><a href="#EIE-Efficient-Inference-Engine-on-Compressed-Deep-Neural-Network" class="headerlink" title="EIE: Efficient Inference Engine on Compressed Deep Neural Network"></a>EIE: Efficient Inference Engine on Compressed Deep Neural Network</h2><h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><ul>
+<li>DRAM access costs more energy than basic operations</li>
+<li>CNN has a lot of data reuse, which makes DRAM access not very important</li>
+<li>Deep compression makes the kernel sparse, able to exist on mobile</li>
+</ul>
+<h3 id="Contribution"><a href="#Contribution" class="headerlink" title="Contribution"></a>Contribution</h3><ul>
+<li>accelerator for sparse and weight sharing neural networks</li>
+<li>accelerator that exploits the dynamic sparsity of activations to save computation</li>
+<li>a method of both distributed storage and distributed computation to parallelize a sparsified layer across multiple PEs (processing elements)</li>
+</ul>
+<h3 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h3><ul>
+<li>FC is used widely, and memory access is usually the bottle-neck ( no reuse of the input matrix)</li>
+<li>network compression offers a solution of memory bottleneck</li>
+<li>previous SPMV accelerator can only exploit static weight sparsity. </li>
+<li>batching of FC is not suitable for latency reason</li>
+</ul>
+<h3 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h3><h4 id="Variation-of-CSC"><a href="#Variation-of-CSC" class="headerlink" title="Variation of CSC"></a>Variation of CSC</h4><p>v : value</p>
+<p>z : offset of last non-zero value (one column as a vector) or first element</p>
+<p>q: pointer to the fist non-zero element of each column</p>
+<p>combination between algorithm and hardware</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://wadmes.github.io/2018/07/26/Python%20function%20object%20reference%E5%AF%BC%E8%87%B4%E7%9A%84bug/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/liwei4.jpg">
+      <meta itemprop="name" content="Li Wei">
+      <meta itemprop="description" content="人生注定是一个人的旅行，但就算孤独也要做一直前行的人啊">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NEWAY">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/07/26/Python%20function%20object%20reference%E5%AF%BC%E8%87%B4%E7%9A%84bug/" class="post-title-link" itemprop="url">python object reference</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-07-26 10:42:03" itemprop="dateCreated datePublished" datetime="2018-07-26T10:42:03+08:00">2018-07-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-03-21 21:35:45" itemprop="dateModified" datetime="2019-03-21T21:35:45+08:00">2019-03-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/code/" itemprop="url" rel="index"><span itemprop="name">code</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2018/07/26/Python%20function%20object%20reference%E5%AF%BC%E8%87%B4%E7%9A%84bug/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2018/07/26/Python%20function%20object%20reference%E5%AF%BC%E8%87%B4%E7%9A%84bug/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="Python-function-object-reference导致的bug"><a href="#Python-function-object-reference导致的bug" class="headerlink" title="Python function object reference导致的bug"></a>Python function object reference导致的bug</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">imsave(<span class="string">'./generated_inputs/'</span> +str(iters) +<span class="string">'_0'</span>+str(i)+ <span class="string">'_two.png'</span>, deprocess_image(imgs[<span class="number">0</span>]))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">deprocess_image</span><span class="params">(x)</span>:</span></span><br><span class="line">    tmp = x</span><br><span class="line">    tmp = tmp.reshape((<span class="number">100</span>, <span class="number">100</span>, <span class="number">3</span>))</span><br><span class="line">    <span class="comment"># Remove zero-center by mean pixel</span></span><br><span class="line">    tmp[:, :, <span class="number">0</span>] += <span class="number">103.939</span></span><br><span class="line">    tmp[:, :, <span class="number">1</span>] += <span class="number">116.779</span></span><br><span class="line">    tmp[:, :, <span class="number">2</span>] += <span class="number">123.68</span></span><br><span class="line">    <span class="comment"># 'BGR'-&gt;'RGB'</span></span><br><span class="line">    tmp = tmp[:, :, ::<span class="number">-1</span>]</span><br><span class="line">    tmp = np.clip(tmp, <span class="number">0</span>, <span class="number">255</span>).astype(<span class="string">'uint8'</span>)</span><br><span class="line">    <span class="keyword">return</span> tmp</span><br><span class="line">// 如此添加tmp。x的值仍会一直改变。则重复调用deprocess无法得到相同结果。</span><br><span class="line">// 正确做法 使用x.copy()</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">deprocess_image</span><span class="params">(x)</span>:</span></span><br><span class="line">    tmp = x.copy()</span><br><span class="line">    tmp = tmp.reshape((<span class="number">100</span>, <span class="number">100</span>, <span class="number">3</span>))</span><br><span class="line">    <span class="comment"># Remove zero-center by mean pixel</span></span><br><span class="line">    tmp[:, :, <span class="number">0</span>] += <span class="number">103.939</span></span><br><span class="line">    tmp[:, :, <span class="number">1</span>] += <span class="number">116.779</span></span><br><span class="line">    tmp[:, :, <span class="number">2</span>] += <span class="number">123.68</span></span><br><span class="line">    <span class="comment"># 'BGR'-&gt;'RGB'</span></span><br><span class="line">    tmp = tmp[:, :, ::<span class="number">-1</span>]</span><br><span class="line">    tmp = np.clip(tmp, <span class="number">0</span>, <span class="number">255</span>).astype(<span class="string">'uint8'</span>)</span><br><span class="line">    <span class="keyword">return</span> tmp</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://wadmes.github.io/2018/06/01/RNG%E4%BD%93%E9%AA%8C%E8%90%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/liwei4.jpg">
+      <meta itemprop="name" content="Li Wei">
+      <meta itemprop="description" content="人生注定是一个人的旅行，但就算孤独也要做一直前行的人啊">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NEWAY">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/06/01/RNG%E4%BD%93%E9%AA%8C%E8%90%A5/" class="post-title-link" itemprop="url">RNG体验营</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-06-01 22:25:56" itemprop="dateCreated datePublished" datetime="2018-06-01T22:25:56+08:00">2018-06-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-03-21 21:35:55" itemprop="dateModified" datetime="2019-03-21T21:35:55+08:00">2019-03-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/life/" itemprop="url" rel="index"><span itemprop="name">life</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2018/06/01/RNG%E4%BD%93%E9%AA%8C%E8%90%A5/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2018/06/01/RNG%E4%BD%93%E9%AA%8C%E8%90%A5/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          my favorite LOL player?
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/06/01/RNG%E4%BD%93%E9%AA%8C%E8%90%A5/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://wadmes.github.io/2018/05/27/Genetic%20ALgorithm%20and%20Differential%20Evolution/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1147,582 +1437,6 @@ V_1' = V_1 + scale\times(V_2 - V_3)</script><p>其中 V1,2,3 都是随机挑选�
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://wadmes.github.io/2018/02/26/CSCI3170-Midterm-Review/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/liwei4.jpg">
-      <meta itemprop="name" content="Li Wei">
-      <meta itemprop="description" content="人生注定是一个人的旅行，但就算孤独也要做一直前行的人啊">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="NEWAY">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/02/26/CSCI3170-Midterm-Review/" class="post-title-link" itemprop="url">CSCI3170 Midterm Review</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2018-02-26 16:30:03" itemprop="dateCreated datePublished" datetime="2018-02-26T16:30:03+08:00">2018-02-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-03-21 21:25:31" itemprop="dateModified" datetime="2019-03-21T21:25:31+08:00">2019-03-21</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/study/" itemprop="url" rel="index"><span itemprop="name">study</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2018/02/26/CSCI3170-Midterm-Review/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2018/02/26/CSCI3170-Midterm-Review/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="ER-model"><a href="#ER-model" class="headerlink" title="ER model"></a>ER model</h3><p>a collection of <strong>entities</strong> and <strong>relationships</strong></p>
-<h4 id="Entity"><a href="#Entity" class="headerlink" title="Entity"></a>Entity</h4><ul>
-<li>an object in the real world that is distinguishable from other objects. ( can be same category)</li>
-<li>described using a set of <strong>attributes</strong>.</li>
-</ul>
-<p><strong>Entity set</strong> is a collection of entities of the same type. All entities in a given entity set have the same attributes ( the values may be different).</p>
-<p><strong>Domain</strong>: domain of possible values of each attribute in an entity set.</p>
-<h4 id="Key"><a href="#Key" class="headerlink" title="Key"></a>Key</h4><p><strong>superkey</strong>: any set of attributes which can uniquely identify an entity</p>
-<p><strong>key</strong> (candidate key): a minimal set of attributes whose values can uniquely identify an entity in the set. (should depend on the real life possibility 即使还有entity 加入/删除， 这个key永远identify an entity)</p>
-<p><strong>primary key</strong>: a candidate key chosen to serve as the key for the <u>entity set</u></p>
-<h4 id="Relationships"><a href="#Relationships" class="headerlink" title="Relationships"></a>Relationships</h4><p>an association among two or more entities. </p>
-<p>eg. Teach: (John,CENG4567) ,(David, CSCI1234)</p>
-<p><strong>relationship set</strong>: a set of similar relationships: {(John,CENG4567) ,(David, CSCI1234)}</p>
-<p>relationships can also have descriptive <strong>attributes</strong></p>
-<p><strong>Recursive Relationship</strong>: relationship两边entity其实一样</p>
-<h5 id="One-to-many"><a href="#One-to-many" class="headerlink" title="One to many"></a>One to many</h5><p><img src="../images/图片2.png" alt="图片2"></p>
-<p>Tenary：aggregation把3个变成2个</p>
-<h5 id="One-to-One"><a href="#One-to-One" class="headerlink" title="One to One"></a>One to One</h5><p>similar with one to many, but have two arrows</p>
-<h5 id="Key-for-relationship-set"><a href="#Key-for-relationship-set" class="headerlink" title="Key for relationship set"></a>Key for relationship set</h5><ul>
-<li><strong>Many-many</strong> union of the primary keys for E1,…Ek</li>
-<li><strong>One-many</strong> 找many的那个primary key就行。（知道一个孩子的ID就能确定是哪个‘mother-of’）</li>
-<li><strong>One-one</strong> 随便找个primary key就行。</li>
-</ul>
-<h5 id="Participation-constraint"><a href="#Participation-constraint" class="headerlink" title="Participation constraint"></a>Participation constraint</h5><ul>
-<li><strong>total</strong> –each entity in the entity set must participate in at least one relationship. （对应的entity——relation的线加粗）</li>
-<li><strong>partial</strong>- 不需要</li>
-</ul>
-<h4 id="Weak-entities"><a href="#Weak-entities" class="headerlink" title="Weak entities"></a>Weak entities</h4><p><strong>strong entity</strong> , an entity which has a super key</p>
-<p>weak entity 相反</p>
-<p>若需要identify一个weak entity： –by considering some of its attributes in conjunction with the primary key of employee (identifying owner).</p>
-<p><strong>partial key</strong> 例如：教授家属需要identify就需要<u>（教授id，家属名字）</u></p>
-<p><img src="../images/图片3.png" alt="图片3"></p>
-<h4 id="Class-hierarchies"><a href="#Class-hierarchies" class="headerlink" title="Class hierarchies"></a>Class hierarchies</h4><p><strong>Overlap constraint</strong> 两个subclass能否包含相同entity （default：no）</p>
-<p><strong>Cover constraint</strong> 是否subclass包含了superclass里所有entity （ default：no）</p>
-<h4 id="Aggregation"><a href="#Aggregation" class="headerlink" title="Aggregation"></a>Aggregation</h4><p>A relationship between a collection of <u>entities</u> and <u>relationships</u></p>
-<p><img src="../images/图片3-9800549015.png" alt="图片3"></p>
-<h3 id="Relational-Model"><a href="#Relational-Model" class="headerlink" title="Relational Model"></a>Relational Model</h3><p>main construct: a set of <strong>relations</strong></p>
-<p>relation consists of <strong>relation schema</strong> and <strong>relation instance</strong></p>
-<h4 id="Relation-instance"><a href="#Relation-instance" class="headerlink" title="Relation instance"></a>Relation instance</h4><p>Simply a table with rows and columns</p>
-<ul>
-<li>row = tuple/record, no two rows are identical</li>
-<li>column = field/attribute</li>
-</ul>
-<h4 id="Relation-schema"><a href="#Relation-schema" class="headerlink" title="Relation schema"></a>Relation schema</h4><p>specifies <u>relation’s name</u>, <u>name of each field</u>(primary key should be underlined), <u>domain of each field</u></p>
-<p><strong>Degree/arity</strong> of a relation: number of fields</p>
-<p><strong>Cardinality</strong> of a relation instance: number of tuples</p>
-<p><strong>Relational database</strong> : a collection of relations</p>
-<p><strong>Instance</strong>: a collection of relation instances (one per relation schema).</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Students</span><br><span class="line">	(<span class="keyword">sid</span>	<span class="built_in">CHAR</span>(<span class="number">20</span>),</span><br><span class="line">	 <span class="keyword">name</span>	<span class="built_in">CHAR</span>(<span class="number">30</span>),</span><br><span class="line">	 login	<span class="built_in">CHAR</span>(<span class="number">20</span>),</span><br><span class="line">	 age	<span class="built_in">INTEGER</span>,</span><br><span class="line">	 gpa	<span class="built_in">REAL</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span></span><br><span class="line"><span class="keyword">INTO</span>	 Students  (<span class="keyword">sid</span>, <span class="keyword">name</span>, login, age, gpa)</span><br><span class="line"><span class="keyword">VALUES</span> (‘<span class="number">53688</span>’, ‘Smith’, ‘smith@ee’, <span class="number">18</span>, <span class="number">3.2</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">DELETE</span> </span><br><span class="line"><span class="keyword">FROM</span>	  Students S</span><br><span class="line"><span class="keyword">WHERE</span>  S.name = ‘Smith’</span><br><span class="line"></span><br><span class="line"><span class="keyword">UPDATE</span> Students S</span><br><span class="line"><span class="keyword">SET</span> 	  S.age = S.age + <span class="number">1</span>, S.gpa = S.gpa – <span class="number">1</span></span><br><span class="line"><span class="keyword">WHERE</span>  S.sid = ‘<span class="number">53688</span>’</span><br></pre></td></tr></table></figure>
-<h4 id="Integrity-constraints"><a href="#Integrity-constraints" class="headerlink" title="Integrity constraints"></a>Integrity constraints</h4><p><strong>restricts</strong> the data that can be stored in an instance of the database on a <strong>database schema</strong></p>
-<ul>
-<li><strong>Specified</strong> when the schema is defined.</li>
-<li><strong>Checked </strong>when relations are modified.</li>
-</ul>
-<h4 id="Key-constraints"><a href="#Key-constraints" class="headerlink" title="Key constraints"></a>Key constraints</h4><p>Certain minimal subset of the fields (candidate key) of a relation is a unique identifier for  a tuple (instance).</p>
-<p>设计者可以自己identify a primary key（比如index）</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Students</span><br><span class="line">	(<span class="keyword">sid</span>	<span class="built_in">CHAR</span>(<span class="number">20</span>),</span><br><span class="line">	 <span class="keyword">name</span>	<span class="built_in">CHAR</span>(<span class="number">30</span>),</span><br><span class="line">	 login	<span class="built_in">CHAR</span>(<span class="number">20</span>),</span><br><span class="line">	 age	<span class="built_in">INTEGER</span>,</span><br><span class="line">	 gpa	<span class="built_in">REAL</span>,</span><br><span class="line">	 <span class="keyword">UNIQUE</span> (<span class="keyword">name</span>, age),//<span class="keyword">declare</span> a <span class="keyword">key</span></span><br><span class="line">	 <span class="keyword">CONSTRAINT</span> StudentsKey PRIMARY <span class="keyword">KEY</span> ( <span class="keyword">sid</span>)) //StudentKey: <span class="keyword">Constraint</span> <span class="keyword">name</span>(opt)</span><br></pre></td></tr></table></figure>
-<h4 id="Foreign-key-constraints"><a href="#Foreign-key-constraints" class="headerlink" title="Foreign key constraints"></a>Foreign key constraints</h4><p>Sometimes, the information stored in a relation is linked to the information stored in another relation.</p>
-<p><code>Enrolled(sid: string, cid: string, grade: string)</code> sid就是Enrolled这个relation的 foreign key and refer to Students</p>
-<p>Formally, a <strong>foreign key</strong> is a set of fields （the primary key of s） in one relation r that is used to “refer” to a tuple in another relation s. </p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> Enrolled (</span><br><span class="line">		<span class="keyword">sid</span>       <span class="built_in">CHAR</span>(<span class="number">20</span>),</span><br><span class="line">		cid       <span class="built_in">CHAR</span>(<span class="number">20</span>),</span><br><span class="line">		grade   <span class="built_in">CHAR</span>(<span class="number">10</span>),</span><br><span class="line">		PRIMARY <span class="keyword">KEY</span> (<span class="keyword">sid</span>, cid),</span><br><span class="line">		<span class="keyword">FOREIGN</span> <span class="keyword">KEY</span> (<span class="keyword">sid</span>) <span class="keyword">REFERENCES</span> Students)</span><br></pre></td></tr></table></figure>
-<p>four options on DELETE and UPDATE.</p>
-<ul>
-<li>NO ACTION (DEFAULT) rejected</li>
-<li>CASCADE（级联） 如果被删除，那么相关联的所有row也全被删除</li>
-<li>SET DEFAULT 如果被删除，那么相关联的所有row设置为DEFAULT</li>
-<li>SET NULL </li>
-</ul>
-<h4 id="ER-to-Relational"><a href="#ER-to-Relational" class="headerlink" title="ER to Relational"></a>ER to Relational</h4><ul>
-<li><p>entity sets -&gt; tables</p>
-</li>
-<li><p>relationship sets(without constraints) -&gt; tables，attributes包括</p>
-<ul>
-<li>每个entity的primary key</li>
-<li>relationship set的descriptive attributes<img src="../images/图片1-9824412916.png" alt="图片1"></li>
-</ul>
-</li>
-<li><p>with constraints</p>
-<ul>
-<li>arrow: arrow对应的m个entity，因此又m个candidate key，随便选一个作为primary key</li>
-</ul>
-</li>
-<li><p>weak entity</p>
-<p>将weak entity及对应relation 统一为一个table 并且（ON DELETE CASCADE)</p>
-</li>
-<li><p>Class hierarchies</p>
-<ul>
-<li><p>different relations (父母孩子都有)</p>
-<p>more general。</p>
-</li>
-<li><p>(仅有孩子)</p>
-<p>not always possible。can be accessible easily</p>
-</li>
-</ul>
-</li>
-<li><p>Aggregation</p>
-</li>
-</ul>
-<h3 id="Relational-Algebra"><a href="#Relational-Algebra" class="headerlink" title="Relational Algebra"></a>Relational Algebra</h3><h4 id="Baisc-Operators"><a href="#Baisc-Operators" class="headerlink" title="Baisc Operators"></a>Baisc Operators</h4><h5 id="selection-sigma"><a href="#selection-sigma" class="headerlink" title="selection $\sigma$"></a>selection $\sigma$</h5><p>a boolean combination (an expression using logical connectives $\wedge \vee$)</p>
-<p><img src="../images/图片1-9826420248.png" alt="图片1"></p>
-<h5 id="Projection-Pi-fileds"><a href="#Projection-Pi-fileds" class="headerlink" title="Projection $\Pi(fileds)$"></a>Projection $\Pi(fileds)$</h5><p>extract columns from a relation</p>
-<p>duplicated row will be eliminated </p>
-<p><img src="../images/图片2-9826962473.png" alt="图片2"></p>
-<h5 id="Union-U"><a href="#Union-U" class="headerlink" title="Union $U$"></a>Union $U$</h5><p>must be union-compatible:</p>
-<ul>
-<li>same number of fields</li>
-<li>corresponding fields have the same domains</li>
-</ul>
-<h5 id="Set-Difference"><a href="#Set-Difference" class="headerlink" title="Set Difference $-$"></a>Set Difference $-$</h5><p>also union-compatible</p>
-<h5 id="Intersection-cap"><a href="#Intersection-cap" class="headerlink" title="Intersection $\cap$"></a>Intersection $\cap$</h5><p>also union-compatible</p>
-<p>$R\cap S = R-(R-S)$</p>
-<h5 id="Rename-rho"><a href="#Rename-rho" class="headerlink" title="Rename $\rho$"></a>Rename $\rho$</h5><p>$\rho (R(F),E) \ or\  \rho(R,E)$</p>
-<p>E: arbitrary relation algebra ,F:renaming list, R= E 除了F rename的东西</p>
-<h5 id="Cartesian-product-cross-product-times"><a href="#Cartesian-product-cross-product-times" class="headerlink" title="Cartesian product (cross product) $\times$"></a>Cartesian product (cross product) $\times$</h5><p><img src="../images/图片3-9828365900.png" alt="图片3"></p>
-<h5 id="Join-Join"><a href="#Join-Join" class="headerlink" title="Join $\Join$"></a>Join $\Join$</h5><p>Join can be defined as a cross-product followed by selections and sometimes with projections.</p>
-<ul>
-<li><strong>Join condition $\Join_c =\sigma_c(R\times S)$</strong></li>
-<li><strong>Equi join</strong> c is R.name1 = S.name2, S.name2 will be droped in the final resulting relation</li>
-<li><strong>Natural join</strong>: C 是R S所有fields相同的</li>
-</ul>
-<p><img src="../images/图片4.png" alt="图片4"></p>
-<h5 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h5><p><img src="../images/图片5.png" alt="图片5"></p>
-<h5 id="Division"><a href="#Division" class="headerlink" title="Division  /"></a>Division  /</h5><p><img src="../images/图片6.png" alt="图片6"></p>
-<h5 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h5><p><img src="../images/图片7.png" alt="图片7"></p>
-<h3 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h3><p><img src="../images/图片1-9831873318.png" alt="图片1"></p>
-<ol>
-<li>先计算 relation list的cross product</li>
-<li>考虑是否满足 qualifications</li>
-<li>选取target list里面的attributes</li>
-<li>如果有  DISTINCT, 把duplicated rows删掉（默认不删）</li>
-</ol>
-<h4 id="Natural-Join"><a href="#Natural-Join" class="headerlink" title="Natural Join"></a>Natural Join</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span>  S.sname</span><br><span class="line"><span class="keyword">FROM</span>     Sailors S, Reserves R</span><br><span class="line"><span class="keyword">WHERE</span>  S.sid=R.sid <span class="keyword">AND</span> R.bid=<span class="number">103</span></span><br><span class="line">=</span><br><span class="line"><span class="keyword">SELECT</span>  S.sname</span><br><span class="line"><span class="keyword">FROM</span>     Sailors S <span class="keyword">NATURAL</span> <span class="keyword">JOIN</span> Reserves R</span><br><span class="line"><span class="keyword">WHERE</span>  R.bid=<span class="number">103</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#IN operator</span></span><br><span class="line"><span class="keyword">SELECT</span>  B.bname</span><br><span class="line"><span class="keyword">FROM</span>  Boats B</span><br><span class="line"><span class="keyword">WHERE</span>  B.color  <span class="keyword">IN</span>  (‘red’,  ‘blue’,  ’green’)</span><br><span class="line"></span><br><span class="line"><span class="comment">#Nested Queries</span></span><br><span class="line">Find <span class="keyword">names</span> <span class="keyword">of</span> sailors who’ve reserved boat <span class="comment">#103:</span></span><br><span class="line"><span class="keyword">SELECT</span>  S.sname</span><br><span class="line"><span class="keyword">FROM</span>  Sailors S</span><br><span class="line"><span class="keyword">WHERE</span>  S.sid <span class="keyword">IN</span>  (<span class="keyword">SELECT</span>  R.sid</span><br><span class="line">                  <span class="keyword">FROM</span>  Reserves R</span><br><span class="line">                  <span class="keyword">WHERE</span>  R.bid=<span class="number">103</span>) <span class="comment">#inner function can use the relation in outer function</span></span><br><span class="line">&gt; <span class="keyword">ANY</span> : 比某一些大就行</span><br></pre></td></tr></table></figure>
-<h4 id="Expressions-and-string"><a href="#Expressions-and-string" class="headerlink" title="Expressions and string"></a>Expressions and string</h4><p>LIKE for string matching. <code>_</code> = any one character, <code>%</code> = 0 or more arbitrary characters</p>
-<h4 id="Aggregate-Operators"><a href="#Aggregate-Operators" class="headerlink" title="Aggregate Operators"></a>Aggregate Operators</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">COUNT([DISTINCT] A)</span><br><span class="line">SUM ( [DISTINCT] A)</span><br><span class="line">AVG ([DISTINCT] A)</span><br><span class="line">MAX (A)</span><br><span class="line">MIN (A) A: any column of a relation</span><br><span class="line"><span class="comment"># cannot be netsted! MIN(AVG(A)) is not allowed!</span></span><br><span class="line">eg.Find the name and age of the oldest sailor</span><br><span class="line"><span class="keyword">SELECT</span>  S.sname, S.age</span><br><span class="line"><span class="keyword">FROM</span>  Sailors S</span><br><span class="line"><span class="keyword">WHERE</span>  S.age =</span><br><span class="line">              (<span class="keyword">SELECT</span>  <span class="keyword">MAX</span> (S2.age)</span><br><span class="line">               <span class="keyword">FROM</span>  Sailors S2)</span><br><span class="line">eg.Find the <span class="keyword">names</span> <span class="keyword">of</span> sailors who <span class="keyword">are</span> older <span class="keyword">than</span> the oldest sailor <span class="keyword">with</span> a rating <span class="keyword">of</span> <span class="number">10.</span></span><br><span class="line"><span class="keyword">SELECT</span> 	S.name</span><br><span class="line"><span class="keyword">FROM</span>	Sailors S</span><br><span class="line"><span class="keyword">WHERE</span>	S.age &gt; (	<span class="keyword">SELECT</span>	<span class="keyword">MAX</span> (S2.age)</span><br><span class="line">					<span class="keyword">FROM</span>	Sailors S2</span><br><span class="line">					<span class="keyword">WHERE</span>	S2.rating = <span class="number">10</span>)</span><br></pre></td></tr></table></figure>
-<h4 id="GROUP-BY-and-Having"><a href="#GROUP-BY-and-Having" class="headerlink" title="GROUP BY and Having"></a>GROUP BY and Having</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">eg Find the age of the youngest sailor for each rating level.</span><br><span class="line"><span class="keyword">SELECT</span> 	       S.rating, <span class="keyword">MIN</span> (S.age)</span><br><span class="line"><span class="keyword">FROM</span>  	       Sailors S</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span>   S.rating</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span>        [<span class="keyword">DISTINCT</span>]  target-<span class="keyword">list</span> STEP <span class="number">2</span> //target <span class="keyword">list</span> = <span class="keyword">attribute</span> <span class="keyword">names</span> + terms <span class="keyword">with</span> ahhregate <span class="keyword">operations</span>, The <span class="keyword">attribute</span> <span class="keyword">names</span> must be a subset <span class="keyword">of</span> <span class="keyword">grouping</span>-list.  </span><br><span class="line"><span class="keyword">FROM</span>         relation-<span class="keyword">list</span> STEP <span class="number">1</span></span><br><span class="line"><span class="keyword">WHERE</span>        qualification STEP <span class="number">2</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span>  <span class="keyword">grouping</span>-<span class="keyword">list</span> STEP3</span><br><span class="line"><span class="keyword">HAVING</span>      <span class="keyword">group</span>-qualification STEP <span class="number">4</span></span><br></pre></td></tr></table></figure>
-<p><img src="../images/图片2-9835880790.png" alt="图片2"></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span>  R.day</span><br><span class="line"><span class="keyword">FROM</span>  Reserves R</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span>  R.day</span><br><span class="line"><span class="keyword">HAVING</span> <span class="keyword">COUNT</span>(<span class="keyword">DISTINCT</span> R.sid) = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">Example: Find the average age <span class="keyword">of</span> sailors <span class="keyword">for</span> <span class="keyword">each</span> rating <span class="keyword">level</span> that has <span class="keyword">at</span> <span class="keyword">least</span> two sailors.</span><br><span class="line"><span class="keyword">SELECT</span>  S.rating, <span class="keyword">AVG</span>(S.age) <span class="keyword">AS</span> avgage</span><br><span class="line"><span class="keyword">FROM</span>  Sailor S</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> S.rating</span><br><span class="line"><span class="keyword">HAVING</span> <span class="keyword">COUNT</span> (*) &gt; <span class="number">1</span></span><br><span class="line"></span><br><span class="line">Example:Find those ratings <span class="keyword">for</span> which the average age <span class="keyword">is</span> the <span class="keyword">minimum</span> <span class="keyword">over</span> <span class="keyword">all</span> ratings</span><br><span class="line"><span class="keyword">SELECT</span>  Temp.rating, Temp.avgage</span><br><span class="line"><span class="keyword">FROM</span>  (<span class="keyword">SELECT</span>  S.rating, <span class="keyword">AVG</span> (S.age) <span class="keyword">AS</span> avgage</span><br><span class="line">       <span class="keyword">FROM</span>  Sailors S</span><br><span class="line">       <span class="keyword">GROUP</span> <span class="keyword">BY</span>  S.rating) <span class="keyword">AS</span> Temp</span><br><span class="line"><span class="keyword">WHERE</span>  Temp.avgage = (<span class="keyword">SELECT</span>  <span class="keyword">MIN</span> (Temp.avgage)</span><br><span class="line">                      <span class="keyword">FROM</span>  Temp)</span><br></pre></td></tr></table></figure>
-<h4 id="Division-1"><a href="#Division-1" class="headerlink" title="Division"></a>Division</h4><p><img src="../images/图片3-9836442357.png" alt="图片3"></p>
-<h4 id="CREATE-VIEW"><a href="#CREATE-VIEW" class="headerlink" title="CREATE VIEW"></a>CREATE VIEW</h4><p><img src="../images/图片4-9836641612.png" alt="图片4"></p>
-<p>Delete view：<code>DROP VIEW Temp</code></p>
-<h4 id="Outer-Join"><a href="#Outer-Join" class="headerlink" title="Outer Join"></a>Outer Join</h4><p>S LEFT OUTER JOIN R: S 中不对应 R的也会加进去。 只是R的field就是 NULL</p>
-<p>FULL OUTER JOIN： both</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://wadmes.github.io/2018/02/26/FUZZY-SYSTEM-REPORT/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/liwei4.jpg">
-      <meta itemprop="name" content="Li Wei">
-      <meta itemprop="description" content="人生注定是一个人的旅行，但就算孤独也要做一直前行的人啊">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="NEWAY">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/02/26/FUZZY-SYSTEM-REPORT/" class="post-title-link" itemprop="url">FUZZY SYSTEM REPORT</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2018-02-26 10:42:03" itemprop="dateCreated datePublished" datetime="2018-02-26T10:42:03+08:00">2018-02-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-03-21 21:32:40" itemprop="dateModified" datetime="2019-03-21T21:32:40+08:00">2019-03-21</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/study/" itemprop="url" rel="index"><span itemprop="name">study</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2018/02/26/FUZZY-SYSTEM-REPORT/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2018/02/26/FUZZY-SYSTEM-REPORT/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="ENGG5189-FUZZY-EXPERT-SYSTEM-REPORT"><a href="#ENGG5189-FUZZY-EXPERT-SYSTEM-REPORT" class="headerlink" title="ENGG5189 FUZZY EXPERT SYSTEM REPORT"></a>ENGG5189 FUZZY EXPERT SYSTEM REPORT</h3><p>Li Wei 1155062148</p>
-<h4 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h4><p>There are hundreds of programming languages to use now, which make it difficult for programmers to decide which language is the most suitable for them.</p>
-<p>Below picture (cited from Quora) also shows that many people, no matter they are experienced programmers or not, have the question:</p>
-<p><strong>Which programming language should I learn next?</strong></p>
-<p><img src="../images/1519616125.png" alt="1519616125"></p>
-<h4 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h4><p>Motivated by the wide range of discussion: “ best programming language to learn” and our former hesitant experience when deciding which programming course to enroll, we decided to design a Fuzzy expert system to solve these kinds of problems.</p>
-<h4 id="Problem-Definition"><a href="#Problem-Definition" class="headerlink" title="Problem Definition"></a>Problem Definition</h4><p>The users do not have a clear knowledge on different programming language, which make them hard to select the best/ most suitable programming language for them to learn.</p>
-<h4 id="System-Design"><a href="#System-Design" class="headerlink" title="System Design"></a>System Design</h4><p>The Fuzzy system is designed for recommending suitable programming languages for users to learn. And <em>rules</em> are provided for inference so that users need to answer some simple programming habits questions, which are used as <em>facts</em> in the system.</p>
-<h4 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h4><h5 id="Fuzzy-type"><a href="#Fuzzy-type" class="headerlink" title="Fuzzy type"></a>Fuzzy type</h5><ul>
-<li><strong>Difficulty</strong> the expected difficulty of programming language.</li>
-<li><strong>Time</strong> the expected time spent to learn programming language every week.</li>
-<li><strong>Resource</strong> the expected learning resource of programming language.</li>
-<li><strong>Experience</strong> the former programming experience of the user.</li>
-<li><strong>Efficiency</strong> the expected efficiency of programming language.</li>
-<li><strong>Package</strong> the expected package(eg. <code>numpy</code> in <em>python</em>) requirements of programming language.</li>
-<li><strong>Debug</strong> the debugging ability and willing of user.</li>
-</ul>
-<h5 id="Objects"><a href="#Objects" class="headerlink" title="Objects"></a>Objects</h5><ul>
-<li><p>(conclusion)</p>
-<p>preset values of the result</p>
-</li>
-<li><p><strong>expectation_of_difficulty</strong></p>
-</li>
-<li><p><strong>time_spent_on_learning</strong></p>
-</li>
-<li><p><strong>available_resource</strong></p>
-</li>
-<li><p><strong>experience</strong></p>
-</li>
-<li><p><strong>package_requirement</strong></p>
-</li>
-<li><p><strong>efficiency_requirement</strong></p>
-</li>
-<li><p><strong>upset_when_debug</strong></p>
-</li>
-<li><p><strong>market_requirement</strong> </p>
-<p>whether the reason user learns programming is for finding a job.</p>
-</li>
-<li><p><strong>company_orientation</strong></p>
-<p>the expected IT companies the user wants to work for.</p>
-</li>
-<li><p><strong>interest_field</strong></p>
-<p>the expected programming field the user wants to work in.</p>
-</li>
-<li><p><strong>compiled_language_or_not</strong></p>
-<p>whether the user is suitable for compiled language or not.</p>
-</li>
-</ul>
-<h5 id="Rules"><a href="#Rules" class="headerlink" title="Rules"></a>Rules</h5><p>Rules in the system is divided into two perspectives: Facts and languages.</p>
-<p>For the facts perspective, the rules help to inference the conclusion and other objects such as <em>expectation of difficulty</em> by facts. Here are some examples:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">RULE CODE:difficulty_rule_easy_111</span><br><span class="line">IF time_spent_on_learning is little AND available_resource is little AND experience is little</span><br><span class="line">THEN expectation_of_difficulty is easy</span><br><span class="line">WITH CERTAINTY: 0.9</span><br><span class="line">&#x2F;&#x2F;help to inference expectation_of_difficulty</span><br><span class="line"></span><br><span class="line">RULE CODE:difficulty_rule_1</span><br><span class="line">IF expectation_of_difficulty is easy</span><br><span class="line">THEN programming_language is Python</span><br><span class="line">WITH CERTAINTY: 0.75</span><br><span class="line">&#x2F;&#x2F;help to inference programming_language</span><br></pre></td></tr></table></figure>
-<p>For the languages perspective, the rules help to inference the conclusion by languages, this kind of rule makes use of the key features of different programming language. Here is one example:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">RULE CODE:js_rule_2</span><br><span class="line">IF  expectation_of_difficulty is easy AND efficiency_requirement is high AND interest_field is Web_programming</span><br><span class="line">THEN programming_language is Javascript</span><br><span class="line">WITH CERTAINTY: 0.95</span><br></pre></td></tr></table></figure>
-<h5 id="Inference-structure"><a href="#Inference-structure" class="headerlink" title="Inference structure"></a>Inference structure</h5><p><img src="../images/Untitled Diagram.png" alt="Untitled Diagram"></p>
-<h5 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h5><p>Given these facts:</p>
-<ul>
-<li><strong>time_spent_on_learning</strong> much (1.0)</li>
-<li><strong>available_resource </strong>much (1.0)</li>
-<li><strong>experience</strong> much (1.0)</li>
-<li><strong>package_requirement </strong>high (1.0)</li>
-<li><strong>efficiency_requirement</strong> high (1.0)</li>
-<li><strong>upset_when_debug</strong> No (1.0)</li>
-<li><strong>market_requirement</strong>  Yes (1.0)</li>
-<li><strong>company_orientation</strong>  Apple (1.0)</li>
-<li><strong>interest_field</strong>  No_preference (1.0)</li>
-</ul>
-<p>The results are:</p>
-<p><img src="C:\Users\neway\Desktop\1519621128(1" alt="1519621128(../images/1519621128(1).png)">.png)</p>
-<p><img src="C:\Users\neway\Desktop\1519621161(1" alt="1519621161(../images/1519621161(1).png)">.png)</p>
-<p><img src="C:\Users\neway\Desktop\1519621201(1" alt="1519621201(../images/1519621201(1).png)">.png)</p>
-<h5 id="Discussion-and-conclusion"><a href="#Discussion-and-conclusion" class="headerlink" title="Discussion and conclusion"></a>Discussion and conclusion</h5><h6 id="Pros-and-cons"><a href="#Pros-and-cons" class="headerlink" title="Pros and cons"></a>Pros and cons</h6><p>Our system has done a basic programming language recommendation task, which covers almost all possibilities. And the result is really practical for uses.</p>
-<p>However, the system can not solve a few specific language requirements well, such as Database programmer and so on. </p>
-<h6 id="Further-improvements"><a href="#Further-improvements" class="headerlink" title="Further improvements"></a>Further improvements</h6><p>According to what we mentioned above, the system can be still improved by importing more language-based rules so that the system can handle some specific language requirements better.</p>
-<h5 id="Work-distribution"><a href="#Work-distribution" class="headerlink" title="Work distribution"></a>Work distribution</h5><div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">Work</th>
-<th style="text-align:center">Liu Boyi</th>
-<th style="text-align:center">Li Wei</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">Brainstorm the topic</td>
-<td style="text-align:center">yes</td>
-<td style="text-align:center">yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Conduct survey and collect expert knowledge</td>
-<td style="text-align:center">yes</td>
-<td style="text-align:center">yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Design the system (Main workload)</td>
-<td style="text-align:center">yes</td>
-<td style="text-align:center">yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Coding the Fuzzy Set and Object part</td>
-<td style="text-align:center">yes</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">Coding the Rule part(Main workload)</td>
-<td style="text-align:center">yes</td>
-<td style="text-align:center">yes</td>
-</tr>
-<tr>
-<td style="text-align:center">Test and debug</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">yes</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://wadmes.github.io/2018/02/14/CUHK%E5%B7%A5%E7%A8%8B%E5%AD%A6%E7%94%9F%E9%80%89%E8%AF%BE%E6%94%BB%E7%95%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/liwei4.jpg">
-      <meta itemprop="name" content="Li Wei">
-      <meta itemprop="description" content="人生注定是一个人的旅行，但就算孤独也要做一直前行的人啊">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="NEWAY">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/02/14/CUHK%E5%B7%A5%E7%A8%8B%E5%AD%A6%E7%94%9F%E9%80%89%E8%AF%BE%E6%94%BB%E7%95%A5/" class="post-title-link" itemprop="url">CUHK工程学生选课攻略</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2018-02-14 12:24:22" itemprop="dateCreated datePublished" datetime="2018-02-14T12:24:22+08:00">2018-02-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-03-21 21:25:19" itemprop="dateModified" datetime="2019-03-21T21:25:19+08:00">2019-03-21</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/life/" itemprop="url" rel="index"><span itemprop="name">life</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2018/02/14/CUHK%E5%B7%A5%E7%A8%8B%E5%AD%A6%E7%94%9F%E9%80%89%E8%AF%BE%E6%94%BB%E7%95%A5/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2018/02/14/CUHK%E5%B7%A5%E7%A8%8B%E5%AD%A6%E7%94%9F%E9%80%89%E8%AF%BE%E6%94%BB%E7%95%A5/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>一个人的命运 固然要靠个人的奋斗 但是也要考虑历史的进程 —-呱呱呱</p>
-</blockquote>
-<p>中大四载，明白的最深刻的道理就是上面这条了。</p>
-<p>放大来说，先人杜甫，比我们不知道高到哪里去了，在那个年代也会沦落到被几个小毛孩欺负。</p>
-<p>从小了来说，我们每个20出头的愣头青，有的人拼死拼活还是在B，有的人混一混就能拿个A leve。姑且先不说是不是学校差别，比如一个来自人大（苏州），一个来自中大。我们就拿中大自己人来说的话，有个深刻的道理:</p>
-<blockquote>
-<p>选课 也是一门学问。</p>
-</blockquote>
-<p>有的时候不是说好好上课努力学习final感觉满分就一定能拿A（说你呢 4430），因此本文是我们用拍死在沙滩上的泪水</p>
-<p>献给 年轻的学弟学妹们，愿天堂没有GPA。</p>
-<blockquote>
-<p>注意：本文纯属个人见解，如有冒犯，请联系。</p>
-<p>格式：</p>
-<p>课程代码，课程名称，课程教授</p>
-<p>description</p>
-<p>workload</p>
-<p>grade</p>
-</blockquote>
-<h2 id="给分好，工作量小（或-难度低）"><a href="#给分好，工作量小（或-难度低）" class="headerlink" title="给分好，工作量小（或 难度低）"></a>给分好，工作量小（或 难度低）</h2><h3 id="CCAN1703-CCAN2703-初阶粤语-中阶粤语-Dr-LEE-Siu-Lun"><a href="#CCAN1703-CCAN2703-初阶粤语-中阶粤语-Dr-LEE-Siu-Lun" class="headerlink" title="CCAN1703/CCAN2703 初阶粤语/中阶粤语  Dr LEE Siu Lun"></a>CCAN1703/CCAN2703 初阶粤语/中阶粤语  Dr LEE Siu Lun</h3><p>我那个年代（14-15）内地生给分福利。老师上课有趣。</p>
-<p>只有一些粤语阅读 和 演讲。</p>
-<p>据说 最低A-</p>
-<h3 id="ESTR3108-人工智能-Prof-Leung"><a href="#ESTR3108-人工智能-Prof-Leung" class="headerlink" title="ESTR3108 人工智能 Prof Leung"></a>ESTR3108 人工智能 Prof Leung</h3><p>梁老教授快退休了，但是为人和善，也是我最尊敬的几位教授之一，每次大家的weekly presentation 他都听的特别认真，真的是肃然起敬。</p>
-<p>ELITE的AI比一般的会多一个DNN的project，不过之前有过经验的话倒是挺简单的。</p>
-<p>如果有过DNN经验，final前好好复习（pastpaper！) 一般A level是没问题的。</p>
-<h3 id="大一-数学物理"><a href="#大一-数学物理" class="headerlink" title="大一 数学物理"></a>大一 数学物理</h3><p>基本都是高中学过的，有一些没学过的也是奥赛（自主招生）会学的。总之基本上大一的数理课是相当简单。</p>
-<p>一般都是 weekly assignment + mid term + final</p>
-<p>只要别完全划水，A level也是OK的</p>
-<h3 id="UGEB2401-天文"><a href="#UGEB2401-天文" class="headerlink" title="UGEB2401 天文"></a>UGEB2401 天文</h3><p>讲的东西特别有趣！感觉自己是当代诸葛，上知天文了哈哈哈，小时候很多为什么都是那个时候了解的。</p>
-<p>忘了。</p>
-<p>有兴趣的话 拿A还算没毛病。</p>
-<h3 id="UGEC2020-澳门历史"><a href="#UGEC2020-澳门历史" class="headerlink" title="UGEC2020 澳门历史"></a>UGEC2020 澳门历史</h3><p>挺不错的一门课，看得出来老师在试图讲的有趣哈哈哈。</p>
-<p>一篇paper + 一次开卷考试</p>
-<p>我拿的是A-。。因为感觉基本就写了篇paper就拿了A level，有点受之有愧</p>
-<h3 id="IERG3280-ESTR3302"><a href="#IERG3280-ESTR3302" class="headerlink" title="IERG3280 / ESTR3302"></a>IERG3280 / ESTR3302</h3><p>BY Li Qi:</p>
-<p>IE出名的给分好颓课，唯一要注意的是教授会尝试记住每个人，尤其ELITE，所以千万别翘课。他会给每个人照相，然后打印出一张座位相片名字表。。。。。。</p>
-<p>homework + mid-term + project</p>
-<p>反正我认识的都是A…没选这门课真是气死我了！</p>
-<h2 id="给分好，工作量大（或-难度高）"><a href="#给分好，工作量大（或-难度高）" class="headerlink" title="给分好，工作量大（或 难度高）"></a>给分好，工作量大（或 难度高）</h2><h3 id="CSCI3100-软件工程"><a href="#CSCI3100-软件工程" class="headerlink" title="CSCI3100 软件工程"></a>CSCI3100 软件工程</h3><p>考试和project没有任何关系。。mid-term有点理科的感觉，final完全就是文科考试了，不过和TA拉好关系是有帮助的！</p>
-<p>assignment + mid-term + final + project（4人抱团把天赋带到搭网站。。。那段时间连续通顶一个星期）</p>
-<p>其实一般CS的major， final 和mid term才是关键。project大家分数差不多。所以final好好复习 A level也是没问题的。</p>
-<h3 id="CSCI3130-CSCI3160-Automata-theory-fund-of-Alg"><a href="#CSCI3130-CSCI3160-Automata-theory-fund-of-Alg" class="headerlink" title="CSCI3130/CSCI3160 Automata theory/ fund of Alg"></a>CSCI3130/CSCI3160 Automata theory/ fund of Alg</h3><p>两门课其实差别挺大的，放一起是因为给分，workload都是类似的。而且两位教授之前在中大是师生关系哈哈哈哈。</p>
-<p>正常的weekly assignment + mid term + final，不过挺多人吐槽比较难。（不过相信我，你听到的大部分内地生吐槽难，炸了都是在装！）我反正觉得还OK。</p>
-<p>好好学习A- 是有的，A就是可遇不可求了。</p>
-<h3 id="ENGG2420C-ESTR2000-复数分析-Prof-Pascal"><a href="#ENGG2420C-ESTR2000-复数分析-Prof-Pascal" class="headerlink" title="ENGG2420C/ESTR2000 复数分析 Prof Pascal"></a>ENGG2420C/ESTR2000 复数分析 Prof Pascal</h3><p>当时为了凑ELITE分数选这门课，同时想着复数应该还有点用。现在特别后悔。。是我上过workload最大！的一门课！</p>
-<p>weekly assignment + mid term + final + presentation + paper </p>
-<p>emm。。。虽然ELITE后面的都没听懂了，不过final好像考的并不难 基本都会做。所以A-还是可以的。</p>
-<h3 id="CSCI4430-Computer-network"><a href="#CSCI4430-Computer-network" class="headerlink" title="CSCI4430 Computer network"></a>CSCI4430 Computer network</h3><p>怎么说呢。。其实我是想把他放在 给分烂 难度低里面的哈哈哈。课挺有意思的，也解答了我很多最开始玩电脑时候的问题，全程顺风顺水，但最后拿个A-还是不满意的。毕竟我难得有一门专业课这么扎实的学啊。</p>
-<p>workload一般 主要还是final得考好把。。</p>
-<p>我前面都是满分，final估分满分，最后拿个A-。。哎。</p>
-<h2 id="给分烂，工作量大（或-难度高）"><a href="#给分烂，工作量大（或-难度高）" class="headerlink" title="给分烂，工作量大（或 难度高）"></a>给分烂，工作量大（或 难度高）</h2><h3 id="CSCI3150-Intro-to-OS-Prof-Eric"><a href="#CSCI3150-Intro-to-OS-Prof-Eric" class="headerlink" title="CSCI3150 Intro to OS Prof.Eric"></a>CSCI3150 Intro to OS Prof.Eric</h3><p>Welcome to 3150! 也是出名的workload巨大。不过OS这种课本来就基础而且难，所以也怨不了Eric，而且教授讲课也是特别仔细，一个问题会整的明明白白的。不过。。final 考一个一百行代码找一个bug是什么鬼啊！！！</p>
-<p>code assignment + mid term（巨难）+final（巨难）</p>
-<p>带没啥好说的。CS内地生我只清楚两个拿A level的。</p>
-<h3 id="CSCI3180-programming-language-Prof-Jimmy"><a href="#CSCI3180-programming-language-Prof-Jimmy" class="headerlink" title="CSCI3180 programming language Prof.Jimmy"></a>CSCI3180 programming language Prof.Jimmy</h3><p>Whose bell rings? 这个梗懂得就懂。Jimmy是我印象里对教书最认真负责的一名教授，也难怪拿了两次 best teacher。不过必须要diss一下jimmy的是。。他那个code作业真的是太难了。。。</p>
-<p>code assignment + mid term + final</p>
-<p>给分已经不重要了，我只知道前面两次code assignment我是生不如死。</p>
-<p>以上就是所有印象深刻的课程。如有遗漏/新的见解 欢迎补充~</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1793,7 +1507,7 @@ V_1' = V_1 + scale\times(V_2 - V_3)</script><p>其中 V1,2,3 都是随机挑选�
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">92</span>
+          <span class="site-state-item-count">95</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
