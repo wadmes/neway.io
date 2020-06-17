@@ -3449,4 +3449,26 @@ H^{(k+1)} = activation((A+I)H^kW) \\A = adjacent \ matrix \\H^0 = features \ of 
         <tag>memo</tag>
       </tags>
   </entry>
+  <entry>
+    <title>How to use grammarly to check your paper</title>
+    <url>/2020/06/17/How-to-use-grammarly-to-check-your-paper/</url>
+    <content><![CDATA[<p>When we finished a paper draft by latex, we may find it difficult to directly use Grammarly to check the grammar since our paper is a .pdf format.</p>
+<p>Here is a simple instruction to use Grammarly for your pape. If you have some other more elegant methods, feel free to leave a comment here.  :)</p>
+<p>Here are the steps:</p>
+<ul>
+<li><p>Copy the text in the paper and paste it into VSCode</p>
+</li>
+<li><p>Replace all “\n” terms into space “ “ terms</p>
+</li>
+<li><p>Copy the processed text in VSCode and paste it into Grammarly</p>
+</li>
+<li><p>Find the error and fix it.</p>
+<p><img src="/figures/截屏2020-06-17 下午7.19.53.png" alt="截屏2020-06-17 下午7.19.53"></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>study</category>
+      </categories>
+  </entry>
 </search>

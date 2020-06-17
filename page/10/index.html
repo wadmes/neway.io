@@ -209,6 +209,147 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://wadmes.github.io/2017/12/24/csci3230-HW3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/liwei4.jpg">
+      <meta itemprop="name" content="Li Wei">
+      <meta itemprop="description" content="人生注定是一个人的旅行，但就算孤独也要做一直前行的人啊">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NEWAY">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/12/24/csci3230-HW3/" class="post-title-link" itemprop="url">CSCI3230 HW3</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2017-12-24 16:10:25" itemprop="dateCreated datePublished" datetime="2017-12-24T16:10:25+08:00">2017-12-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-12-12 12:14:01" itemprop="dateModified" datetime="2019-12-12T12:14:01+08:00">2019-12-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/study/" itemprop="url" rel="index"><span itemprop="name">study</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2017/12/24/csci3230-HW3/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2017/12/24/csci3230-HW3/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>CSCI3230 HW3 Li Wei  1155062148</p>
+<p>test!</p>
+<h4 id="1-Information-Theory-and-Logic"><a href="#1-Information-Theory-and-Logic" class="headerlink" title="1. Information Theory and Logic"></a>1. Information Theory and Logic</h4><h5 id="a"><a href="#a" class="headerlink" title="a."></a>a.</h5><p>define $P<em>{front}$ and $P</em>{back}$ as the possibilities of front and back respectively. And we have:</p>
+<p>$P<em>{front}+P</em>{back} = 1$</p>
+<p>$I(V) = 0$: The coin flipping result must be front/ back, which means its possibility is 1. $P<em>{front} \ or \ P</em>{back} =1$ so that $I(V) = - 0\times log_2 0  - 1\times log_21 = 0$ </p>
+<p>$I(V) = log<em>2n$: The possibility of front and back are same, which is 0.5 respectively. $P</em>{front}  =P_{back} =0.5$  so that $I(V) = - 0.5\times log_2 0.5  - 0.5\times log_20.5 = log_22=1$</p>
+<h5 id="b"><a href="#b" class="headerlink" title="b."></a>b.</h5><p>R1:</p>
+<p> $Pass(x,computer) \wedge Win(x,prize)\rightarrow Happy(x)\Rightarrow $</p>
+<p>$\neg(Pass(x,computer) \wedge Win(x,prize)) \vee Happy(x) \Rightarrow$</p>
+<p>$\neg Pass(x,computer) \vee \neg Win(x,prize) \vee Happy(x) $</p>
+<p>R2:</p>
+<p>$Study(y) \vee Lucky(y) \rightarrow Pass(y,z) \Rightarrow$</p>
+<p>$\neg(Study(y) \vee Lucky(y)) \vee Pass(y,z) \Rightarrow$</p>
+<p>$(\neg Study(y) \wedge \neg Lucky(y)) \vee Pass(y,z) \Rightarrow$</p>
+<p>$(\neg Study(y) \vee Pass(y,z)) \wedge(\neg Lucky(y)\vee Pass(y,z))$</p>
+<p>R3:</p>
+<p>$Lucky(w) \rightarrow Win(w,prize) \Rightarrow$</p>
+<p>$\neg Lucky(w) \vee Win(w,prize) $</p>
+<p><img src="images\hw3_1.jpg" alt="hw3_1"></p>
+<h4 id="2-Neural-Network"><a href="#2-Neural-Network" class="headerlink" title="2. Neural Network"></a>2. Neural Network</h4><h5 id="a-1"><a href="#a-1" class="headerlink" title="a."></a>a.</h5><p>$O = f(\sum_{j=1}^{n} (w_jI_j)+ w_o)$</p>
+<h5 id="b-1"><a href="#b-1" class="headerlink" title="b."></a>b.</h5><p>$h<em>{i,k} = f(\sum</em>{j = 1}^{H<em>{i-1}}(w</em>{i-1,j,k}h_{i-1,j}))$</p>
+<p>$O<em>m =f(\sum</em>{j = 1}^{H<em>{K}}(w</em>{K,j,m}h_{K,j})) $</p>
+<h5 id="c"><a href="#c" class="headerlink" title="c."></a>c.</h5><p>$f’(z) = (\frac{1}{1+e^{-z}})’ = \frac{e^{-z}}{(1+e^{-z})^2} = \frac{1}{1+e^{-z}}\times \frac{e^{-z}}{1+e^{-z}}= f(z)(1-f(z))$</p>
+<h5 id="d"><a href="#d" class="headerlink" title="d."></a>d.</h5><p>Learning rate represents the <strong>impact of the correction</strong> applied following a training step. The bigger the learning rate, the more drastic the changes at each step. And if we set learning rate  as 1, which means no learning rate, we’ll mostly likely start diverging away from the minimum. Therefore, we need a learning rate to control the changing velocity of weights and it is better to use a smaller learning rate.</p>
+<h5 id="e"><a href="#e" class="headerlink" title="e."></a>e.</h5><ol>
+<li><p>$\frac{\delta E}{\delta w<em>{K,j,k}} = \frac{\delta E}{\delta O_k}\cdot \frac{\delta O_k}{\delta w</em>{K,j,k}}= (O<em>k - T_k)\cdot O_k\cdot(1-O_k)\cdot h</em>{K,j}​$ (because $E = 0.5\sum<em>{m=1}^{H</em>{K+1}}(O<em>m - T_m)^2 \ and\ O</em> k=f(\sum<em>{j = 1}^{H</em>{K}}(w<em>{K,j,k}h</em>{K,j}) ) ​$)</p>
+</li>
+<li><p>considering $E=F(h<em>{i+2,1}+ …+ h</em>{i+2,H<em>{i-2}})$ and $h</em>{i+2,j} = G(h_{i+1,k})$, according to the multivariate chain rule:</p>
+<p>$\frac{\delta E}{\delta h<em>{i+1,k}} = \sum</em>{j=1}^{H<em>{i+2}}(\frac{\delta E}{\delta h</em>{i+2,j}} \cdot \frac{\delta h<em>{i+2,j}}{\delta h</em>{i+1},k})$</p>
+<p>$=\sum<em>{j=1}^{H</em>{i+2}}(\frac{\delta E}{\delta h<em>{i+2,j}}\cdot h</em>{i+2,k}\cdot (1-h<em>{i+2,k})\cdot w</em>{i+1,k,j}) = \sum<em>{j=1}^{H</em>{i+2}}\Delta<em>{i+2,j} \cdot w</em>{i+1,k,j}$</p>
+</li>
+<li><p>According to chain rule, we have</p>
+<p>$\frac{\delta E}{\delta w<em>{i,j,k}} = \frac{\delta E}{\delta h</em>{i+1},k} \cdot \frac{\delta h<em>{i+1},k}{w</em>{i,j,k}}$</p>
+<p>And $\frac{\delta h<em>{i+1,k}}{w</em>{i,j,k}} = f’(\sum<em>{j = 1}^{H</em>{i}}(w<em>{i,j,k}h</em>{i,j}))\cdot h<em>{i,j}= h</em>{i+1,k}\cdot (1-h<em>{i+1,k})\cdot h</em>{i,j}​$</p>
+<p>Therefore, the result is:</p>
+<p>$\frac{\delta E}{\delta w<em>{i,j,k}} = (\sum</em>{j=1}^{H<em>{i+2}}\Delta</em>{i+2,j} \cdot w<em>{i+1,k,j})\cdot h</em>{i+1,k}\cdot (1-h<em>{i+1,k})\cdot h</em>{i,j} $ </p>
+<hr>
+</li>
+<li><p>def <strong>BP</strong>(<em>network,examples,a</em>) return a modified network:<br><strong>INPUTS</strong>:<br>  network, a multilayer network<br>  examples, a set of data/label pairs<br>  a, learning rate</p>
+<p><strong>Repeat:</strong></p>
+<p><strong>for each</strong> e <strong>in</strong> examples:<br>  $O \leftarrow Run(Network, e)$<br>  <strong>for each</strong> neuron <strong>in</strong> network:</p>
+<pre><code> $\Delta_{K+1,k} \leftarrow (O_k - T_k)\cdot O_k\cdot(1-O_k)\cdot h_{K,j}$
+</code></pre><p>​    <strong>for each</strong> weight <strong>connected to</strong> corresponding neuron:</p>
+<p>​        $W<em>{K,j,k} \leftarrow W</em>{K,j,k} - a\cdot \Delta<em>{K+1,k} \cdot h</em>{K,j}$</p>
+<p>  <strong>for each</strong> sub-layer <strong>except the first layer</strong>:</p>
+<p>​    <strong>for each </strong> neuron <strong>in</strong> sub layer:</p>
+<p>​        $\Delta<em>{i,k}= (\sum</em>{j=1}^{H<em>{i+1}}\Delta</em>{i+1,j} \cdot w<em>{i,k,j})\cdot h</em>{i,k}\cdot (1-h_{i,k})\cdot $</p>
+<p>​        <strong>for each</strong> weight <strong>connected to</strong> corresponding neuron <strong>in</strong> current sublayer:</p>
+<p>​            $W<em>{i,j,k} \leftarrow W</em>{i,j,k} - a\cdot \Delta<em>{i+1,k} \cdot h</em>{i,j}$</p>
+<p><strong>Until</strong> network <strong>has converged</strong></p>
+<p><strong>return</strong> network</p>
+<hr>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://wadmes.github.io/2017/12/18/ESTR%203108%20Review/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -954,7 +1095,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">95</span>
+          <span class="site-state-item-count">96</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
