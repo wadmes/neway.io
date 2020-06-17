@@ -3452,8 +3452,8 @@ H^{(k+1)} = activation((A+I)H^kW) \\A = adjacent \ matrix \\H^0 = features \ of 
   <entry>
     <title>How to use grammarly to check your paper</title>
     <url>/2020/06/17/How-to-use-grammarly-to-check-your-paper/</url>
-    <content><![CDATA[<p>When we finished a paper draft by latex, we may find it difficult to directly use Grammarly to check the grammar since our paper is a .pdf format.</p>
-<p>Here is a simple instruction to use Grammarly for your pape. If you have some other more elegant methods, feel free to leave a comment here.  :)</p>
+    <content><![CDATA[<p>When we finish a paper draft by latex, we may find it difficult to directly use Grammarly to check the grammar since our paper is a .pdf format.</p>
+<p>Here is a simple instruction to use Grammarly for your paper. If you have some other more elegant methods, feel free to leave a comment here.  :)</p>
 <p>Here are the steps:</p>
 <ul>
 <li><p>Copy the text in the paper and paste it into VSCode</p>
