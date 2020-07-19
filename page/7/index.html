@@ -209,6 +209,114 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://wadmes.github.io/2018/08/28/SOSP2017DeepXplore/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/liwei3.jpg">
+      <meta itemprop="name" content="Li Wei">
+      <meta itemprop="description" content="人生注定是一个人的旅行，但就算孤独也要做一直前行的人啊">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NEWAY">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/08/28/SOSP2017DeepXplore/" class="post-title-link" itemprop="url">DeepXplore</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-08-28 17:50:29" itemprop="dateCreated datePublished" datetime="2018-08-28T17:50:29+08:00">2018-08-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-03-21 21:36:06" itemprop="dateModified" datetime="2019-03-21T21:36:06+08:00">2019-03-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/paper/" itemprop="url" rel="index"><span itemprop="name">paper</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2018/08/28/SOSP2017DeepXplore/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2018/08/28/SOSP2017DeepXplore/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="SOSP2017"><a href="#SOSP2017" class="headerlink" title="SOSP2017"></a>SOSP2017</h1><h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>automated and systematic <strong>testing</strong> of large-scale, real-world DL systems with thousands of neurons and millions of parameters for all corner cases is extremely challenging. </p>
+<p>如何准确评估一个DL系统的好坏？</p>
+<h3 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h3><ul>
+<li><strong>adversarial deep learning</strong> have demonstrated that carefully crafted synthetic images by adding <strong>minimal perturbations扰动</strong> to an existing image can fool state-of-the-art DL systems.（像素攻击）<ul>
+<li>limit: it must limit its perturbations to tiny invisible changes or require manual checks. </li>
+</ul>
+</li>
+<li>Challenges:<ul>
+<li>how to generate inputs that trigger different parts of a DL system’s logic and uncover different types of erroneous behaviors,  </li>
+<li>how to identify erroneous behaviors of a DL system w<strong>ithout manual labeling/checking.</strong></li>
+</ul>
+</li>
+<li>This work<ul>
+<li>neuron coverage (the number of neurons activated)</li>
+<li>multiple DL systems finish same work. (traditional software engineering technical)</li>
+<li>how to use gradient to solve the problem(test more neuron coverage and as many differential behaviors as possible)</li>
+</ul>
+</li>
+</ul>
+<h3 id="Details"><a href="#Details" class="headerlink" title="Details"></a>Details</h3><p>input: unlabeled test inputs</p>
+<p>output:  new tests that cover a large number of neurons  </p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://wadmes.github.io/2018/08/28/superNeuron/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1156,101 +1264,6 @@ V_1' = V_1 + scale\times(V_2 - V_3)</script><p>其中 V1,2,3 都是随机挑选�
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://wadmes.github.io/2018/03/23/%E5%B9%B3%E5%87%A1%E7%9A%84%E4%B8%96%E7%95%8C%E8%AF%BB%E5%90%8E%E6%84%9F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/liwei3.jpg">
-      <meta itemprop="name" content="Li Wei">
-      <meta itemprop="description" content="人生注定是一个人的旅行，但就算孤独也要做一直前行的人啊">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="NEWAY">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/03/23/%E5%B9%B3%E5%87%A1%E7%9A%84%E4%B8%96%E7%95%8C%E8%AF%BB%E5%90%8E%E6%84%9F/" class="post-title-link" itemprop="url">'平凡的世界读后感'</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2018-03-23 16:36:09" itemprop="dateCreated datePublished" datetime="2018-03-23T16:36:09+08:00">2018-03-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-22 16:33:46" itemprop="dateModified" datetime="2020-02-22T16:33:46+08:00">2020-02-22</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/life/" itemprop="url" rel="index"><span itemprop="name">life</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2018/03/23/%E5%B9%B3%E5%87%A1%E7%9A%84%E4%B8%96%E7%95%8C%E8%AF%BB%E5%90%8E%E6%84%9F/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2018/03/23/%E5%B9%B3%E5%87%A1%E7%9A%84%E4%B8%96%E7%95%8C%E8%AF%BB%E5%90%8E%E6%84%9F/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>晓霞牺牲了。</p>
-<p>读到此时，不禁涕泗横流，忽然明白了不忍卒读的意味。书里面的晓霞是如此的美好，少平每次生活中乌云密闭的时候，她便会如阳光一般驱散所有的阴霾。她体贴他，知道少平不愿意她去看他的破住处，她还关心他，看到了破烂的被褥后自己偷偷给少平换了一床全新的被单，她还深爱着他，不管阶级差距如何、生活差距怎样，都一如既往的、哪怕少平吃醋了小心眼了，也一如既往的热忱的表达自己的爱意。</p>
-<p>但是悲剧就是把这样美好的女主角摧毁给你看。</p>
-<p>书中的故事太多了，几十万字里饱含了贫苦家庭或一般家庭会面临的种种问题，不管谁都能从书中读到自己。譬如少安三兄妹年轻时候的懂事，我仿佛也看到了小时候那个小心谨慎生活着的懂事的自己。</p>
-<p>但是平凡的世界不是童话，再多的故事往往总会有悲伤在其中。润叶和少安青梅竹马，两小无猜，但是少安最终还是屈服于了阶级差距，说到底还是屈服于自己的思想差距。虽然两人都遇到了深爱他们的对象，但是两个人的爱情却也都不完美，忙活了整本书的少安和秀莲，好不容易可以享一点幸福时，秀莲却倒下了。而润叶更是在悲剧发生后，才愿意接受自己的选择。</p>
-<p>但是平凡世界中的人们却不会平凡。哪怕路途艰险，少安、少平总会咬牙坚持过去，我想这也是他们人格魅力所在。少平背砖血肉绽开的画面我从初中就难以忘怀，少安欠了一万多的债时差点一蹶不振，但幸运的是有他的秀莲，帮助他度过了难关。</p>
-<p>路遥先生觉得少平和晓霞的爱情太过完美，在那个时代不是正常的，只可能是童话故事。但我真的相信，受过足够多书本熏陶的两人，是有足够的勇气和眼界去拥抱爱情的，而且书中的“完美无缺”的田福军，也不是如田福堂一般的”老古董“。</p>
-<p>田晓霞，这也许是八十年代那一代青年幻想中的最美好的女生，但不论时光如何变化，社会怎样变迁，她身上的可贵品质：正直、热情、眼界开阔、不嫌贫、执着、对爱情的向往和忠贞，也是我等之辈可以学习的。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1321,7 +1334,7 @@ V_1' = V_1 + scale\times(V_2 - V_3)</script><p>其中 V1,2,3 都是随机挑选�
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">97</span>
+          <span class="site-state-item-count">98</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

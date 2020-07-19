@@ -209,6 +209,97 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://wadmes.github.io/2019/02/28/c-predicate/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/liwei3.jpg">
+      <meta itemprop="name" content="Li Wei">
+      <meta itemprop="description" content="人生注定是一个人的旅行，但就算孤独也要做一直前行的人啊">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NEWAY">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/02/28/c-predicate/" class="post-title-link" itemprop="url">c++:predicate</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-02-28 22:53:34" itemprop="dateCreated datePublished" datetime="2019-02-28T22:53:34+08:00">2019-02-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-03-21 21:19:01" itemprop="dateModified" datetime="2019-03-21T21:19:01+08:00">2019-03-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/code/" itemprop="url" rel="index"><span itemprop="name">code</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2019/02/28/c-predicate/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/02/28/c-predicate/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>个人也是初学根本就不了解谓词是什么意思，通过下面的例子大家自己体会吧。</p>
+<p>下面程序演示了count_if();</p>
+<p>该程序创建一个包含数字1-19的矢量，然后统计能够被3整除的元素个数。</p>
+<h2 id="为了达到这个目的，程序首先创建了一个称为dividesby3-的一元谓词，如果谓词的参数能够被3整除，该谓词返回ture"><a href="#为了达到这个目的，程序首先创建了一个称为dividesby3-的一元谓词，如果谓词的参数能够被3整除，该谓词返回ture" class="headerlink" title="为了达到这个目的，程序首先创建了一个称为dividesby3()的一元谓词，如果谓词的参数能够被3整除，该谓词返回ture"></a>为了达到这个目的，程序首先创建了一个称为dividesby3()的一元谓词，如果谓词的参数能够被3整除，该谓词返回ture</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">dividesby3</span><span class="params">(<span class="keyword">int</span> i)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">if</span>((i%<span class="number">3</span>)==<span class="number">0</span>)<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v;</span><br><span class="line"> <span class="keyword">int</span> i;</span><br><span class="line"> <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">20</span>;i++)v.push_back(i);</span><br><span class="line"> <span class="built_in">cout</span> &lt;&lt; <span class="string">"Sequence:/n"</span>;</span><br><span class="line"> <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;v.<span class="built_in">size</span>();i++)<span class="built_in">cout</span> &lt;&lt; v[i] &lt;&lt;<span class="string">" "</span>;</span><br><span class="line"> <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"> i=cout_if(v.<span class="built_in">begin</span>(),v.<span class="built_in">end</span>(),dividesby3);<span class="comment">//谓词就在这里被用到了</span></span><br><span class="line"> <span class="built_in">cout</span> &lt;&lt;　ｉ　&lt;&lt;<span class="string">" numbers are divisible by 3./n"</span>;</span><br><span class="line"> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://wadmes.github.io/2019/02/14/CUDA-analysis-tool/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1074,114 +1165,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://wadmes.github.io/2018/08/28/SOSP2017DeepXplore/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/liwei3.jpg">
-      <meta itemprop="name" content="Li Wei">
-      <meta itemprop="description" content="人生注定是一个人的旅行，但就算孤独也要做一直前行的人啊">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="NEWAY">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2018/08/28/SOSP2017DeepXplore/" class="post-title-link" itemprop="url">DeepXplore</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2018-08-28 17:50:29" itemprop="dateCreated datePublished" datetime="2018-08-28T17:50:29+08:00">2018-08-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-03-21 21:36:06" itemprop="dateModified" datetime="2019-03-21T21:36:06+08:00">2019-03-21</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/paper/" itemprop="url" rel="index"><span itemprop="name">paper</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2018/08/28/SOSP2017DeepXplore/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2018/08/28/SOSP2017DeepXplore/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="SOSP2017"><a href="#SOSP2017" class="headerlink" title="SOSP2017"></a>SOSP2017</h1><h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>automated and systematic <strong>testing</strong> of large-scale, real-world DL systems with thousands of neurons and millions of parameters for all corner cases is extremely challenging. </p>
-<p>如何准确评估一个DL系统的好坏？</p>
-<h3 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h3><ul>
-<li><strong>adversarial deep learning</strong> have demonstrated that carefully crafted synthetic images by adding <strong>minimal perturbations扰动</strong> to an existing image can fool state-of-the-art DL systems.（像素攻击）<ul>
-<li>limit: it must limit its perturbations to tiny invisible changes or require manual checks. </li>
-</ul>
-</li>
-<li>Challenges:<ul>
-<li>how to generate inputs that trigger different parts of a DL system’s logic and uncover different types of erroneous behaviors,  </li>
-<li>how to identify erroneous behaviors of a DL system w<strong>ithout manual labeling/checking.</strong></li>
-</ul>
-</li>
-<li>This work<ul>
-<li>neuron coverage (the number of neurons activated)</li>
-<li>multiple DL systems finish same work. (traditional software engineering technical)</li>
-<li>how to use gradient to solve the problem(test more neuron coverage and as many differential behaviors as possible)</li>
-</ul>
-</li>
-</ul>
-<h3 id="Details"><a href="#Details" class="headerlink" title="Details"></a>Details</h3><p>input: unlabeled test inputs</p>
-<p>output:  new tests that cover a large number of neurons  </p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1252,7 +1235,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">97</span>
+          <span class="site-state-item-count">98</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
