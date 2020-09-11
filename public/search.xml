@@ -3565,6 +3565,11 @@ H^{(k+1)} = activation((A+I)H^kW) \\A = adjacent \ matrix \\H^0 = features \ of 
 </ul>
 </li>
 </ul>
+<h2 id="Generalization-and-Representational-Limits-of-Graph-Neural-Networks"><a href="#Generalization-and-Representational-Limits-of-Graph-Neural-Networks" class="headerlink" title="Generalization and Representational Limits of Graph Neural Networks"></a>Generalization and Representational Limits of Graph Neural Networks</h2><p>定义decide：一个GNN Q如果decide了一个图性质P，则说明图性质P不同的两个图，由Q产生出来的graph embedding也肯定不同。</p>
+<p>这篇文章前半部分就是用一些例子证明了：</p>
+<ul>
+<li>（用一些反例）基于聚合的很多GNN不能decide很多很简单的性质。</li>
+</ul>
 <h1 id="理论层面"><a href="#理论层面" class="headerlink" title="理论层面"></a>理论层面</h1><h2 id="GIN"><a href="#GIN" class="headerlink" title="GIN"></a>GIN</h2><p>这个算是个人觉得最有意思的一篇了，大概就是说在座各位基于这种聚合的都是垃圾，最多也只能和从前的WL Test一样。<a href="https://wadmes.github.io/2019/09/14/GNN-GIN-GMN-study/">https://wadmes.github.io/2019/09/14/GNN-GIN-GMN-study/</a></p>
 <h2 id="THE-LOGICAL-EXPRESSIVENESS-OF-GRAPH-NEURAL-NETWORKS"><a href="#THE-LOGICAL-EXPRESSIVENESS-OF-GRAPH-NEURAL-NETWORKS" class="headerlink" title="THE LOGICAL EXPRESSIVENESS OF GRAPH NEURAL NETWORKS"></a>THE LOGICAL EXPRESSIVENESS OF GRAPH NEURAL NETWORKS</h2><p>这篇（ICLR2020）大概就是接着上一篇GIN（ICLR2019）说，诶，确实以前的聚合（自己的+邻居的）都是垃圾，但我这个不一样了，对于每个点还有了个全局（readout）信息。</p>
 <p>首先先从一个最简单的给点二分类的问题说起：如果要判断一个点是不是isolated node。我们是不是就没法正确分类了？因为true的点肯定没法传输信息。这个例子实在是妙啊。。</p>
@@ -3574,6 +3579,19 @@ H^{(k+1)} = activation((A+I)H^kW) \\A = adjacent \ matrix \\H^0 = features \ of 
 <blockquote>
 <p>该研究证明，如果我们想让 GNN 为常见的图问题（如环检测、直径估计、顶点覆盖等）提供解决方案，则节点嵌入的维度（即网络宽度 w）与层数（即网络深度 d）的乘积应与图大小 n 成正比，即 dw = O(n)。</p>
 </blockquote>
+<h2 id="Approximation-Ratios-of-Graph-Neural-Networks-for-Combinatorial-Problems"><a href="#Approximation-Ratios-of-Graph-Neural-Networks-for-Combinatorial-Problems" class="headerlink" title="Approximation Ratios of Graph Neural Networks for Combinatorial Problems"></a>Approximation Ratios of Graph Neural Networks for Combinatorial Problems</h2><p>这篇将GNN和distributed local algorithms 结合了起来，先证明了GNN和distributed local algorithms 是等价的，然后利用以前work对distributed local algorithms的研究得出的结论直接给出了GNN的一些结论。</p>
+<p>大概就是现在两种GNN， MB-GNN 和 SB-GNN都比不上 VVC-GNN，定义分别是：</p>
+<p><img src="/figures/image-20200819215408321.png" alt="image-20200819215408321"></p>
+<p><img src="/figures/image-20200819215427294.png" alt="image-20200819215427294"></p>
+<p><img src="/figures/image-20200819215438565.png" alt=""></p>
+<p>因此，提出了一个VVC-GNN。大概意思就是给别一个边的两个出口都assign一个port，使得所有点给它邻点的信息完全不一样。</p>
+<p>最后实验就是用这个model + reinforcement learning 证明了 这个model可以解决很简单的组合优化问题，但是MB，SB都不可以。</p>
+<p>在我看来，有个点是没解决的：</p>
+<ul>
+<li>这种方法注定导致不能迁移到其他graph（相当于给每个edge的port一个人为的index）</li>
+<li>这个方法训练时间需要很久，但同时不能用到其他graph。。也太扯了吧。</li>
+</ul>
+<p>关于distributed local algorithms的定义，请参考 <a href="https://arxiv.org/pdf/1205.2051.pdf" target="_blank" rel="noopener">https://arxiv.org/pdf/1205.2051.pdf</a></p>
 <h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>写完后，忽然发现了一个也可以算巧合的规律吧？所有方法层面的work基本都是国人lead，但是理论层面的work却寥寥无几。这算不算是一种悲哀呢？方法层面的东西固然重要、效果好，容易发paper，但是理论层面的才是有可能真正推动时代进步的那个钥匙，不过似乎大家都对这种“不好发paper”、“没有确定性”、“难入门”的东西有一种共识性的排斥，算是一种悲哀吧！</p>
 <p>其实自己何尝不是这样呢。做了五六个work，除了openmpl，其他的基本都是比较讨巧，迎着市场需求（学术圈热点）做的东西。这是这个时代的无奈，也是我个人的无奈吧，其实也是蛮想做一个沉下心学习研究一两年然后真正contribute to the development of CS的东西，可是现在还只是一个再过几个月要靠publication去砸PHD commitee脸的小小mphi；就算phd了也只是一个担心qualification、担心graduation的PHD student/candidate；就算当教授了也需要paper去争tenure啊；就算当了professor，也得对学生负责，在他没有成果前不可能让他做一些我自己都无法保证的东西吧？好像真正可以肆无忌惮做这种work的时间段只有achievement差不多时候的PHD year4/5了？</p>
 <p>扯的有点多，说回GCN吧。总的看来，其实各种technique/theory还是在发展中的，不过里面确实还有很多可以发掘的东西，而且从功利化发paper的角度，不仅仅是Common GCN, 很多子分支，譬如point cloud，譬如heteogeneous graph（参考<a href="https://wadmes.github.io/2019/12/17/heterogenous network/">https://wadmes.github.io/2019/12/17/heterogenous%20network/</a>） 这些子分支都是水paper的好方向哪。。</p>
