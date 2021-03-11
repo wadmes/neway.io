@@ -23,22 +23,26 @@
     var CONFIG = {"hostname":"wadmes.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"buttons","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="前言。本文作于GCN横空出世（2017）的三年后（2020），想尽可能在简单易懂的情况下说清楚近年GNN的发展脉络。当然，凭我鸽子王的尿性，估计本来也就不会写的很翔实（简单是第一层，偷懒是第二层🐶）。  最近GNN又看了一些ICLR2020的paper，加之之前积累的paper，对整个GNN的发展脉络有了比较清楚的理解，之所以想要记录在案，是因为发现：  GNN有点类似CNN，是一个入门难度不">
+  <meta name="description" content="前言。本文作于GCN横空出世（2017）的三年后（2020），想尽可能在简单易懂的情况下说清楚近年GNN的发展脉络。当然，凭我鸽子王的尿性，估计本来也就不会写的很翔实（简单是第一层，偷懒是第二层🐶）。 4th, March, 2021. Update: After a series of rejections by AI conferences, I note that I may look">
 <meta property="og:type" content="article">
 <meta property="og:title" content="超精简的GNN综述">
 <meta property="og:url" content="http://wadmes.github.io/2020/06/27/%E8%B6%85%E7%B2%BE%E7%AE%80%E7%9A%84GCN%E7%BB%BC%E8%BF%B0/index.html">
 <meta property="og:site_name" content="NEWAY">
-<meta property="og:description" content="前言。本文作于GCN横空出世（2017）的三年后（2020），想尽可能在简单易懂的情况下说清楚近年GNN的发展脉络。当然，凭我鸽子王的尿性，估计本来也就不会写的很翔实（简单是第一层，偷懒是第二层🐶）。  最近GNN又看了一些ICLR2020的paper，加之之前积累的paper，对整个GNN的发展脉络有了比较清楚的理解，之所以想要记录在案，是因为发现：  GNN有点类似CNN，是一个入门难度不">
+<meta property="og:description" content="前言。本文作于GCN横空出世（2017）的三年后（2020），想尽可能在简单易懂的情况下说清楚近年GNN的发展脉络。当然，凭我鸽子王的尿性，估计本来也就不会写的很翔实（简单是第一层，偷懒是第二层🐶）。 4th, March, 2021. Update: After a series of rejections by AI conferences, I note that I may look">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://www.zhihu.com/equation?tex=H%5E%7B(l%252B1)%7D+%253D+%5Csigma+(%5Cwidetilde+D+%5E%7B-%5Cfrac%7B1%7D%7B2%7D%7D+%5Cwidetilde+A+%5Cwidetilde+D%5E%7B-%5Cfrac%7B1%7D%7B2%7D%7D+H%5E%7B(l)%7DW%5E%7B(l)%7D+)+%5C%5C+%5C%5C">
 <meta property="og:image" content="https://www.zhihu.com/equation?tex=a_%7Blearn%7D(i%252Cj)%253D%5Cfrac%7Bexp(LeakyReLU(w%5BWx_i%252CWx_j%5D))%7D%7B%5CSigma_%7Bk%5Cin+neigh(i)%7Dexp(LeakyReLU(w%5BWx_i%252CWx_k%5D))%7D%5C%5C">
 <meta property="og:image" content="http://wadmes.github.io/figures/image-20200627214400158.png">
 <meta property="og:image" content="http://wadmes.github.io/figures/v2-7a1237527813b338926f6632bea84720_b.jpg">
+<meta property="og:image" content="http://wadmes.github.io/figures/image-20210311110145347.png">
+<meta property="og:image" content="http://wadmes.github.io/figures/image-20210311114447474.png">
 <meta property="og:image" content="http://wadmes.github.io/figures/image-20200819215408321.png">
 <meta property="og:image" content="http://wadmes.github.io/figures/image-20200819215427294.png">
 <meta property="og:image" content="http://wadmes.github.io/figures/image-20200819215438565.png">
+<meta property="og:image" content="http://wadmes.github.io/figures/image-20210306233434885.png">
+<meta property="og:image" content="http://wadmes.github.io/figures/image-20210306233700395.png">
 <meta property="article:published_time" content="2020-06-26T17:01:52.000Z">
-<meta property="article:modified_time" content="2020-09-23T12:46:12.570Z">
+<meta property="article:modified_time" content="2021-03-11T03:51:09.162Z">
 <meta property="article:author" content="Li Wei">
 <meta property="article:tag" content="AI">
 <meta property="article:tag" content="GNN">
@@ -252,7 +256,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-09-23 20:46:12" itemprop="dateModified" datetime="2020-09-23T20:46:12+08:00">2020-09-23</time>
+                <time title="Modified: 2021-03-11 11:51:09" itemprop="dateModified" datetime="2021-03-11T11:51:09+08:00">2021-03-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -291,6 +295,7 @@
       
         <blockquote>
 <p>前言。本文作于GCN横空出世（2017）的三年后（2020），想尽可能在简单易懂的情况下说清楚近年GNN的发展脉络。当然，凭我鸽子王的尿性，估计本来也就不会写的很翔实（简单是第一层，偷懒是第二层🐶）。</p>
+<p>4th, March, 2021. Update: After a series of rejections by AI conferences, I note that I may look back on these papers and rethink why these papers can be accepted, i.e., review them in a positive and admired way instead of criticising them. Also, I try to pay attentions to the authors and institutes, and summarize the research style of different groups. This helps to understand the whole GNN community and “may” contribute to my PhD dicision.</p>
 </blockquote>
 <p>最近GNN又看了一些ICLR2020的paper，加之之前积累的paper，对整个GNN的发展脉络有了比较清楚的理解，之所以想要记录在案，是因为发现：</p>
 <ul>
@@ -322,7 +327,7 @@
 <li>LSTM。。。也许那个年代LSTM比较火吧。</li>
 <li>channel-wise的max sampling</li>
 </ul>
-<p>注：aggregator其实总之不管是什么，都只要保证order-invarienty以及size-insensitivity就行了。。</p>
+<p>注：aggregator其实总之不管是什么，都只要保证order-invarienty以及size-insensitivity就行了</p>
 <h2 id="GAT"><a href="#GAT" class="headerlink" title="GAT"></a>GAT</h2><p>这篇就是说attention效果这么好，我们也套用到GCN吧！（对不起这是我的小人之心🐶），实际上应该是：每个邻居可能重要性不一样，所以要加个attention！</p>
 <p><img src="https://www.zhihu.com/equation?tex=a_%7Blearn%7D%28i%2Cj%29%3D%5Cfrac%7Bexp%28LeakyReLU%28w%5BWx_i%2CWx_j%5D%29%29%7D%7B%5CSigma_%7Bk%5Cin+neigh%28i%29%7Dexp%28LeakyReLU%28w%5BWx_i%2CWx_k%5D%29%29%7D%5C%5C" alt="[公式]"></p>
 <p>a(i,j)就是点i对点j的重要性。但这个真把我秀到了，具体可以参见<a href="https://wadmes.github.io/2019/12/30/attention/">https://wadmes.github.io/2019/12/30/attention/</a></p>
@@ -385,6 +390,18 @@
 <ul>
 <li>（用一些反例）基于聚合的很多GNN不能decide很多很简单的性质。</li>
 </ul>
+<h2 id="Simple-and-Deep-Graph-Convolutional-Networks"><a href="#Simple-and-Deep-Graph-Convolutional-Networks" class="headerlink" title="Simple and Deep Graph Convolutional Networks"></a>Simple and Deep Graph Convolutional Networks</h2><p>Use two simple techniques to make GNN deep</p>
+<ul>
+<li><p>Partially aggregate the input feature $H^0$, instead only aggregating previous layers features from its neighborhood</p>
+</li>
+<li><p>Adding a partial skip connection part</p>
+</li>
+<li><img src="/figures/image-20210311110145347.png" alt="image-20210311110145347"></li>
+</ul>
+<h2 id="PAIRNORM-TACKLING-OVERSMOOTHING-IN-GNNS"><a href="#PAIRNORM-TACKLING-OVERSMOOTHING-IN-GNNS" class="headerlink" title="PAIRNORM: TACKLING OVERSMOOTHING IN GNNS"></a>PAIRNORM: TACKLING OVERSMOOTHING IN GNNS</h2><p>Another paper to handle with oversoothing issue in GNNs, i.e., cannot generalize to deep network.</p>
+<p><img src="/figures/image-20210311114447474.png" alt="image-20210311114447474"></p>
+<p>Here, n is the number of nodes.</p>
+<p>The normalization is simply used for the output of each layer</p>
 <h1 id="理论层面"><a href="#理论层面" class="headerlink" title="理论层面"></a>理论层面</h1><h2 id="GIN"><a href="#GIN" class="headerlink" title="GIN"></a>GIN</h2><p>这个算是个人觉得最有意思的一篇了，大概就是说在座各位基于这种聚合的都是垃圾，最多也只能和从前的WL Test一样。<a href="https://wadmes.github.io/2019/09/14/GNN-GIN-GMN-study/">https://wadmes.github.io/2019/09/14/GNN-GIN-GMN-study/</a></p>
 <h2 id="THE-LOGICAL-EXPRESSIVENESS-OF-GRAPH-NEURAL-NETWORKS"><a href="#THE-LOGICAL-EXPRESSIVENESS-OF-GRAPH-NEURAL-NETWORKS" class="headerlink" title="THE LOGICAL EXPRESSIVENESS OF GRAPH NEURAL NETWORKS"></a>THE LOGICAL EXPRESSIVENESS OF GRAPH NEURAL NETWORKS</h2><p>这篇（ICLR2020）大概就是接着上一篇GIN（ICLR2019）说，诶，确实以前的聚合（自己的+邻居的）都是垃圾，但我这个不一样了，对于每个点还有了个全局（readout）信息。</p>
 <p>首先先从一个最简单的给点二分类的问题说起：如果要判断一个点是不是isolated node。我们是不是就没法正确分类了？因为true的点肯定没法传输信息。这个例子实在是妙啊。。</p>
@@ -409,8 +426,63 @@
 <p>关于distributed local algorithms的定义，请参考 <a href="https://arxiv.org/pdf/1205.2051.pdf" target="_blank" rel="noopener">https://arxiv.org/pdf/1205.2051.pdf</a></p>
 <h2 id="Distance-Encoding-–-Design-Provably-More-Powerful-Graph-Neural-Networks-for-Structural-Representation-Learning"><a href="#Distance-Encoding-–-Design-Provably-More-Powerful-Graph-Neural-Networks-for-Structural-Representation-Learning" class="headerlink" title="Distance Encoding – Design Provably More Powerful Graph Neural Networks for Structural Representation Learning"></a>Distance Encoding – Design Provably More Powerful Graph Neural Networks for Structural Representation Learning</h2><p>添加了一个distance encoding to encode certain distance from S to a node u， 其中S是图中的一部分structure，想学的target structure feature就是S的feature，若S为全图，则为全图的feature(graph embedding). </p>
 <p>这里的distance encoding 有比较复杂的formal形式，但是实验里面用的其实就是最简单的两点之间最短距离。</p>
+<h2 id="Design-Space-for-Graph-Neural-Networks"><a href="#Design-Space-for-Graph-Neural-Networks" class="headerlink" title="Design Space for Graph Neural Networks"></a>Design Space for Graph Neural Networks</h2><p><strong>Motivation:</strong></p>
+<ul>
+<li>Surging new GNN tasks, with different requirements</li>
+<li>Large design space of GNNs</li>
+</ul>
+<p><strong>Design space:</strong></p>
+<ul>
+<li>BN; Number of Pre-process layer (MLP); Number of Message Passing Layers; Sum/Mean/ and son on</li>
+</ul>
+<p><strong>Task space:</strong></p>
+<ul>
+<li>Synthetic tasks: node features/ labels/ node/graph classification </li>
+<li>Real-world tasks:  6 node classification benchmarks from [26, 28], and 6 graph classification tasks from [14].</li>
+</ul>
+<p><strong>GraphGym</strong></p>
+<ul>
+<li>Modularized GNN implementation</li>
+<li>Standardized GNN evaluation.</li>
+<li>Reproducible and scalable experiment management</li>
+</ul>
+<h3 id="Results"><a href="#Results" class="headerlink" title="Results:"></a><strong>Results:</strong></h3><ul>
+<li><strong>BN</strong> good!</li>
+<li><strong>No Dropout</strong> good!</li>
+<li><strong>PRELU</strong> good!</li>
+<li><strong>SUM</strong> good!</li>
+<li><strong>Adam</strong> good (compared to sgd)</li>
+<li><strong>400 epoch</strong> good than 100,200</li>
+</ul>
+<p>However, besides these “common-sense” conclusions, <strong>desirable design choices for Aggregation, Message passing layers, layer connectivity and post-processing layers drastically vary across tasks</strong></p>
+<p><strong>Tasks can be roughly clustered into two groups:</strong></p>
+<ul>
+<li>(1) node classification over real-world graphs; with <strong>rich node features</strong>; GNN designs that can better propagate <strong>feature information</strong> are preferred; </li>
+<li>(2) node classification over synthetic graphs and all graph classification tasks; require <strong>graph structural information</strong></li>
+</ul>
+<p>How to determine the “best” design for a new task?</p>
+<ul>
+<li>using $M=12$ echor models to test the task, </li>
+<li>find the most similar task based on the rankings of the echor models. </li>
+<li>use the best design of the most similar task as the “best” design</li>
+</ul>
+<h2 id="Identity-aware-Graph-Neural-Networks"><a href="#Identity-aware-Graph-Neural-Networks" class="headerlink" title="Identity-aware Graph Neural Networks"></a>Identity-aware Graph Neural Networks</h2><h3 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h3><ul>
+<li>MP GNN cannot distinguish nodes with the same computational graph.</li>
+<li>Although  task-specific feature augmentation;  is not generic and hamper the inductive power </li>
+<li>Previous works  task specific; and not based on MP GNN-&gt;not efficient</li>
+</ul>
+<p><img src="/figures/image-20210306233434885.png" alt="image-20210306233434885"></p>
+<h1 id="Some-other-interesting-papers"><a href="#Some-other-interesting-papers" class="headerlink" title="Some other interesting papers"></a>Some other interesting papers</h1><h2 id="NEURAL-SUBGRAPH-MATCHING"><a href="#NEURAL-SUBGRAPH-MATCHING" class="headerlink" title="NEURAL SUBGRAPH MATCHING"></a>NEURAL SUBGRAPH MATCHING</h2><p>Done by Stanford Group. The problem is to determine the presence of a given query graph in a large target graph.The key insight that makes NeuroMatch work is to define <strong>an embedding space where subgraph relations are preserved</strong>. That is, : If $G_v$ (k-hop neighborhood of node v) is a subgraph of $G_u$, then node v should be embedded to the lower-left of u. Such relationship is preserved in the embedding space by an elegantly-designed loss function:</p>
+<p><img src="/figures/image-20210306233700395.png" alt="image-20210306233700395"></p>
+<h2 id="Beyond-Homophily-in-Graph-Neural-Networks-Current-Limitations-and-Effective-Designs"><a href="#Beyond-Homophily-in-Graph-Neural-Networks-Current-Limitations-and-Effective-Designs" class="headerlink" title="Beyond Homophily in Graph Neural Networks: Current Limitations and Effective Designs"></a>Beyond Homophily in Graph Neural Networks: Current Limitations and Effective Designs</h2><p>This paper discusses GNNs in graphs where connected nodes may have <em>different</em> class labels and <em>dissimilar</em> features. </p>
+<p>Three techniques are used:</p>
+<ol>
+<li><strong>concatenate</strong> aggreated features insteaed of sum or mean them</li>
+<li>Higher-order Neighborhoods, concatenate two-order neighborhood</li>
+<li>concatenate (at the final layer) all learned ego-representations at previous layers </li>
+</ol>
 <h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>写完后，忽然发现了一个也可以算巧合的规律吧？所有方法层面的work基本都是国人lead，但是理论层面的work却寥寥无几。这算不算是一种悲哀呢？方法层面的东西固然重要、效果好，容易发paper，但是理论层面的才是有可能真正推动时代进步的那个钥匙，不过似乎大家都对这种“不好发paper”、“没有确定性”、“难入门”的东西有一种共识性的排斥，算是一种悲哀吧！</p>
-<p>其实自己何尝不是这样呢。做了五六个work，除了openmpl，其他的基本都是比较讨巧，迎着市场需求（学术圈热点）做的东西。这是这个时代的无奈，也是我个人的无奈吧，其实也是蛮想做一个沉下心学习研究一两年然后真正contribute to the development of CS的东西，可是现在还只是一个再过几个月要靠publication去砸PHD commitee脸的小小mphi；就算phd了也只是一个担心qualification、担心graduation的PHD student/candidate；就算当教授了也需要paper去争tenure啊；就算当了professor，也得对学生负责，在他没有成果前不可能让他做一些我自己都无法保证的东西吧？好像真正可以肆无忌惮做这种work的时间段只有achievement差不多时候的PHD year4/5了？</p>
+<p>其实自己何尝不是这样呢。做了五六个work，除了openmpl，其他的基本都是比较讨巧，迎着市场需求（学术圈热点）做的东西。这是这个时代的无奈，也是我个人的无奈吧，其实也是蛮想做一个沉下心学习研究一两年然后真正contribute to the development of CS的东西，可是现在还只是一个再过几个月要靠publication去砸PHD commitee脸的小小mphil；就算phd了也只是一个担心qualification、担心graduation的PHD student/candidate；就算当教授了也需要paper去争tenure啊；就算当了professor，也得对学生负责，在他没有成果前不可能让他做一些我自己都无法保证的东西吧？好像真正可以肆无忌惮做这种work的时间段只有achievement差不多时候的PHD year4/5了？</p>
 <p>扯的有点多，说回GCN吧。总的看来，其实各种technique/theory还是在发展中的，不过里面确实还有很多可以发掘的东西，而且从功利化发paper的角度，不仅仅是Common GCN, 很多子分支，譬如point cloud，譬如heteogeneous graph（参考<a href="https://wadmes.github.io/2019/12/17/heterogenous network/">https://wadmes.github.io/2019/12/17/heterogenous%20network/</a>） 这些子分支都是水paper的好方向哪。。</p>
 <p>另外就是虽然所有paper的conclusion或者method看起来很简单：这不是本科生都能想到的吗？但是里面的story writing绝对是我得好好研究的：怎么将一个简单的solution包装的很elegant，它解决什么问题的？有什么理论去支撑的？实验怎么设置？这里面都是学问啦。总之，虽然novelty不够，但是发现了这些work的一些共同点：</p>
 <ul>
@@ -502,7 +574,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#开山老祖-GCN"><span class="nav-number">1.</span> <span class="nav-text">开山老祖 GCN</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法层面"><span class="nav-number">2.</span> <span class="nav-text">方法层面</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#GraphSAGE"><span class="nav-number">2.1.</span> <span class="nav-text">GraphSAGE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GAT"><span class="nav-number">2.2.</span> <span class="nav-text">GAT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JKNet"><span class="nav-number">2.3.</span> <span class="nav-text">JKNet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DeepGCN"><span class="nav-number">2.4.</span> <span class="nav-text">DeepGCN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dropedge"><span class="nav-number">2.5.</span> <span class="nav-text">Dropedge</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Position-aware-Graph-Neural-Networks"><span class="nav-number">2.6.</span> <span class="nav-text">Position-aware Graph Neural Networks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#COLORING-GRAPH-NEURAL-NETWORKS-FOR-NODE-DISAMBIGUATION"><span class="nav-number">2.7.</span> <span class="nav-text">COLORING GRAPH NEURAL NETWORKS FOR NODE DISAMBIGUATION</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GeomGCN"><span class="nav-number">2.8.</span> <span class="nav-text">GeomGCN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generalization-and-Representational-Limits-of-Graph-Neural-Networks"><span class="nav-number">2.9.</span> <span class="nav-text">Generalization and Representational Limits of Graph Neural Networks</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#理论层面"><span class="nav-number">3.</span> <span class="nav-text">理论层面</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#GIN"><span class="nav-number">3.1.</span> <span class="nav-text">GIN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#THE-LOGICAL-EXPRESSIVENESS-OF-GRAPH-NEURAL-NETWORKS"><span class="nav-number">3.2.</span> <span class="nav-text">THE LOGICAL EXPRESSIVENESS OF GRAPH NEURAL NETWORKS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WHAT-GRAPH-NEURAL-NETWORKS-CANNOT-LEARN-DEPTH-VS-WIDTH"><span class="nav-number">3.3.</span> <span class="nav-text">WHAT GRAPH NEURAL NETWORKS CANNOT LEARN: DEPTH VS WIDTH</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Approximation-Ratios-of-Graph-Neural-Networks-for-Combinatorial-Problems"><span class="nav-number">3.4.</span> <span class="nav-text">Approximation Ratios of Graph Neural Networks for Combinatorial Problems</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Distance-Encoding-–-Design-Provably-More-Powerful-Graph-Neural-Networks-for-Structural-Representation-Learning"><span class="nav-number">3.5.</span> <span class="nav-text">Distance Encoding – Design Provably More Powerful Graph Neural Networks for Structural Representation Learning</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后记"><span class="nav-number">4.</span> <span class="nav-text">后记</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#开山老祖-GCN"><span class="nav-number">1.</span> <span class="nav-text">开山老祖 GCN</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法层面"><span class="nav-number">2.</span> <span class="nav-text">方法层面</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#GraphSAGE"><span class="nav-number">2.1.</span> <span class="nav-text">GraphSAGE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GAT"><span class="nav-number">2.2.</span> <span class="nav-text">GAT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JKNet"><span class="nav-number">2.3.</span> <span class="nav-text">JKNet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DeepGCN"><span class="nav-number">2.4.</span> <span class="nav-text">DeepGCN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dropedge"><span class="nav-number">2.5.</span> <span class="nav-text">Dropedge</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Position-aware-Graph-Neural-Networks"><span class="nav-number">2.6.</span> <span class="nav-text">Position-aware Graph Neural Networks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#COLORING-GRAPH-NEURAL-NETWORKS-FOR-NODE-DISAMBIGUATION"><span class="nav-number">2.7.</span> <span class="nav-text">COLORING GRAPH NEURAL NETWORKS FOR NODE DISAMBIGUATION</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GeomGCN"><span class="nav-number">2.8.</span> <span class="nav-text">GeomGCN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generalization-and-Representational-Limits-of-Graph-Neural-Networks"><span class="nav-number">2.9.</span> <span class="nav-text">Generalization and Representational Limits of Graph Neural Networks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Simple-and-Deep-Graph-Convolutional-Networks"><span class="nav-number">2.10.</span> <span class="nav-text">Simple and Deep Graph Convolutional Networks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PAIRNORM-TACKLING-OVERSMOOTHING-IN-GNNS"><span class="nav-number">2.11.</span> <span class="nav-text">PAIRNORM: TACKLING OVERSMOOTHING IN GNNS</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#理论层面"><span class="nav-number">3.</span> <span class="nav-text">理论层面</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#GIN"><span class="nav-number">3.1.</span> <span class="nav-text">GIN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#THE-LOGICAL-EXPRESSIVENESS-OF-GRAPH-NEURAL-NETWORKS"><span class="nav-number">3.2.</span> <span class="nav-text">THE LOGICAL EXPRESSIVENESS OF GRAPH NEURAL NETWORKS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WHAT-GRAPH-NEURAL-NETWORKS-CANNOT-LEARN-DEPTH-VS-WIDTH"><span class="nav-number">3.3.</span> <span class="nav-text">WHAT GRAPH NEURAL NETWORKS CANNOT LEARN: DEPTH VS WIDTH</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Approximation-Ratios-of-Graph-Neural-Networks-for-Combinatorial-Problems"><span class="nav-number">3.4.</span> <span class="nav-text">Approximation Ratios of Graph Neural Networks for Combinatorial Problems</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Distance-Encoding-–-Design-Provably-More-Powerful-Graph-Neural-Networks-for-Structural-Representation-Learning"><span class="nav-number">3.5.</span> <span class="nav-text">Distance Encoding – Design Provably More Powerful Graph Neural Networks for Structural Representation Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Design-Space-for-Graph-Neural-Networks"><span class="nav-number">3.6.</span> <span class="nav-text">Design Space for Graph Neural Networks</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Results"><span class="nav-number">3.6.1.</span> <span class="nav-text">Results:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Identity-aware-Graph-Neural-Networks"><span class="nav-number">3.7.</span> <span class="nav-text">Identity-aware Graph Neural Networks</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Background"><span class="nav-number">3.7.1.</span> <span class="nav-text">Background</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Some-other-interesting-papers"><span class="nav-number">4.</span> <span class="nav-text">Some other interesting papers</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#NEURAL-SUBGRAPH-MATCHING"><span class="nav-number">4.1.</span> <span class="nav-text">NEURAL SUBGRAPH MATCHING</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Beyond-Homophily-in-Graph-Neural-Networks-Current-Limitations-and-Effective-Designs"><span class="nav-number">4.2.</span> <span class="nav-text">Beyond Homophily in Graph Neural Networks: Current Limitations and Effective Designs</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后记"><span class="nav-number">5.</span> <span class="nav-text">后记</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
