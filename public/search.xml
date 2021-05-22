@@ -54,7 +54,6 @@
 <h4 id="感想"><a href="#感想" class="headerlink" title="感想"></a>感想</h4><ul>
 <li>面试的时候有说 charles kao 是自己的偶像，想做newton in physicals那样的人物。教授有点“冷笑”的意思。 再想想自己现在其实并没有什么能摆上台面的achievement，说这种话真有点“志大才疏”的意思，心比天高的人其实是我最不想成为的人。在我能说出这些话之前，先有足够的实力才不会被人质疑。不过所幸还有足够时间努力。</li>
 <li>eric lo 从工业界回到学术圈的原因也知道了，不喜欢编程。觉得钱不是最重要的事。很高兴其实还是有很多人这么想的。就像记者问charles kao没有光纤专利后不后悔，他说不后悔，” if everything is for making money, then I cannot absolutely invent the optical fiber”。至少我也一定不会做一个money-oriented 的人，对我来说 人生的追求不是making big money.</li>
-<li>努力吧 少年。 </li>
 </ul>
 ]]></content>
       <categories>
@@ -2715,6 +2714,11 @@ V_1' = V_1 + scale\times(V_2 - V_3)</script><p>其中 V1,2,3 都是随机挑选�
 <p>网上查了下 这个就是某一步计算分母为0的error。</p>
 <p>但是蛋疼的是 没有指示哪一行有错。而且python（或者说dgl还是pytorch）有个蛋疼的feature是这个exception在还没来得及print的时候就会直接跳出程序。（也就是说还不能用简单的print来定位）</p>
 <p>最后用IPython embed()很蠢的一步一步。。发现问题是 如果dgl.Graph没有边(G.number_of_edges == 0)，那么dgl自己的GATConv （Graph Attention Convolution会有问题），因此加了个dirty code判断这个情况，如果属实就直接生成一个zero vector（其实按道理应该是一个input feature itself，但是在这个work里面（graph color)反正没有边的图就没有利用价值，所以直接变成0）</p>
+<h2 id="DGL-Trying-to-create-tensor-with-negative-dimension"><a href="#DGL-Trying-to-create-tensor-with-negative-dimension" class="headerlink" title="DGL:  Trying to create tensor with negative dimension"></a>DGL:  Trying to create tensor with negative dimension</h2><p>一步一步抽丝剥茧发现：</p>
+<p>当pytorch的unique函数为gpu版本时，最后结果居然是一个dim=-251的vec（但问题在哪并不知道）。</p>
+<p>奇怪的是单独写一个py文件用gpu调用这个函数并没有问题，同样的input同样的设备只有放到这个project里面才会return负数dim的vec。</p>
+<p>暂时解决方法，将调用这个函数的func(in /dgl/core.py)改到cpu上：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">unique_val = F.asnumpy(F.unique(sorted_val))</span><br><span class="line">unique_val = F.asnumpy(F.unique(sorted_val.cpu()))</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>study</category>
@@ -3819,6 +3823,7 @@ H^{(k+1)} = activation((A+I)H^kW) \\A = adjacent \ matrix \\H^0 = features \ of 
 <li>Check the professors who are active in your conferences. </li>
 <li>Check the professors who are active in your research interest.</li>
 </ol>
+<h2 id="Exchange"><a href="#Exchange" class="headerlink" title="Exchange"></a>Exchange</h2><p>If you are an undergraduate, PLEASE apply for exchange programme! The experience is a very “bonus” for your application. Moreover, during your exchange, you can(and must) contact professors for research, who can help your recommendation letter, or even  be your future PhD supervisor.</p>
 <h1 id="Some-materials-from-Internet"><a href="#Some-materials-from-Internet" class="headerlink" title="Some materials from Internet"></a>Some materials from Internet</h1><h2 id="Interview"><a href="#Interview" class="headerlink" title="Interview"></a>Interview</h2><h1 id="面试"><a href="#面试" class="headerlink" title="面试"></a>面试</h1><p>面試時間大多是半小時左右，常見的過程如下：</p>
 <ul>
 <li><strong>自我介紹，約3–4分鐘</strong>，但有時教授已經大概看過你的資料了，就會直接切入第2點。</li>
@@ -3899,11 +3904,11 @@ H^{(k+1)} = activation((A+I)H^kW) \\A = adjacent \ matrix \\H^0 = features \ of 
       </tags>
   </entry>
   <entry>
-    <title>Study notes: metrics for engineering</title>
+    <title>Study notes: matrics for engineering</title>
     <url>/2021/04/02/Study-notes-matrics-for-engineering/</url>
     <content><![CDATA[<h1 id="Some-mathematical-English"><a href="#Some-mathematical-English" class="headerlink" title="Some mathematical English"></a>Some mathematical English</h1><p>$A$ : <em>capital</em> A</p>
 <p>$A^T$: capital A <em>superscript</em>(下标：subscript) capital T</p>
-<p>$A^{-1}$: captital A <em>to</em> the minus one </p>
+<p>$A^{-1}$: capital A <em>to</em> the minus one </p>
 <p>$1/2$:  one over two</p>
 <h1 id="Some-forgotten-terms"><a href="#Some-forgotten-terms" class="headerlink" title="Some forgotten terms"></a>Some forgotten terms</h1><p><strong>Banded matrix</strong>: like a diagonal matrix, but it has also elements above the main diagonal and below the main diagonal.</p>
 <p><strong>Triangular matrix</strong>: only has elements above (upper) or below (lower) the main diagonal.</p>
@@ -3917,6 +3922,99 @@ H^{(k+1)} = activation((A+I)H^kW) \\A = adjacent \ matrix \\H^0 = features \ of 
 <li>That is, the row/column vectors are <strong>othernormal vectors</strong></li>
 <li>$(Q X)^T(QX) = ||QX||^2 = X^TQ^TQX = X^TX = ||X||^2$: an orthogonal matrix <strong>preserves the norms and lengths.</strong></li>
 </ul>
+<h1 id="LU-decomposition"><a href="#LU-decomposition" class="headerlink" title="LU decomposition"></a>LU decomposition</h1><p><strong>Elementary matrix</strong>: the identity matrix with one of the zeros replaced by a number</p>
+<blockquote>
+<p>Consider matrix multiplication R = M$\times$A:</p>
+<p>$R<em>1$ (the first row of R) is calculated by the combination sum:  $m</em>{11}\times A<em>1 + m</em>{12}\times A_2 +…$</p>
+</blockquote>
+<p><strong>Inverse of elementary matrix</strong>: swap the sign of non-zero element (Think $MM^{-1}A = A$)</p>
+<p>Eg: </p>
+<script type="math/tex; mode=display">M = \begin{bmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\ -1& 0 & 1 \end{bmatrix}</script><script type="math/tex; mode=display">M^{-1} = \begin{bmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\ 1& 0 & 1 \end{bmatrix}</script><script type="math/tex; mode=display">M = \begin{bmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\ -1& 0 & 1 \end{bmatrix}</script><p><strong>LU decomposition</strong>: A = LU, L is a lower triangular matrix and U is a upper triangular matrix.</p>
+<p>Then, when we try to solve Ax = b, we can actually solve (LU)x = b cause y = Ux, Ly = b are easier to compute compared with Ax= b. (Note L,U are triangular matrices).</p>
+<blockquote>
+<p>Note: it is NOT computational-friendly by LU decomposition if we only calculate Ax=b once. However, if there are multiple b, we can decompose A one time, and benefit from the effecient computation by triangular matrix.</p>
+</blockquote>
+<h1 id="Vector-Space"><a href="#Vector-Space" class="headerlink" title="Vector Space"></a>Vector Space</h1><p>vector space = set of vectors (in this course, column matrices) + set of scalars (real numbers)</p>
+<p>should be <strong>closed</strong> under vector addition and scalar multiplication</p>
+<h2 id="Linear-Independence"><a href="#Linear-Independence" class="headerlink" title="Linear Independence"></a>Linear Independence</h2><p>The set of vectors ${u_1,…,u_n}$ are linearly independent if $c_1u_1 + … +c_nu_n = 0$ has only solution $c_1=c_2=…=c_n$.</p>
+<blockquote>
+<p>meaning: no vector in the set can be written as a linear combination of other vectors.</p>
+</blockquote>
+<p><strong>span</strong>: we say a set of vector ${u_1,…,u_n}$ <strong>span</strong> a vector space only consisting of all linear combinations of  ${u_1,…,u_n}$.</p>
+<p><strong>basis</strong> of a vector space is a set of minumum # of vectors that span the space.</p>
+<p>The munumum # above is <strong>dimension</strong>.</p>
+<h2 id="Null-Space"><a href="#Null-Space" class="headerlink" title="Null Space"></a>Null Space</h2><p>Null(A) is a vector space of all column vectors x s.t. Ax = 0.</p>
+<p> That is, the dot product between row vector and the null vector (vector in the null space) is zero.</p>
+<p>Thereofore, row space is orthogonal with null space.</p>
+<p>Therefore, dim(Row(A)) + dim(Null(A)) = n (why?)</p>
+<blockquote>
+<p>Left Null Space: $x^TA = 0$</p>
+</blockquote>
+<h2 id="Column-Space"><a href="#Column-Space" class="headerlink" title="Column Space"></a>Column Space</h2><script type="math/tex; mode=display">Mx = \begin{bmatrix}
+a & b  \\
+c &d  \end{bmatrix} \begin{bmatrix}
+x_1   \\
+x_2   \end{bmatrix} = x_1\begin{bmatrix}
+a   \\
+c   \end{bmatrix}+x_2\begin{bmatrix}
+b   \\
+d   \end{bmatrix}</script><blockquote>
+<p>Consider row space: <script type="math/tex">x^TM = \begin{bmatrix}
+x_1  &
+x_2   \end{bmatrix}\begin{bmatrix}
+a & b  \\
+c &d  \end{bmatrix}  = x_1\begin{bmatrix}
+a  &
+b   \end{bmatrix}+x_2\begin{bmatrix}
+c   &
+d   \end{bmatrix}</script></p>
+<p>$x^TM$ gives you a vector that is in the row space of M</p>
+</blockquote>
+<p>Above: linear combination of columns of the matrix (in the column space); <strong>Mx gives you a vector that is in the column space of M.</strong></p>
+<p><strong>Dimension</strong> of column space eqauls to the dimension of row space, i.e., dim(Col(A)) = dim(Col(A$^T$)), where the dimension is called <strong>rank</strong> of A.= number of linearly independent columns </p>
+<h2 id="Relationships-of-Null-Space-Column-Space-and-Row-space"><a href="#Relationships-of-Null-Space-Column-Space-and-Row-space" class="headerlink" title="Relationships of Null Space, Column Space, and Row space."></a>Relationships of Null Space, Column Space, and Row space.</h2><ol>
+<li>The <strong>column space</strong> of M can be represented by the space spaned by $Mx$. for any x.</li>
+<li>Similarly, the <strong>row space</strong> of M can be represented by the space spaned by $x^TM$ for any x.</li>
+<li>Dim(Col(A)) = dim(Row(A)) = rank</li>
+<li>Dim(Null(A)) = n - r</li>
+<li>Dim(Null($A^T$) = m - r</li>
+</ol>
+<h2 id="Orthogonal-Projections"><a href="#Orthogonal-Projections" class="headerlink" title="Orthogonal Projections"></a>Orthogonal Projections</h2><p>Project vector down into a subspace. The projected vector is the vector in the subspace that is closest to the original vector.</p>
+<h2 id="One-example-Solution-of-the-Least-Squares-Problem"><a href="#One-example-Solution-of-the-Least-Squares-Problem" class="headerlink" title="One example: Solution of the Least-Squares Problem"></a>One example: Solution of the Least-Squares Problem</h2><p>Ax = b (x is the target ), $A\in \R^{m\times n}, m&gt;n$</p>
+<p>b is the y-axis data point value, A is a matrix related to x-axis data point value. The equation Ax=b assumes that the line (represented in x) can go through all points, which is impossible.</p>
+<p>Therefore, this is considered as over-determined.</p>
+<p>Remeber that Ax gives you a vector that is in the column space of A. If Ax=b is over-determined, that means b is not in the column space of A since there is no solution.</p>
+<p><strong>But to find the best solution, what we can do is to project b into the column space of A.</strong></p>
+<p>So, we cannot solve Ax=b, instead, we solve Ax= $b_{projCol(A)}$.</p>
+<p>write $b = b<em>{projCol(A)}$ + $b - b</em>{projCol(A)}$</p>
+<p>Consdier the term $b - b<em>{projCol(A)}$ is orthogonal to the column space of A, (because $b</em>{projCol(A)}$ is a projection of b to Col(A)), the term is in the subspace Null(A$^T$).</p>
+<p>Therefore, we multiply Ax=b by $A^T$ to get rid of the term.</p>
+<p>$A^TAx = A^Tb$, <strong>normal equation,</strong> which has a solution (previous equation is un-solvable) as long as $A^TA$ is invertable,</p>
+<p>$x = (A^TA)^{-1}A^Tb$</p>
+<p>$Ax = A(A^TA)^{-1}A^Tb =  b_{projCol(A)}$</p>
+<p>here, $A(A^TA)^{-1}A^T$ is called the projection matrix that projects b into the column matrix of A.</p>
+<h1 id="Determinants"><a href="#Determinants" class="headerlink" title="Determinants"></a>Determinants</h1><h2 id="Leibniz-Formula-for-calculating-determinants"><a href="#Leibniz-Formula-for-calculating-determinants" class="headerlink" title="Leibniz Formula for calculating determinants"></a>Leibniz Formula for calculating determinants</h2><p>$\det(A)=\sum<em>{\sigma \in S_n}\text{sgn}(\sigma)\prod</em>{i=1}^{n} a_{\sigma(i),i}$</p>
+<p>where $sgn(\sigma)$ is +/- when the permutation $\sigma$ needs even/odd times of permutations from a normal order. $S_n$ is the permutation group.</p>
+<h2 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h2><ol>
+<li>Det I = 1</li>
+<li>det changes sign when row interchanges</li>
+<li>det is a linear function of all rows. (<strong>multiply</strong> the first row by a constant, then det is also multiplied by the constant, <strong>add</strong> works in a similar way)</li>
+<li>by 2 3: det = 0 if there are equal rows</li>
+<li>det D/L/U = product of diagonal elements</li>
+<li>Det(AB) = detA * detB</li>
+<li>Gaussian Elemination does not change the det</li>
+</ol>
+<h1 id="Eigenvalue"><a href="#Eigenvalue" class="headerlink" title="Eigenvalue"></a>Eigenvalue</h1><p>Given a matrix $A\in \R^{n\times n}$:</p>
+<p>$Ax = \lambda x $, $x$ is the eigen vector and $\lambda$ is the eigen value</p>
+<p>That is, $(A-\lambda I )x = 0$.</p>
+<p>If $A-\lambda x$ can be inversed (the determinant is not zero), then x=0 is a trivial solution.</p>
+<p>Therefore, $A-\lambda x$ cannot be an invertiable matrix (det is zero)</p>
 ]]></content>
       <categories>
         <category>study</category>
@@ -3924,6 +4022,105 @@ H^{(k+1)} = activation((A+I)H^kW) \\A = adjacent \ matrix \\H^0 = features \ of 
       <tags>
         <tag>matrix</tag>
         <tag>notes</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hey Neway, April, 2021</title>
+    <url>/2021/04/20/Hey-Neway-April-2021/</url>
+    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look."><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="my favorite LOL player?" /><label>my favorite LOL player?</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="8ed258113c9d80b642df167c753ba29222ff5014d474ade4a6f9e6b7697ce253">707e51b23ebe6f79ada8b9fec06a96553576b33f05c8a67d869112b61372afc62941959cadeda32716bdad868b7dcf44e23e65481cbf4c5741c061369bdee75fc496d5d792fc1cc3dacc80048239017fd8f5be5eff344822061c5787f957e1b255ca1981ab01b9d0ecb78a1c5d8e0bee0b8fdece45a7421433ec66ea0fe690e515ef0d045198ab64c4132b064e9d5310abda58757e59d287d64dc62415ae102ab2a84e1089f0d52aeb07f05fca4af087662e98bcfa6ecf15900dc5b9bf6b446d045dfb2e51d190768f6917a5b7d1fc4d2b5bc23d7e5e79e2c782642c4ce12af723454e5cdceae7d49bc32985009b1baebb2fb4688328fbf3ed64222c5c5c98960fa7f136e5cc3b2b26c43c84b3b5e0d786bbd5c75680cd583de23bb421f28489f3752858bfc4eb00a9c035b576fa00b3b97766d04a586523714e6fa92d1a1cfb9f7d5069c8f55b5da6c6c3567062207f</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>life</category>
+      </categories>
+      <tags>
+        <tag>memo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CS224W ML in graphs-study notes: node embedding</title>
+    <url>/2021/05/03/CS224W-ML-in-graphs-study-notes-node-embedding/</url>
+    <content><![CDATA[<p><strong>Encoder</strong> maps from nodes to embeddings</p>
+<p><strong>Decoder</strong> maps from embeddings to the similarity score </p>
+<blockquote>
+<p>In our own task, we need to think of how our embeddings will be used. (In previous work, at leaset in the lecture, the embeddings are used for similarity check.)</p>
+</blockquote>
+<h2 id="Random-walk"><a href="#Random-walk" class="headerlink" title="Random walk"></a>Random walk</h2><p>$z_u^T z_v$ = probability that u and v co-occur on a random walk over the graph</p>
+<p>therefore, we maximize the probability of node pairs that is traversed by random walk</p>
+<h2 id="node2vec"><a href="#node2vec" class="headerlink" title="node2vec"></a>node2vec</h2><p><strong>biasd walk</strong>: BFS walk (local microscopic view) + DFS walk (global macroscopic view)</p>
+<h2 id="Graph-Embedding"><a href="#Graph-Embedding" class="headerlink" title="Graph Embedding"></a>Graph Embedding</h2><ul>
+<li>avergae/sum node embeddings</li>
+<li>virtual node as the total graph</li>
+<li>hierarchically cluster nodes in graphs</li>
+</ul>
+]]></content>
+      <categories>
+        <category>study</category>
+      </categories>
+      <tags>
+        <tag>DNN</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>明朝那些事读时感</title>
+    <url>/2021/05/22/%E6%98%8E%E6%9C%9D%E9%82%A3%E4%BA%9B%E4%BA%8B%E8%BE%B9%E8%AF%BB%E8%BE%B9%E5%86%99%E5%90%90%E6%A7%BD/</url>
+    <content><![CDATA[<p>最近闲来无事，thesis刚搞好draft，于是决定又重读一下明朝那些事。上次读还是高三接近高考的时候了，那时候十一点晚自习结束上床后，还会用IPad看一两小时的明朝那些事，因为时间也很紧，所以颇有点囫囵吞枣的意思，权当看故事书+积累素材了。不过还是有几个印象深刻的点，比如徐达蓝玉的不世之功，比如方孝孺的诛十族又何妨，比如最后徐霞客的完美结尾：成功，便是按照自己的方式度过人生。</p>
+<blockquote>
+<p>最后这本书里的素材还真在我高考作文上用上了，当年的满分作文没准得记他一功。所以说，人生的很多重要时刻，譬如高考，结婚，并不是那一刻才决定了你的走向，命运早已给你所有的付出、馈赠、获得标上了价码。</p>
+</blockquote>
+<p>好书总是不闲多看的，每次看肯定会有一些新的体会。以此为记。</p>
+<h1 id="性格是怎样形成的"><a href="#性格是怎样形成的" class="headerlink" title="性格是怎样形成的"></a>性格是怎样形成的</h1><p>历史是什么组成的？有人觉得是王侯将相、英雄豪杰、和所有时代浪潮中的风云人物。有人觉得是奋笔疾书的书生、是走街串巷的匠人、是锄禾日当午的老农、是一个一个平凡的普通人组成的。我是同意后者的，不过似乎很多风云人物并不这么觉得：他们觉得自己是历史的主角，便自然可以是历史的导演。</p>
+<p>朱元璋就是想当导演的人。他不想要丞相来制衡君权，于是放纵胡惟庸七年；他想要子孙千秋伟业，于是制定了整个国家的运作方式，事无巨细，皆定规则；他痛恨宦官，责令太监不得干政。</p>
+<p>不过似乎他所有试图违背历史进程的操作全都适得其反了：丞相没有了，只是换了个内阁大臣的名号，甚至相权更甚；规则详尽，但不完美，自己的子孙甚至因为规则而被饿死；更别说明朝出了历史上最有名的几位太监了。</p>
+<p>说了这么一通，想论证那些风云人物也不可能控制历史进程。其实是想引出下一个观点：</p>
+<p><em>恰恰相反，人的许多行为或思想，并不是那一瞬间自己大脑才做出的选择。而是长年累月经历（后代的角度看就是历史）所塑造的性格，决定了你的行为。</em></p>
+<p>从这个角度看，还有点所有人也只是被历史操纵的一个“角色”，扮演着自己的身份进行人生而已。</p>
+<p>陈友谅捕鱼出身，身上总是一股鱼腥味，因此从小被人嘲笑欺凌，他自然对这个社会没有好感、心理阴暗；朱元璋父母被贪官污吏压榨，自然痛恨腐败；最有意思的是从古至今白手起家打天下的刘邦、朱元璋，以及太祖，似乎都对“狡兔死走狗烹”有着执念，反倒是秦始皇、李世民等“二代”可以做到善待功臣。</p>
+<blockquote>
+<p>当年明月似乎很喜欢用人生经历来推断人物性格，再根据这个性格来判断某件模糊事件的真伪。</p>
+</blockquote>
+<p>推到我们个人，大概也是成立的。倘若父母从小争吵、离婚，便也不可能知道如何做一个温柔的、善于爱他人的人。貌似挺多父母吵架的孩子长大后面对矛盾就会把自己埋起来，沉默不语。</p>
+<p>当然我们也不必直接摆烂：反正我命由天不由我，我是怎样的便是怎样的，就随便过过吧。虽然我们的性格是由我们经历塑造的，但是经历是我们可以选择的，尤其是有了自我意识、自我独立之后。倘若想要做个开朗洒脱之人，去找个李太白做朋友吧！</p>
+<h1 id="朱允文"><a href="#朱允文" class="headerlink" title="朱允文"></a>朱允文</h1><p>高中读这本书那会，读到靖难之役便有种不忍心看的感觉。虽然朱允文和朱棣和我没半毛线关系，但我总是不希望看到朱允文战败，读到朱棣各种狗运的时候也是咬牙切齿。</p>
+<p>朱棣作为一个很有建树的皇帝，肯定是没惹到我的。究其原因，我觉得可能是我代入到朱允文的角色了。朱允文是根正苗红的皇帝继承人、是百姓爱戴的任君（至少他推行的各种免税政策来看，我脑补一下应该百姓是prefer Yunwen rather than the brutal Zhu Di.），可以说是一个正面典型。而朱棣做的就是把这个正面典型撕裂开、摔到地上、并批判的一无是处。</p>
+<p>我个人觉着我就像是朱允文这样的正面典型，所以我很害怕来个朱棣这样的人把我虚伪的正面典型撕裂（吐槽：这么说怎么有点像窥探里的男主？不过我看窥探好像没这感觉）。记得初中时候，我妈向我老师告状说我打游戏，我气的不行，日记里痛骂了我妈一顿。</p>
+<p>在往深追究，我似乎是个比较在乎他人看法的人。因此我才会在乎自己的“正面形象”；才会在虚拟的网络里会小心翼翼的看自己发言有没有被人喷；才会在得知高中同学对自己的负面评价后很伤心很不解；才会对于上台演讲、当领袖没有什么畏惧排斥。（因为希望得到他人的崇拜？）</p>
+<p>而再往深里说，之所以在乎他人看法，也许是因为自己的自卑？虽然以前说自己很自卑会觉得很可笑，我是个相当自信，很少怀疑自己，高中甚至算自负的人。不过现在窥探自己的灵魂，越发觉得只有自卑才能解释我以上的种种行为。而自卑，也许是童年经历导致的？</p>
+<p>兜兜转转，又回到了第一个论题。</p>
+<blockquote>
+<p>从人生经历、面对事物做出的选择，来推断自己的性格，再以自己的性格帮助自己做选择，似乎是个不错的方法。</p>
+<p>譬如什么样的姑娘才是适合我的？</p>
+<p>结合我的经历，思想，能得出的结论 应该是：</p>
+<ol>
+<li>对我是崇拜的；（因为自卑）</li>
+<li>对我是能温柔体贴的、有爱意的，换句话说，有点母性光环的；（还是因为童年经历）</li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>life</category>
+      </categories>
+      <tags>
+        <tag>read</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>非暴力沟通总结&amp;读后感</title>
+    <url>/2021/04/24/%E9%9D%9E%E6%9A%B4%E5%8A%9B%E6%B2%9F%E9%80%9A%E6%80%BB%E7%BB%93-%E8%AF%BB%E5%90%8E%E6%84%9F/</url>
+    <content><![CDATA[<h1 id="四要素"><a href="#四要素" class="headerlink" title="四要素"></a>四要素</h1><ul>
+<li>observation</li>
+<li>feeling</li>
+<li>need</li>
+<li>request</li>
+</ul>
+<p>除了用四要素表达自己，四要素也<strong>可以用于倾听</strong>：倾听、了解他们的观察、感受、需要和请求。（我们不用要求对方也知道四要素）</p>
+<h1 id="异化的沟通方式"><a href="#异化的沟通方式" class="headerlink" title="异化的沟通方式"></a>异化的沟通方式</h1><ul>
+<li>道德评判：过分/自私/等等，每个人三观不一样，所有行为没有好坏，不能将冲突归咎于对方。（恰恰相反，要重视彼此的感受和需要）。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>life</category>
+      </categories>
+      <tags>
+        <tag>read</tag>
       </tags>
   </entry>
 </search>

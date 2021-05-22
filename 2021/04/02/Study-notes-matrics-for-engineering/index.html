@@ -23,15 +23,15 @@
     var CONFIG = {"hostname":"wadmes.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"buttons","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
   </script>
 
-  <meta name="description" content="Some mathematical English$A$ : capital A $A^T$: capital A superscript(下标：subscript) capital T $A^{-1}$: captital A to the minus one  $1&#x2F;2$:  one over two Some forgotten termsBanded matrix: like a diag">
+  <meta name="description" content="Some mathematical English$A$ : capital A $A^T$: capital A superscript(下标：subscript) capital T $A^{-1}$: capital A to the minus one  $1&#x2F;2$:  one over two Some forgotten termsBanded matrix: like a diago">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Study notes: metrics for engineering">
+<meta property="og:title" content="Study notes: matrics for engineering">
 <meta property="og:url" content="http://wadmes.github.io/2021/04/02/Study-notes-matrics-for-engineering/index.html">
 <meta property="og:site_name" content="NEWAY">
-<meta property="og:description" content="Some mathematical English$A$ : capital A $A^T$: capital A superscript(下标：subscript) capital T $A^{-1}$: captital A to the minus one  $1&#x2F;2$:  one over two Some forgotten termsBanded matrix: like a diag">
+<meta property="og:description" content="Some mathematical English$A$ : capital A $A^T$: capital A superscript(下标：subscript) capital T $A^{-1}$: capital A to the minus one  $1&#x2F;2$:  one over two Some forgotten termsBanded matrix: like a diago">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-04-02T05:35:44.000Z">
-<meta property="article:modified_time" content="2021-04-02T10:22:21.651Z">
+<meta property="article:modified_time" content="2021-05-18T06:11:20.854Z">
 <meta property="article:author" content="Li Wei">
 <meta property="article:tag" content="matrix">
 <meta property="article:tag" content="notes">
@@ -50,7 +50,7 @@
   };
 </script>
 
-  <title>Study notes: metrics for engineering | NEWAY</title>
+  <title>Study notes: matrics for engineering | NEWAY</title>
   
 
 
@@ -227,7 +227,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Study notes: metrics for engineering
+          Study notes: matrics for engineering
         </h1>
 
         <div class="post-meta">
@@ -236,10 +236,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-04-02 13:35:44 / Modified: 18:22:21" itemprop="dateCreated datePublished" datetime="2021-04-02T13:35:44+08:00">2021-04-02</time>
+              <time title="Created: 2021-04-02 13:35:44" itemprop="dateCreated datePublished" datetime="2021-04-02T13:35:44+08:00">2021-04-02</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-05-18 14:11:20" itemprop="dateModified" datetime="2021-05-18T14:11:20+08:00">2021-05-18</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -277,7 +283,7 @@
       
         <h1 id="Some-mathematical-English"><a href="#Some-mathematical-English" class="headerlink" title="Some mathematical English"></a>Some mathematical English</h1><p>$A$ : <em>capital</em> A</p>
 <p>$A^T$: capital A <em>superscript</em>(下标：subscript) capital T</p>
-<p>$A^{-1}$: captital A <em>to</em> the minus one </p>
+<p>$A^{-1}$: capital A <em>to</em> the minus one </p>
 <p>$1/2$:  one over two</p>
 <h1 id="Some-forgotten-terms"><a href="#Some-forgotten-terms" class="headerlink" title="Some forgotten terms"></a>Some forgotten terms</h1><p><strong>Banded matrix</strong>: like a diagonal matrix, but it has also elements above the main diagonal and below the main diagonal.</p>
 <p><strong>Triangular matrix</strong>: only has elements above (upper) or below (lower) the main diagonal.</p>
@@ -291,6 +297,99 @@
 <li>That is, the row/column vectors are <strong>othernormal vectors</strong></li>
 <li>$(Q X)^T(QX) = ||QX||^2 = X^TQ^TQX = X^TX = ||X||^2$: an orthogonal matrix <strong>preserves the norms and lengths.</strong></li>
 </ul>
+<h1 id="LU-decomposition"><a href="#LU-decomposition" class="headerlink" title="LU decomposition"></a>LU decomposition</h1><p><strong>Elementary matrix</strong>: the identity matrix with one of the zeros replaced by a number</p>
+<blockquote>
+<p>Consider matrix multiplication R = M$\times$A:</p>
+<p>$R<em>1$ (the first row of R) is calculated by the combination sum:  $m</em>{11}\times A<em>1 + m</em>{12}\times A_2 +…$</p>
+</blockquote>
+<p><strong>Inverse of elementary matrix</strong>: swap the sign of non-zero element (Think $MM^{-1}A = A$)</p>
+<p>Eg: </p>
+<script type="math/tex; mode=display">M = \begin{bmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\ -1& 0 & 1 \end{bmatrix}</script><script type="math/tex; mode=display">M^{-1} = \begin{bmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\ 1& 0 & 1 \end{bmatrix}</script><script type="math/tex; mode=display">M = \begin{bmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\ -1& 0 & 1 \end{bmatrix}</script><p><strong>LU decomposition</strong>: A = LU, L is a lower triangular matrix and U is a upper triangular matrix.</p>
+<p>Then, when we try to solve Ax = b, we can actually solve (LU)x = b cause y = Ux, Ly = b are easier to compute compared with Ax= b. (Note L,U are triangular matrices).</p>
+<blockquote>
+<p>Note: it is NOT computational-friendly by LU decomposition if we only calculate Ax=b once. However, if there are multiple b, we can decompose A one time, and benefit from the effecient computation by triangular matrix.</p>
+</blockquote>
+<h1 id="Vector-Space"><a href="#Vector-Space" class="headerlink" title="Vector Space"></a>Vector Space</h1><p>vector space = set of vectors (in this course, column matrices) + set of scalars (real numbers)</p>
+<p>should be <strong>closed</strong> under vector addition and scalar multiplication</p>
+<h2 id="Linear-Independence"><a href="#Linear-Independence" class="headerlink" title="Linear Independence"></a>Linear Independence</h2><p>The set of vectors ${u_1,…,u_n}$ are linearly independent if $c_1u_1 + … +c_nu_n = 0$ has only solution $c_1=c_2=…=c_n$.</p>
+<blockquote>
+<p>meaning: no vector in the set can be written as a linear combination of other vectors.</p>
+</blockquote>
+<p><strong>span</strong>: we say a set of vector ${u_1,…,u_n}$ <strong>span</strong> a vector space only consisting of all linear combinations of  ${u_1,…,u_n}$.</p>
+<p><strong>basis</strong> of a vector space is a set of minumum # of vectors that span the space.</p>
+<p>The munumum # above is <strong>dimension</strong>.</p>
+<h2 id="Null-Space"><a href="#Null-Space" class="headerlink" title="Null Space"></a>Null Space</h2><p>Null(A) is a vector space of all column vectors x s.t. Ax = 0.</p>
+<p> That is, the dot product between row vector and the null vector (vector in the null space) is zero.</p>
+<p>Thereofore, row space is orthogonal with null space.</p>
+<p>Therefore, dim(Row(A)) + dim(Null(A)) = n (why?)</p>
+<blockquote>
+<p>Left Null Space: $x^TA = 0$</p>
+</blockquote>
+<h2 id="Column-Space"><a href="#Column-Space" class="headerlink" title="Column Space"></a>Column Space</h2><script type="math/tex; mode=display">Mx = \begin{bmatrix}
+a & b  \\
+c &d  \end{bmatrix} \begin{bmatrix}
+x_1   \\
+x_2   \end{bmatrix} = x_1\begin{bmatrix}
+a   \\
+c   \end{bmatrix}+x_2\begin{bmatrix}
+b   \\
+d   \end{bmatrix}</script><blockquote>
+<p>Consider row space: <script type="math/tex">x^TM = \begin{bmatrix}
+x_1  &
+x_2   \end{bmatrix}\begin{bmatrix}
+a & b  \\
+c &d  \end{bmatrix}  = x_1\begin{bmatrix}
+a  &
+b   \end{bmatrix}+x_2\begin{bmatrix}
+c   &
+d   \end{bmatrix}</script></p>
+<p>$x^TM$ gives you a vector that is in the row space of M</p>
+</blockquote>
+<p>Above: linear combination of columns of the matrix (in the column space); <strong>Mx gives you a vector that is in the column space of M.</strong></p>
+<p><strong>Dimension</strong> of column space eqauls to the dimension of row space, i.e., dim(Col(A)) = dim(Col(A$^T$)), where the dimension is called <strong>rank</strong> of A.= number of linearly independent columns </p>
+<h2 id="Relationships-of-Null-Space-Column-Space-and-Row-space"><a href="#Relationships-of-Null-Space-Column-Space-and-Row-space" class="headerlink" title="Relationships of Null Space, Column Space, and Row space."></a>Relationships of Null Space, Column Space, and Row space.</h2><ol>
+<li>The <strong>column space</strong> of M can be represented by the space spaned by $Mx$. for any x.</li>
+<li>Similarly, the <strong>row space</strong> of M can be represented by the space spaned by $x^TM$ for any x.</li>
+<li>Dim(Col(A)) = dim(Row(A)) = rank</li>
+<li>Dim(Null(A)) = n - r</li>
+<li>Dim(Null($A^T$) = m - r</li>
+</ol>
+<h2 id="Orthogonal-Projections"><a href="#Orthogonal-Projections" class="headerlink" title="Orthogonal Projections"></a>Orthogonal Projections</h2><p>Project vector down into a subspace. The projected vector is the vector in the subspace that is closest to the original vector.</p>
+<h2 id="One-example-Solution-of-the-Least-Squares-Problem"><a href="#One-example-Solution-of-the-Least-Squares-Problem" class="headerlink" title="One example: Solution of the Least-Squares Problem"></a>One example: Solution of the Least-Squares Problem</h2><p>Ax = b (x is the target ), $A\in \R^{m\times n}, m&gt;n$</p>
+<p>b is the y-axis data point value, A is a matrix related to x-axis data point value. The equation Ax=b assumes that the line (represented in x) can go through all points, which is impossible.</p>
+<p>Therefore, this is considered as over-determined.</p>
+<p>Remeber that Ax gives you a vector that is in the column space of A. If Ax=b is over-determined, that means b is not in the column space of A since there is no solution.</p>
+<p><strong>But to find the best solution, what we can do is to project b into the column space of A.</strong></p>
+<p>So, we cannot solve Ax=b, instead, we solve Ax= $b_{projCol(A)}$.</p>
+<p>write $b = b<em>{projCol(A)}$ + $b - b</em>{projCol(A)}$</p>
+<p>Consdier the term $b - b<em>{projCol(A)}$ is orthogonal to the column space of A, (because $b</em>{projCol(A)}$ is a projection of b to Col(A)), the term is in the subspace Null(A$^T$).</p>
+<p>Therefore, we multiply Ax=b by $A^T$ to get rid of the term.</p>
+<p>$A^TAx = A^Tb$, <strong>normal equation,</strong> which has a solution (previous equation is un-solvable) as long as $A^TA$ is invertable,</p>
+<p>$x = (A^TA)^{-1}A^Tb$</p>
+<p>$Ax = A(A^TA)^{-1}A^Tb =  b_{projCol(A)}$</p>
+<p>here, $A(A^TA)^{-1}A^T$ is called the projection matrix that projects b into the column matrix of A.</p>
+<h1 id="Determinants"><a href="#Determinants" class="headerlink" title="Determinants"></a>Determinants</h1><h2 id="Leibniz-Formula-for-calculating-determinants"><a href="#Leibniz-Formula-for-calculating-determinants" class="headerlink" title="Leibniz Formula for calculating determinants"></a>Leibniz Formula for calculating determinants</h2><p>$\det(A)=\sum<em>{\sigma \in S_n}\text{sgn}(\sigma)\prod</em>{i=1}^{n} a_{\sigma(i),i}$</p>
+<p>where $sgn(\sigma)$ is +/- when the permutation $\sigma$ needs even/odd times of permutations from a normal order. $S_n$ is the permutation group.</p>
+<h2 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h2><ol>
+<li>Det I = 1</li>
+<li>det changes sign when row interchanges</li>
+<li>det is a linear function of all rows. (<strong>multiply</strong> the first row by a constant, then det is also multiplied by the constant, <strong>add</strong> works in a similar way)</li>
+<li>by 2 3: det = 0 if there are equal rows</li>
+<li>det D/L/U = product of diagonal elements</li>
+<li>Det(AB) = detA * detB</li>
+<li>Gaussian Elemination does not change the det</li>
+</ol>
+<h1 id="Eigenvalue"><a href="#Eigenvalue" class="headerlink" title="Eigenvalue"></a>Eigenvalue</h1><p>Given a matrix $A\in \R^{n\times n}$:</p>
+<p>$Ax = \lambda x $, $x$ is the eigen vector and $\lambda$ is the eigen value</p>
+<p>That is, $(A-\lambda I )x = 0$.</p>
+<p>If $A-\lambda x$ can be inversed (the determinant is not zero), then x=0 is a trivial solution.</p>
+<p>Therefore, $A-\lambda x$ cannot be an invertiable matrix (det is zero)</p>
 
     </div>
 
@@ -376,7 +475,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Some-mathematical-English"><span class="nav-number">1.</span> <span class="nav-text">Some mathematical English</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Some-forgotten-terms"><span class="nav-number">2.</span> <span class="nav-text">Some forgotten terms</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Some-mathematical-English"><span class="nav-number">1.</span> <span class="nav-text">Some mathematical English</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Some-forgotten-terms"><span class="nav-number">2.</span> <span class="nav-text">Some forgotten terms</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LU-decomposition"><span class="nav-number">3.</span> <span class="nav-text">LU decomposition</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vector-Space"><span class="nav-number">4.</span> <span class="nav-text">Vector Space</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linear-Independence"><span class="nav-number">4.1.</span> <span class="nav-text">Linear Independence</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Null-Space"><span class="nav-number">4.2.</span> <span class="nav-text">Null Space</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Column-Space"><span class="nav-number">4.3.</span> <span class="nav-text">Column Space</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Relationships-of-Null-Space-Column-Space-and-Row-space"><span class="nav-number">4.4.</span> <span class="nav-text">Relationships of Null Space, Column Space, and Row space.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Orthogonal-Projections"><span class="nav-number">4.5.</span> <span class="nav-text">Orthogonal Projections</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#One-example-Solution-of-the-Least-Squares-Problem"><span class="nav-number">4.6.</span> <span class="nav-text">One example: Solution of the Least-Squares Problem</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Determinants"><span class="nav-number">5.</span> <span class="nav-text">Determinants</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Leibniz-Formula-for-calculating-determinants"><span class="nav-number">5.1.</span> <span class="nav-text">Leibniz Formula for calculating determinants</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Properties"><span class="nav-number">5.2.</span> <span class="nav-text">Properties</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Eigenvalue"><span class="nav-number">6.</span> <span class="nav-text">Eigenvalue</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -391,7 +490,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">101</span>
+          <span class="site-state-item-count">105</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
