@@ -209,6 +209,115 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://wadmes.github.io/2019/09/14/GNN-GIN-GMN-study/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/liwei3.jpg">
+      <meta itemprop="name" content="Li Wei">
+      <meta itemprop="description" content="人生注定是一个人的旅行，但就算孤独也要做一直前行的人啊">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NEWAY">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/09/14/GNN-GIN-GMN-study/" class="post-title-link" itemprop="url">GNN/GIN/GMN study</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-09-14 15:33:08" itemprop="dateCreated datePublished" datetime="2019-09-14T15:33:08+08:00">2019-09-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-12 13:04:46" itemprop="dateModified" datetime="2020-01-12T13:04:46+08:00">2020-01-12</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/study/" itemprop="url" rel="index"><span itemprop="name">study</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2019/09/14/GNN-GIN-GMN-study/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/09/14/GNN-GIN-GMN-study/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="GNN"><a href="#GNN" class="headerlink" title="GNN"></a>GNN</h2><script type="math/tex; mode=display">
+H^{(k+1)} = activation(D^{-1/2}(A+I)D^{1/2}H^kW) \\
+A = adjacent \ matrix \\
+D = degree \ matrix \\
+H^0 = features \ of \ graph \ nodes \\
+W = trainable \ variables \</script><p>Reason:</p>
+<p>$(A+I)H$ represents that the feature of one node is the sum of features of node itself (plus $I$) and its adjacent nodes( $A$)</p>
+<p>$D^{-1/2}(A+I)D^{1/2}$ = normalized ($D^-1$)</p>
+<h2 id="GIN"><a href="#GIN" class="headerlink" title="GIN"></a>GIN</h2><p>ref: How powerful are graph neural networks (ICLR2019)</p>
+<blockquote>
+<p>Lemma 2. Let G1 and G2 be any two non-isomorphic graphs. If a graph neural network A : G → $R^d$ maps G1 and G2 to different embeddings, the Weisfeiler-Lehman graph isomorphism test also decides<br>G1 and G2 are not isomorphic.</p>
+</blockquote>
+<p>lemma 2 means that upper bound of GNN equals to WI test</p>
+<blockquote>
+<p>Theorem 3. Let A : G → $R^d$  be a GNN. With a sufficient number of GNN layers, A maps any<br>graphs G1 and G2 that the Weisfeiler-Lehman test of isomorphism decides as non-isomorphic, to<br>different embeddings if the following conditions hold: all of operations in GNN (aggregate, combine and readout are injective(单射))</p>
+</blockquote>
+<p>based on theorem 3, we can propose a simplest GNN model : GIN, where aggeregate = sum, combine = (1+ $\alpha$) h + aggeragate , ($alpha$ is simply a pre-defined scalar)</p>
+<h3 id="GMN"><a href="#GMN" class="headerlink" title="GMN"></a>GMN</h3><p>Graph match</p>
+<p>(input G1 G2, output similarity score)</p>
+<p>Only difference with GNN: when we combine information, we will consider one more term:</p>
+<p>$\mu<em>{j\rightarrow i} = a</em>{j\rightarrow i}(h<em>{i}^{(t)}- h</em>{j}^{(t)})$</p>
+<p>  i,j different graph, $a_{j\rightarrow i}$ is the softmax value of vector difference between hi and hj.</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://wadmes.github.io/2019/09/12/DL-with-discrect-features/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1098,101 +1207,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://wadmes.github.io/2019/07/20/%E6%88%91%E7%9A%84%E5%A4%A7%E5%AD%A6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/liwei3.jpg">
-      <meta itemprop="name" content="Li Wei">
-      <meta itemprop="description" content="人生注定是一个人的旅行，但就算孤独也要做一直前行的人啊">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="NEWAY">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/07/20/%E6%88%91%E7%9A%84%E5%A4%A7%E5%AD%A6/" class="post-title-link" itemprop="url">我的大学</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-07-20 22:19:19" itemprop="dateCreated datePublished" datetime="2019-07-20T22:19:19+08:00">2019-07-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-05-23 02:01:57" itemprop="dateModified" datetime="2021-05-23T02:01:57+08:00">2021-05-23</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/life/" itemprop="url" rel="index"><span itemprop="name">life</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2019/07/20/%E6%88%91%E7%9A%84%E5%A4%A7%E5%AD%A6/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/07/20/%E6%88%91%E7%9A%84%E5%A4%A7%E5%AD%A6/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          my favorite LOL player?
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/07/20/%E6%88%91%E7%9A%84%E5%A4%A7%E5%AD%A6/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1263,7 +1277,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">105</span>
+          <span class="site-state-item-count">106</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
