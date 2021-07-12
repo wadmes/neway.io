@@ -209,6 +209,1067 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://wadmes.github.io/2018/01/11/CSCI4190-01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/liwei3.jpg">
+      <meta itemprop="name" content="Li Wei">
+      <meta itemprop="description" content="人生注定是一个人的旅行，但就算孤独也要做一直前行的人啊">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NEWAY">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/01/11/CSCI4190-01/" class="post-title-link" itemprop="url">CSCI4190_01</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-01-11 13:49:25" itemprop="dateCreated datePublished" datetime="2018-01-11T13:49:25+08:00">2018-01-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-03-21 21:27:28" itemprop="dateModified" datetime="2019-03-21T21:27:28+08:00">2019-03-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/study/" itemprop="url" rel="index"><span itemprop="name">study</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2018/01/11/CSCI4190-01/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2018/01/11/CSCI4190-01/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>一位local女教授，既Jimmy之后第二位不准手机铃声的教授。。。</p>
+<p>第一节课是拿一个英文的科普视频 放一段讲一段。。。太真实了吧？。。。</p>
+<h3 id="C1-Strong-and-Weak-ties-17"><a href="#C1-Strong-and-Weak-ties-17" class="headerlink" title="C1 Strong and Weak ties 17"></a>C1 Strong and Weak ties 17</h3><h4 id="Basic-definition"><a href="#Basic-definition" class="headerlink" title="Basic definition"></a>Basic definition</h4><h5 id="Path"><a href="#Path" class="headerlink" title="Path"></a>Path</h5><ul>
+<li>A path in a graph is a sequence of nodes with the property that each consecutive pair in the sequence is connected by an edge.</li>
+<li>A path can have <strong>repeat</strong> nodes;</li>
+<li>Path <strong>without repeat</strong> nodes is a <strong>simple path</strong></li>
+</ul>
+<h5 id="Cycle"><a href="#Cycle" class="headerlink" title="Cycle"></a>Cycle</h5><p>A cycle is a path with <strong>at least three</strong> edges, in which the first and last nodes are the same, but <strong>otherwise all nodes are distinct.</strong></p>
+<h5 id="Bridge"><a href="#Bridge" class="headerlink" title="Bridge"></a>Bridge</h5><p>the <strong>edge joining two nodes</strong> if deleting that edge would cause the two nodes in two different components. </p>
+<h6 id="Local-Bridge"><a href="#Local-Bridge" class="headerlink" title="Local Bridge"></a>Local Bridge</h6><p>Bridge is rare</p>
+<p>the edge joining nodes A and B, if its endpoints A and B <strong>have no friends in common</strong>.</p>
+<h6 id="Span-of-a-local-bridge"><a href="#Span-of-a-local-bridge" class="headerlink" title="Span of a local bridge:"></a>Span of a local bridge:</h6><p>the distance between the end points if that edge were deleted.(original:1)</p>
+<h5 id="Embeddedness-edge"><a href="#Embeddedness-edge" class="headerlink" title="Embeddedness(edge)"></a>Embeddedness(edge)</h5><p>Embeddedness of an edge in a network is the <strong>number of common neighbors</strong> the two endpoints have. </p>
+<p>Embeddedness(Local bridge) =0 </p>
+<h5 id="Structure-hole-几个不同contacts的中间人"><a href="#Structure-hole-几个不同contacts的中间人" class="headerlink" title="Structure hole (几个不同contacts的中间人)"></a>Structure hole (几个不同contacts的中间人)</h5><ul>
+<li><strong>access information</strong> originating in multiple, non-interacting parts of the network.</li>
+<li>have <strong>opportunities for innovations</strong> arose from the unexpected synthesis of multiple ideas, each of them on their own perhaps well-known, but well-known in distinct and unrelated bodies of expertise.</li>
+<li>have an opportunity for a kind of <strong>social “gate-keeping”</strong>; a source of power in the organization.</li>
+</ul>
+<h5 id="Connected"><a href="#Connected" class="headerlink" title="Connected"></a>Connected</h5><p>A graph is connected if for every pair of nodes, there is a path between them</p>
+<h5 id="Traffic-in-a-Network"><a href="#Traffic-in-a-Network" class="headerlink" title="Traffic in a Network"></a>Traffic in a Network</h5><p>For each pair of nodes A and B:  1 unit of traffic “flow” from A to B  if A and B belong to same component. the flow divides itself evenly along all the possible shortest paths from A to B </p>
+<h5 id="Betweenness"><a href="#Betweenness" class="headerlink" title="Betweenness"></a>Betweenness</h5><ul>
+<li><strong>Edge</strong>:  total amount of flow that the edge carries, counting flow between all pairs of nodes using this edge. </li>
+<li><strong>Node</strong>:  total amount of flow that the node carries, when a unit of flow between each pair of nodes is divided up evenly over shortest paths </li>
+</ul>
+<h5 id="Triadic-closure"><a href="#Triadic-closure" class="headerlink" title="Triadic closure"></a>Triadic closure</h5><p>朋友的朋友更容易成为朋友</p>
+<h5 id="cluster-coefficient-a"><a href="#cluster-coefficient-a" class="headerlink" title="cluster coefficient(a)"></a>cluster coefficient(a)</h5><p>a的朋友们也互相是朋友的概率</p>
+<h5 id="Strong-Triadic-Closure-Property"><a href="#Strong-Triadic-Closure-Property" class="headerlink" title="Strong Triadic Closure Property"></a>Strong Triadic Closure Property</h5><p>如果a 和bc关系很好，那么bc会成为朋友。</p>
+<p>如果不是(no matter strong or weak)，violate the property</p>
+<h4 id="Strength-of-weak-ties"><a href="#Strength-of-weak-ties" class="headerlink" title="Strength of weak ties"></a>Strength of weak ties</h4><h5 id="neighborhood-overlap-edge"><a href="#neighborhood-overlap-edge" class="headerlink" title="neighborhood overlap (edge)"></a>neighborhood overlap (edge)</h5><p>no of nodes who are neighbors of both A and B<strong>/</strong> no of nodes who are neighbors of at least one of A of B.</p>
+<ul>
+<li>Neighborhood overlap increases with the strength </li>
+<li>Local level : tie strength increases with neighborhood</li>
+<li>Global level : weak ties serve to link together different tightly-knit communities ?</li>
+</ul>
+<p>Weak ties provide the more crucial(关键) connective structure<br>• for holding together disparate communities and<br>• for keeping the global structure of the giant components intact.</p>
+<h4 id="Graph-patitioning"><a href="#Graph-patitioning" class="headerlink" title="Graph patitioning"></a>Graph patitioning</h4><h5 id="division"><a href="#division" class="headerlink" title="division"></a>division</h5><p>移除最可能连接两大块的（betweenness最大值）</p>
+<h5 id="agglomerative-凝聚"><a href="#agglomerative-凝聚" class="headerlink" title="agglomerative(凝聚)"></a>agglomerative(凝聚)</h5><p>把nodes that are likely to belong to the same region merge起来</p>
+<h5 id="Girvan-Newman-Method"><a href="#Girvan-Newman-Method" class="headerlink" title="Girvan-Newman Method"></a>Girvan-Newman Method</h5><ul>
+<li>Find the edge of highest betweenness  and <strong>remove</strong> these edges from the graph. </li>
+<li>Recalculate all betweennesses, again remove the edge or edges of highest betweenness. </li>
+</ul>
+<h3 id="C2-Networks-in-their-Surrounding-Contexts"><a href="#C2-Networks-in-their-Surrounding-Contexts" class="headerlink" title="C2 Networks in their Surrounding Contexts"></a>C2 Networks in their Surrounding Contexts</h3><h4 id="Homophily"><a href="#Homophily" class="headerlink" title="Homophily"></a>Homophily</h4><p>The tendency of individuals to associate and bond with similar others</p>
+<h5 id="Friendship-that-forms-because-two-people"><a href="#Friendship-that-forms-because-two-people" class="headerlink" title="Friendship that forms because two people"></a>Friendship that forms because two people</h5><ul>
+<li>have a common friend <strong>(intrinsic network structure, triadic closure)</strong></li>
+<li>attend the same school or work for the same company (contextual factor)情境因素</li>
+</ul>
+<h5 id="Measuring-Homophily"><a href="#Measuring-Homophily" class="headerlink" title="Measuring Homophily"></a>Measuring Homophily</h5><p><strong>Homophily Test</strong>: If the fraction of cross-gender edges is significantly less than 2pq(p = fraction of males,q = fraction of females), then there is evidence for homophily.</p>
+<p>The edge is <strong>heterogeneous</strong>(异质) if two end nodes do not share the same characteristic</p>
+<h5 id="Mechanisms-Underlying-Homophily"><a href="#Mechanisms-Underlying-Homophily" class="headerlink" title="Mechanisms Underlying Homophily"></a>Mechanisms Underlying Homophily</h5><h6 id="Selection"><a href="#Selection" class="headerlink" title="Selection"></a>Selection</h6><p>select friends with similar characteristic.  tends to drive the network towards smaller clusters of like-minded individuals (balkanization)</p>
+<ul>
+<li>individual characteristics drive the formation of links (邻居)</li>
+<li>involves immutable(不变) characteristics (determined at birth)</li>
+<li>物以类聚。</li>
+</ul>
+<h6 id="Socialization-and-social-influence"><a href="#Socialization-and-social-influence" class="headerlink" title="Socialization and social influence"></a>Socialization and social influence</h6><p>modify their behaviors to bring them more closely into alignment with the behaviors of their friends.</p>
+<p>– reverse of selection<br>– Involves mutable characteristics<br>– 近朱者赤， 近墨者黑/lies down with dogs, rises with fleas</p>
+<h6 id="Social-influence"><a href="#Social-influence" class="headerlink" title="Social influence"></a>Social influence</h6><p>can produce network-wide uniformity, as new behavior spreads across the links.</p>
+<h5 id="Affiliation-联系-Networks-17"><a href="#Affiliation-联系-Networks-17" class="headerlink" title="Affiliation(联系) Networks 17"></a>Affiliation(联系) Networks 17</h5><p>Include the contextual factors (the set of activities) into the network. expressed as a bipartite(even)<br>graph. </p>
+<ul>
+<li>node: person or focus(activity)</li>
+<li>edge: (person,focus)</li>
+</ul>
+<p>• A graph is <strong>bipartite</strong> if its nodes can be divided into two sets in such a way that every edge connects a node in one set to a node in the other set</p>
+<p>• Two people sharing the same focus → an opportunity to become friends.</p>
+<p><strong>Extension:</strong></p>
+<ul>
+<li>Node: person/focus</li>
+<li>edge: (person,focus) <strong>or</strong> (person person)</li>
+</ul>
+<h5 id="3-Closure-Processes"><a href="#3-Closure-Processes" class="headerlink" title="3 Closure Processes"></a>3 Closure Processes</h5><ul>
+<li><strong>Triadic closure</strong>: 朋友的朋友更容易成为朋友</li>
+<li><strong>Membership closure</strong>(social influence): 朋友参加的活动更容易参加</li>
+<li><strong>Focal closure</strong> (selction): 一个活动中的两人更容易成为朋友</li>
+</ul>
+<h5 id="Tracking-Link-Formation"><a href="#Tracking-Link-Formation" class="headerlink" title="Tracking Link Formation"></a>Tracking Link Formation</h5><ol>
+<li>– For each k, identify all pairs of nodes who have exactly k friends in common, but who are not directly connected by an edge.</li>
+<li>(Difference time with step1 ) T (k) = the fraction of these pairs that have formed an edge.</li>
+</ol>
+<ul>
+<li>Triadic Closure： HIGH comon friends -&gt; higher fraction</li>
+<li>Focal closure: high -&gt; not so high</li>
+</ul>
+<h4 id="The-Schelling-Model"><a href="#The-Schelling-Model" class="headerlink" title="The Schelling Model"></a>The Schelling Model</h4><p>How global patterns of spatial segregation can arise from the effect of homophily operating at a local level (Thomas Schelling) </p>
+<ul>
+<li>Each agent(population) wants to have <strong>at least t agents</strong> of its own type as neighbors</li>
+<li>Unsatisfied agents: – <strong>fewer than t neighbors</strong> of the same type as itself and <strong>move</strong> to a new cell </li>
+</ul>
+<p><strong>homophily</strong> draws people together along <strong>immutable characteristics</strong></p>
+<p><strong>The Schelling model</strong> creates a natural tendency for <strong>mutable</strong> characteristics</p>
+<h3 id="C3-Positive-and-Negative-Relationships"><a href="#C3-Positive-and-Negative-Relationships" class="headerlink" title="C3 Positive and Negative Relationships"></a>C3 Positive and Negative Relationships</h3><p><strong>clique/complete graph:</strong> graph  which an edge connecting each pair of nodes</p>
+<ul>
+<li>Balanced Structure(triangle)<ul>
+<li>Three mutual(相互的) friends</li>
+<li>A third mutual enemy</li>
+</ul>
+</li>
+<li>Unbalanced Structure(triangle)<ul>
+<li>A,和BC 玩的好。BC仇敌。</li>
+<li>All are enermies</li>
+</ul>
+</li>
+</ul>
+<p>A complete graph is <strong>structurally balanced</strong> if its everyone triangle is balanced.</p>
+<h4 id="Balance-Theorem"><a href="#Balance-Theorem" class="headerlink" title="Balance Theorem"></a>Balance Theorem</h4><p>If a labeled complete graph is balanced, then </p>
+<ul>
+<li>either <strong>all</strong> pairs of nodes are <strong>friends</strong>, </li>
+<li>or else the nodes can be divided into <strong>two groups</strong>, X and Y , </li>
+</ul>
+<h5 id="Weak-Structural-Balance-Property"><a href="#Weak-Structural-Balance-Property" class="headerlink" title="Weak Structural Balance Property:"></a>Weak Structural Balance Property:</h5><p>There is no set of three nodes such that the edges among them consist of exactly two positive edges and one negative edge . ( all are enermy are possible)</p>
+<h4 id="Structural-Balance-in-Arbitrary-Non-Complete-Networks"><a href="#Structural-Balance-in-Arbitrary-Non-Complete-Networks" class="headerlink" title="Structural Balance in Arbitrary (Non-Complete) Networks"></a>Structural Balance in Arbitrary (Non-Complete) Networks</h4><blockquote>
+<p>A signed graph is balanced if and only if it contains no cycle with an <strong>odd number of negative edges</strong>.</p>
+</blockquote>
+<h5 id="Searching-for-balanced-division"><a href="#Searching-for-balanced-division" class="headerlink" title="Searching for balanced division"></a>Searching for balanced division</h5><ul>
+<li>find the connected components using <strong>positive</strong> edges. Declare each component to be a <strong>supernode</strong>.</li>
+<li>the supernodes form the <strong>reduced graph</strong> (negative edges only)</li>
+<li>BFS: <strong>edges</strong> connect two nodes in the <strong>same layer</strong>: a cycle with odd number of nodes </li>
+</ul>
+<h4 id="Generalizing-the-Definition-of-Structural-Balance"><a href="#Generalizing-the-Definition-of-Structural-Balance" class="headerlink" title="Generalizing the Definition of Structural Balance"></a>Generalizing the Definition of Structural Balance</h4><h5 id="Approximately-Balance-Theorem"><a href="#Approximately-Balance-Theorem" class="headerlink" title="Approximately Balance Theorem"></a>Approximately Balance Theorem</h5><p>If at least 99.9% (1-$\epsilon$)of all triangles in a labeled complete graph are balanced, then </p>
+<ul>
+<li>either there is a <strong>set</strong> consisting of at least <strong>90%(1-$\epsilon^{1/3}$)of the nodes</strong> in which at least <strong>90% of all pairs</strong> are <strong>friends</strong></li>
+<li>or else the nodes can be divided into two groups, X and Y , <ul>
+<li>at least 90% of the pairs in X like each other</li>
+<li>at least 90% of the pairs in Y like each other, and</li>
+<li>at least 90% of the pairs with one end in X and the other end in Y are enemies. </li>
+</ul>
+</li>
+</ul>
+<h3 id="C4-Information-cascade-17"><a href="#C4-Information-cascade-17" class="headerlink" title="C4 Information cascade 17"></a>C4 Information cascade 17</h3><h5 id="Reasons-why-individual-might-imitate-the-behavior-of-others"><a href="#Reasons-why-individual-might-imitate-the-behavior-of-others" class="headerlink" title="Reasons why individual might imitate the behavior of others"></a>Reasons why individual might imitate the behavior of others</h5><ul>
+<li><p>– Informational effect :</p>
+<ul>
+<li>The behavior of others conveys information about what they know</li>
+<li>Peer pressure</li>
+<li>Imitate what others (e.g. idols) are doing </li>
+</ul>
+</li>
+<li><p>Network effect (direct benefit effect) :(C5) </p>
+<p>you incur an explicit benefit when you align behavior with the behavior of others.</p>
+</li>
+</ul>
+<h4 id="Bayes-Rule"><a href="#Bayes-Rule" class="headerlink" title="Bayes Rule"></a>Bayes Rule</h4><p>$P(A|B) = \frac{A\cap B}{B}=\frac{P(A)P(B|A)}{P(B)}$, 一般 ，pa, p(b|a)题目都给了。问题是求pb：</p>
+<p>若A好算:$p(b) = P(A)P(B|A)+P(A^c)P(B|A^C)$</p>
+<h4 id="A-Simple-General-Cascade-Model-17"><a href="#A-Simple-General-Cascade-Model-17" class="headerlink" title="A Simple General Cascade Model 17"></a>A Simple General Cascade Model 17</h4><ul>
+<li><p><strong>States:</strong> G(Good) with probability p, and B with 1-p</p>
+</li>
+<li><p><strong>Accepting</strong> select which state</p>
+</li>
+<li><p><strong>Private information</strong></p>
+</li>
+<li><p><strong>Signal</strong> H(High)  before making decision: accepting is a good idea, L(Low) : bad idea</p>
+<p>P(H|G) = q &gt; 0.5, P(L|G) = 1-q &lt; 0.5 </p>
+</li>
+<li><p><strong>Payoff</strong>: 0 reject. Vg: accepting a good option Vb: accept a bad option</p>
+</li>
+</ul>
+<p>Suppose one receives a H signal</p>
+<ul>
+<li>Expected payoff = Vg <em> P(G|H) + Vb </em>P(B|H)</li>
+<li>P(G|H) = $\frac{p(G)p(H|G)}{p(G)p(H|G)+p(B)p(H|B)}= \frac{pq}{pq+(1-p)(1-q)} &gt;p$</li>
+</ul>
+<h5 id="Multiple-signals"><a href="#Multiple-signals" class="headerlink" title="Multiple signals"></a>Multiple signals</h5><p>S = a high signals + b low signals</p>
+<ul>
+<li>posterior probability Pr [G | S] is greater than the prior Pr [G] (p) when a &gt; b;</li>
+</ul>
+<h3 id="C5-Network-Effects"><a href="#C5-Network-Effects" class="headerlink" title="C5 Network Effects"></a>C5 Network Effects</h3><h4 id="Externalities（和外部坏境联系的场景-如-交通事故？party）"><a href="#Externalities（和外部坏境联系的场景-如-交通事故？party）" class="headerlink" title="Externalities（和外部坏境联系的场景 如 交通事故？party）"></a>Externalities（和外部坏境联系的场景 如 交通事故？party）</h4><p>situation that the welfare of an individual is affected by the actions of other individuals</p>
+<ul>
+<li>Positive: welfare increases when others are joining</li>
+<li>Negative: 相反。</li>
+</ul>
+<h4 id="Without-network-effect-only-consider-Reservation-price"><a href="#Without-network-effect-only-consider-Reservation-price" class="headerlink" title="Without network effect, only consider Reservation price"></a>Without network effect, only consider Reservation price</h4><p>the max amount one is willing to pay for one unit of the good.  If consumer x (0 ≤ x ≤ 1) has a <strong>higher reservation price</strong> <strong>r(x)</strong> than consumer y, then <strong>x &lt; y</strong>. </p>
+<p><strong>r: strictly decreasing </strong></p>
+<p>p’:  production cost of one unit of the good (the minimum price a producer is willing to accept to sell a good)</p>
+<p>x’:  equilibrium quantity of the good  so that <strong>r(x’) = p’</strong></p>
+<h4 id="The-Economy-with-Network-Effects"><a href="#The-Economy-with-Network-Effects" class="headerlink" title="The Economy with Network Effects"></a>The Economy with Network Effects</h4><ul>
+<li>intrinsic interest. r(x). eg. r(1 ) = 0</li>
+<li><p>the no. of other people using the good</p>
+<ul>
+<li>( z: fraction of people in use).</li>
+<li>f(z) measures the benefit to each consumer from those who use the good.f(z) is <strong>increasing</strong> in z, f(0) = 0</li>
+</ul>
+</li>
+<li>reservation price of consumer x = <strong>r(x)f(z)</strong> . here z is the fraction <strong>expected</strong> by x</li>
+<li><strong>self-fulfilling expectations equilibrium</strong> p’ = r(z)f(z)</li>
+</ul>
+<h5 id="Stability-Instability-and-Tipping-Points"><a href="#Stability-Instability-and-Tipping-Points" class="headerlink" title="Stability, Instability, and Tipping Points"></a>Stability, Instability, and Tipping Points</h5><p><img src="..\images\1524728773(1" alt="1524728773(1)">.jpg)</p>
+<ul>
+<li>0 &lt; z &lt; z’ 买家不想买。“<strong>downward pressure”</strong> on the consumption of the good : this would push demand downward.</li>
+<li>z’ &lt; z &lt; z” 买家想买。 <strong>“upward pressure”</strong> on the consumption of the<br>good: this would drive demand upward</li>
+<li>z” &lt; z &lt; 1  “<strong>downward pressure”</strong> </li>
+<li>z’ : <strong>critical point</strong>/tipping point</li>
+</ul>
+<h5 id="A-Dynamic-View-of-the-Market"><a href="#A-Dynamic-View-of-the-Market" class="headerlink" title="A Dynamic View of the Market"></a>A Dynamic View of the Market</h5><p>z^: fraction of population who buy the product (actual buyer)</p>
+<p>r(z^)f(z) = p = &gt;</p>
+<p>z^ = $r^{-1}(p/f(z))$ = g(z)</p>
+<p><strong>For goods with network effects, the equilibria are typically not social optimal.</strong>(社会所有人的总利益) </p>
+<p>Being the first to reach this tipping point is more important than being “best”.</p>
+<h4 id="Mixing-Individual-Effects-with-Population-Level-Effects"><a href="#Mixing-Individual-Effects-with-Population-Level-Effects" class="headerlink" title="Mixing Individual Effects with Population-Level Effects"></a>Mixing Individual Effects with Population-Level Effects</h4><p>f(Z) = 1 + az^2</p>
+<p>r(X) = 1-x</p>
+<h3 id="C6-Power-Laws-and-Rich-Get-Richer-Models-17"><a href="#C6-Power-Laws-and-Rich-Get-Richer-Models-17" class="headerlink" title="C6 Power Laws and Rich-Get-Richer Models 17"></a>C6 Power Laws and Rich-Get-Richer Models 17</h3><p> <strong>Central Limit Theorem</strong>  says that if we take any sequence of small independent random quantities, then in the limit their sum (or average) will be distributed according to the <strong>normal distribution.</strong></p>
+<p>A function that <strong>decreases</strong> as k to some fixed power, such as 1/k 2(fraction) is called a <strong>power law</strong></p>
+<h4 id="Rich-Get-Richer-Models"><a href="#Rich-Get-Richer-Models" class="headerlink" title="Rich-Get-Richer Models"></a>Rich-Get-Richer Models</h4><p>Model the growth of the popularity.</p>
+<ul>
+<li>Created pages in order : 1, 2, 3, . . . , j.</li>
+<li>When j is created, With <strong>probability p</strong>, page j, chooses <strong>a page i</strong> uniformly at random from among all earlier pages, and creates a link to this page i.</li>
+<li>With <strong>probability 1-p</strong>, page j creates a link to the page that <strong>i links to</strong>. (i also uniformly random distributed)<ul>
+<li>new version:with probability 1 − p, page j chooses a page l with probability<br>proportional to l ’s current number of in-links, and creates a link to l. </li>
+</ul>
+</li>
+</ul>
+<p><strong>preferential attachment</strong>: : “preferentially” to pages that already have high <strong>popularity</strong>. (人们更愿意打开已经火了的页面,copy别人的)</p>
+<p>No. of in-links of node j = $x_j = p/q[(t/j)^q-1]$ . t: simulated steps. q = 1-p</p>
+<p>At time t, we have nodes x1, x2, … xt. The fraction of nodes with at least k links is</p>
+<p>$[\frac{q}{p}k +1]^{-1/q}$</p>
+<p>f(k) = the fraction of nodes with exactly k links = $1/p [1+\frac{1-p}{p}k]^{-(1+\frac{1}{1-p})}$. when p -0, power law exponent is 2.</p>
+<h5 id="The-long-tail"><a href="#The-long-tail" class="headerlink" title="The long tail"></a>The long tail</h5><p>a <strong>small set</strong> of items that are enormously <strong>popular</strong></p>
+<p> <strong>Zipf’s Law</strong> : the frequency of the j th most common word in English (or most other widespread human languages) is proportional to 1/j.</p>
+<h3 id="C6-Cascading-behavior-in-networks-17"><a href="#C6-Cascading-behavior-in-networks-17" class="headerlink" title="C6 Cascading behavior in networks 17"></a>C6 Cascading behavior in networks 17</h3><p>Structure of the network and how individuals are influenced by their particular <strong>network neighbors</strong> (instead of everyone else in C5)</p>
+<h5 id="Why-an-innovation-can-fail-to-spread-through-a-population"><a href="#Why-an-innovation-can-fail-to-spread-through-a-population" class="headerlink" title="Why an innovation can fail to spread through a population ?"></a>Why an innovation can fail to spread through a population ?</h5><ul>
+<li>tightly-knit(严密) social community;</li>
+<li>complexity</li>
+<li>observability observe别人也在用</li>
+<li>trialability 可试验性。（一步一步慢慢来）</li>
+<li>compatibility with social system</li>
+</ul>
+<p>the set of initial adopters causes a <strong>complete cascade</strong> at threshold q(大于百分之多少才换）.</p>
+<h5 id="cluster-of-density-p"><a href="#cluster-of-density-p" class="headerlink" title="cluster of density p"></a>cluster of density p</h5><p><strong>cluster of density p</strong> = a set of nodes such tha<strong>t each node</strong> in the set has at least a <strong>p fraction</strong> of its network <strong>neighbors in the set.</strong></p>
+<p>cluster of density 1: </p>
+<h5 id="The-Relationship-between-Clusters-and-Cascades"><a href="#The-Relationship-between-Clusters-and-Cascades" class="headerlink" title="The Relationship between Clusters and Cascades"></a>The Relationship between Clusters and Cascades</h5><ul>
+<li>If the <strong>remaining network</strong> contains a <strong>cluster</strong> of <strong>density</strong> greater than <strong>1 − q</strong>, then the set of initial adopters will <strong>not</strong> cause a complete cascade.(cluster 是cascade的阻碍 必要条件)</li>
+<li>Moreover, whenever a set of initial adopters does not cause a complete cascade with threshold q, the remaining network must contain a cluster of density greater than 1 − q（充分条件）</li>
+</ul>
+<h4 id="Extensions-of-the-Basic-Cascade-Model-17"><a href="#Extensions-of-the-Basic-Cascade-Model-17" class="headerlink" title="Extensions of the Basic Cascade Model 17"></a>Extensions of the Basic Cascade Model 17</h4><p><strong>Heterogeneous Thresholds</strong>： each node has a specific payoff and hence threshold</p>
+<p>A <strong>blocking cluster</strong> in the network is a set of nodes for which each node v has more than a 1 − qv fraction of its friends also in the set.</p>
+<p> <strong>cascade capacity</strong> of the network: 有限初始集能造成complete cascade的最大threshold</p>
+<p>最大值：1/2</p>
+<p>proof  number of AB edges is decreasing when switching w from B to A</p>
+<p>payoff from choosing A = a’（两边都是A/AB) 则double a<br>payoff from choosing B = b’<br>payoff from choosing AB= a’+b’-c</p>
+<h3 id="C7-Small-World-Phenomenon"><a href="#C7-Small-World-Phenomenon" class="headerlink" title="C7 Small World Phenomenon"></a>C7 Small World Phenomenon</h3><h4 id="Watts-Strogatz-model"><a href="#Watts-Strogatz-model" class="headerlink" title="Watts-Strogatz model"></a>Watts-Strogatz model</h4><p>Two type of links:</p>
+<p> Homophily(和其他r个小格内点相连的link)and </p>
+<p>Weak ties(剩余的k 个远link).</p>
+<ul>
+<li>d(v, w) :the number of grid steps between nodes v and w</li>
+<li>Probability of an edge is proportional to d(v, w)^-q (Small q, more long distances edges)</li>
+</ul>
+<p>time: at most a2(log n)^2</p>
+<h5 id="A-Rough-Calculation-Motivating-the-Inverse-Square-Network"><a href="#A-Rough-Calculation-Motivating-the-Inverse-Square-Network" class="headerlink" title="A Rough Calculation Motivating the Inverse-Square Network"></a>A Rough Calculation Motivating the Inverse-Square Network</h5><p>The probability that a <strong>random edge</strong> from center point v links into any node in this group is approximately independent of the value of d. ( in d - 2d circles)</p>
+<h5 id="Rank-Based-Friendship"><a href="#Rank-Based-Friendship" class="headerlink" title="Rank-Based Friendship"></a>Rank-Based Friendship</h5><p>rank(w) = the number of other nodes that are <strong>closer to v</strong> than w is. (比w 还离v近一点的)</p>
+<h5 id="social-distance"><a href="#social-distance" class="headerlink" title="social distance"></a>social distance</h5><p>dist(v, w) = the social distance between nodes v and w = the size of the <strong>smallest focus</strong> that contains both v and w</p>
+<p>A link between each pair of nodes v and w with probability <strong>proportional</strong> to <strong>dist(v,w)^-p</strong></p>
+<p>Efficient <strong>decentralized search</strong> when p = 1. 17</p>
+<h3 id="C8-Epidemics"><a href="#C8-Epidemics" class="headerlink" title="C8 Epidemics"></a>C8 Epidemics</h3><p>•The basic <strong>reproductive number</strong> ( R0) = the expected number of new cases of the disease caused by a single individual = p(probability)k(new meet num). </p>
+<p><strong>Percolation</strong> : static view of the model. edge v-w is open is w is infected by v</p>
+<p>SIR . susceptible infectious removed</p>
+<p>SIS  susceptible infectious  back_TO_susceptile</p>
+<p>SIRS susceptible infectious 免疫期 back_TO_susceptile</p>
+<p><strong>transient contacts</strong> — contact networks in which each edge is annotated with the period of time during which it existed</p>
+<h4 id="Analysis-of-Branching-Processes"><a href="#Analysis-of-Branching-Processes" class="headerlink" title="Analysis of Branching Processes"></a>Analysis of Branching Processes</h4><p>qn = the probability that the epidemic survives for at least n waves</p>
+<p>q∗ = qn when n is infinite = the probability that the epidemic persists indefinitely. </p>
+<h4 id="Wright-Fisher-model"><a href="#Wright-Fisher-model" class="headerlink" title="Wright-Fisher model"></a>Wright-Fisher model</h4><ol>
+<li>每一代 N个人</li>
+<li>每个孩子都只有一个家长。一个家长可以有多个孩子也可能没有。</li>
+</ol>
+<p>consider the time that k个个体是一个祖先</p>
+<h3 id="C9-Link-Analysis-and-Web-Search"><a href="#C9-Link-Analysis-and-Web-Search" class="headerlink" title="C9 Link Analysis and Web Search"></a>C9 Link Analysis and Web Search</h3><h4 id="•-Ranking-of-web-pages"><a href="#•-Ranking-of-web-pages" class="headerlink" title="• Ranking of web pages"></a>• Ranking of web pages</h4><h5 id="Information-Retrieval"><a href="#Information-Retrieval" class="headerlink" title="Information Retrieval"></a>Information Retrieval</h5><p>1960s: Search repositories of newspaper articles, scientific papers, patents, legal abstracts, and other document collections in response to keyword queries.</p>
+<p><strong>vote by link</strong> 缺点：offtopic, criticism, advertisement</p>
+<p>each page有两种score</p>
+<p><strong>authorities 权威网站</strong> 更新： 所有指向他的page的hub score和</p>
+<p><strong>hub 首页</strong> 更新 类似</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">initial are score &#x3D; 1</span><br><span class="line">select k steps</span><br><span class="line">for i in k:</span><br><span class="line">	update auth</span><br><span class="line">	update hub</span><br><span class="line">normalize hub and auth</span><br></pre></td></tr></table></figure>
+<p>(A-\lamda I)x = 0</p>
+<p>\lamda = eigenvalue</p>
+<p>x = eigenvector</p>
+<h4 id="pagerank"><a href="#pagerank" class="headerlink" title="pagerank"></a>pagerank</h4><p>每个node指出k个，其value平均分k，到新的node。</p>
+<p>最后把收到的value sum。</p>
+<h5 id="Scaling-Factor"><a href="#Scaling-Factor" class="headerlink" title="Scaling Factor"></a><strong>Scaling Factor</strong></h5><p>sum之后乘以一个factor 。 然后把factor多出来的那一部分均匀分给每个人。</p>
+<h5 id="Random-walks"><a href="#Random-walks" class="headerlink" title="Random walks"></a>Random walks</h5><p>随便选一个。然后继续选out-going的。和pagerank思路一样。停在哪个page的概率和pagerank概率一样。</p>
+<ul>
+<li>有相关text的超链接权重更高。</li>
+<li>用户点击数据 更能反映是否相关。</li>
+</ul>
+<h3 id="C10-Sponsored-Search-Market"><a href="#C10-Sponsored-Search-Market" class="headerlink" title="C10 Sponsored Search Market"></a>C10 Sponsored Search Market</h3><p>SPONSORED SEARCH AD:关键词</p>
+<p>branding ad ：直接投放在网站上</p>
+<p>contextual ad： 根据用户特征投放广告</p>
+<h4 id="拍卖"><a href="#拍卖" class="headerlink" title="拍卖"></a>拍卖</h4><ul>
+<li><strong>The Second Price Sealed Auction</strong> 由出价最高的买家获得物品，但他只需要支付所有投标者中的第二高价。</li>
+</ul>
+<p><strong>click-through rates</strong>：（r_i) The number of clicks per hour it will receive</p>
+<p><strong>revenue</strong>(收入) v_j per click of advertiser j,</p>
+<p>ri<em>vj = <em>*benifit</em></em></p>
+<h4 id="Matching-Market"><a href="#Matching-Market" class="headerlink" title="Matching Market"></a>Matching Market</h4><p>if the search engine knew all the advertisers’ valuations for clicks</p>
+<p>For buyer:</p>
+<p>$v_{ij}$  = valuation for item i by buyer j</p>
+<p>$p_i$ = price announced by the seller</p>
+<p>v- p 就是买家收益。</p>
+<p><strong>Market clearing prices</strong> 所有买家选到最赚的而且不冲突</p>
+<h5 id="Constructing-the-set-of-market-clearing-price"><a href="#Constructing-the-set-of-market-clearing-price" class="headerlink" title="Constructing the set of market clearing price"></a>Constructing the set of market clearing price</h5><p>price先重置为0</p>
+<p>将最多人要买的slot price 加一</p>
+<p>重新计算</p>
+<p>重新加一</p>
+<p>直到可以market clearing</p>
+<h4 id="Vickrey-Clarke-Groves-VCG-mechanism"><a href="#Vickrey-Clarke-Groves-VCG-mechanism" class="headerlink" title="Vickrey-Clarke-Groves (VCG) mechanism"></a>Vickrey-Clarke-Groves (VCG) mechanism</h4><p>the advertisers’ <strong>valuations</strong> are <strong>not known</strong></p>
+<p>算没有 A 后 BC 收益。比如600</p>
+<p>有A后BC收益 比如 200</p>
+<p>那么A 需要支付 600-200</p>
+<h4 id="GSP"><a href="#GSP" class="headerlink" title="GSP"></a>GSP</h4><p>bi bids per click</p>
+<p>GSP charges a cumulative price of ri bi+1 for slot i. </p>
+<h5 id="Nash-equilibrium"><a href="#Nash-equilibrium" class="headerlink" title="Nash equilibrium"></a>Nash equilibrium</h5><p>The pair of strategies (S; T) is a <strong>Nash equilibrium</strong> if S is a best response to T, and T is a best response to S.</p>
+<p><strong>Best response</strong>: $P_1(S,T)&gt;= P_1(S’,T)$ T: stratage of 2</p>
+<p>STrict: 没有等于。</p>
+<p><strong>Dominant strategy</strong>： a strategy that is a best response to every strategy of Player 2.</p>
+<p>A strictly dominant strategy .</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://wadmes.github.io/2018/01/10/%E8%87%B4%E8%BF%9C%E5%8A%A9%E5%AD%A6%E9%87%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/liwei3.jpg">
+      <meta itemprop="name" content="Li Wei">
+      <meta itemprop="description" content="人生注定是一个人的旅行，但就算孤独也要做一直前行的人啊">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NEWAY">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/01/10/%E8%87%B4%E8%BF%9C%E5%8A%A9%E5%AD%A6%E9%87%91/" class="post-title-link" itemprop="url">香港购眼镜攻略</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-01-10 23:50:29" itemprop="dateCreated datePublished" datetime="2018-01-10T23:50:29+08:00">2018-01-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-07-05 05:35:21" itemprop="dateModified" datetime="2021-07-05T05:35:21+08:00">2021-07-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/life/" itemprop="url" rel="index"><span itemprop="name">life</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2018/01/10/%E8%87%B4%E8%BF%9C%E5%8A%A9%E5%AD%A6%E9%87%91/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2018/01/10/%E8%87%B4%E8%BF%9C%E5%8A%A9%E5%AD%A6%E9%87%91/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>这一年来眼睛经常感到疲倦，再加之镜腿断了，于是想要换个合适的眼镜。</p>
+<p>换眼镜也是换出了很多学问，索性记录一下。</p>
+<h5 id="how-to-buy"><a href="#how-to-buy" class="headerlink" title="how to buy"></a>how to buy</h5><p>第一件事是决定怎么买，参考网上各论坛建议，选了三种方案。</p>
+<ol>
+<li><p>淘宝镜片 + 淘宝镜架 + 香港验光</p>
+<ul>
+<li>优点，便宜，透明。明月全套250 + 验光100 + 深圳路费 50</li>
+<li>缺点，时间久，去深圳麻烦</li>
+</ul>
+</li>
+<li><p>深圳眼镜</p>
+<ul>
+<li>优点，便宜，是批发市场</li>
+<li>缺点，不透明，容易被宰，验光不规范</li>
+</ul>
+</li>
+<li>香港眼镜<ul>
+<li>优点，眼光规范，方便，品牌货便宜</li>
+<li>缺点，一般货贵，容易被宰</li>
+</ul>
+</li>
+</ol>
+<p>因为镜腿断了，急着要用眼镜。而另外两个都有明显缺陷（淘宝太久，深圳太远而且怕被宰）</p>
+<h5 id="where-to-buy"><a href="#where-to-buy" class="headerlink" title="where to buy"></a>where to buy</h5><p>决定在香港买眼镜后发现事情没那么简单。香港眼镜店对我来说也分了三种选择。</p>
+<ul>
+<li>眼镜88，EGG等连锁店</li>
+<li>写字楼 楼上铺</li>
+<li>日本平价店铺 zoff</li>
+</ul>
+<p>还能怎么办，一个一个比较，看呗。</p>
+<p>另外在香港论坛查了许多，又恰逢发现小米有镜架（249），蓝光眼镜（99）卖。查了下都是钨钢材质，虽然听不懂但对小米的品质还是有信心的，于是买了个蓝光眼镜拆了镜片做镜框。（客服说99的镜框和249的镜架材质重量设计都一模一样= =，唯一区别是一个韩国，一个国产。。。）</p>
+<p>镜架有了，一个一个去问镜片。</p>
+<p>香港好的一点是，说我再去其他地方看看不会尴尬，店员都很爽快。</p>
+<p>总共问了6个店子。</p>
+<h6 id="写字楼1号-巴黎眼镜店"><a href="#写字楼1号-巴黎眼镜店" class="headerlink" title="写字楼1号 巴黎眼镜店"></a>写字楼1号 巴黎眼镜店</h6><p>熟人推荐，瑞士宝1.61非球面300+防蓝光200 = 500。在那才知道。。我戴了三年的眼镜。。。戴！反！了！</p>
+<p>难！怪！一！直！头！晕！</p>
+<p>难！怪！一！直！掉！镜！片！</p>
+<h6 id="写字楼2号-不知名眼镜店"><a href="#写字楼2号-不知名眼镜店" class="headerlink" title="写字楼2号 不知名眼镜店"></a>写字楼2号 不知名眼镜店</h6><p>只有一个说广东话的老头，这种看起来挺靠谱的。</p>
+<p>阿波罗1.61非球面290+防蓝光200 = 490</p>
+<h6 id="写字楼3号-连锁眼镜仓库"><a href="#写字楼3号-连锁眼镜仓库" class="headerlink" title="写字楼3号 连锁眼镜仓库?"></a>写字楼3号 连锁眼镜仓库?</h6><p>装修的和内地有点像，但是听到 依视路880？不确定听没听错。</p>
+<h6 id="眼镜88"><a href="#眼镜88" class="headerlink" title="眼镜88"></a>眼镜88</h6><p>DULUX1.61蓝光 = 700</p>
+<p>依视路1.61蓝光 = 1300</p>
+<h6 id="EGG"><a href="#EGG" class="headerlink" title="EGG"></a>EGG</h6><p>豪雅？不确定是否为EGG特供。</p>
+<p>1.61非球面600 + 蓝光100 = 700</p>
+<p>1.67非球面900 + 蓝光0 = 900</p>
+<h6 id="ZOFF"><a href="#ZOFF" class="headerlink" title="ZOFF"></a>ZOFF</h6><p>一家日本的连锁平价眼镜，在香港很受欢迎。</p>
+<p>因为暂时只在太古城有店，所以电话问了下。</p>
+<ol>
+<li>不支持单独配镜片</li>
+<li>镜片是自己zoff的。。。？</li>
+<li>1.61非球面480+ 蓝光280= 760 全套眼镜</li>
+</ol>
+<p>最终看了下，大概就是一般品牌500，豪雅700值得考虑。又想了下豪雅这么便宜！还要什么飞机！淘宝上买镜片都不止这个价了。最终手机没电了，不想再来所以入手EGG豪雅。。</p>
+<p>值得一提的是香港的验光确实多了些没体验过的环节，总的来说感觉上专业一点。</p>
+<h5 id="conclusion"><a href="#conclusion" class="headerlink" title="conclusion"></a>conclusion</h5><p>遗憾:</p>
+<p>最后买的有点仓库，没考虑几点:</p>
+<ul>
+<li>是否为EGG豪雅特供镜片，如果是的话。。。</li>
+<li>许多参数并没有了解询问，如片基，阿贝数，镜片材料</li>
+<li>具体型号？现在才知道就算是正品豪雅(VP IP 等等）也有很多型号</li>
+</ul>
+<p>不过总的来说觉得700验光+豪雅已经是很不错的了，具体是什么豪雅 后天就知道了（特意叮嘱了给我留着镜片包装）</p>
+<h5 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h5><p>眼镜到手，试戴半天后效果特别好，真的看电脑久了不头晕了！不过也可能是之前一直是反的原因。</p>
+<p>镜片包装也如约给我了：</p>
+<p><a href="https://wadmes.github.io/images/1515759363478.jpg"><img src="../figures/1515759363478-5434462.jpg" alt="1515759363478"></a></p>
+<p><a href="https://wadmes.github.io/images/1515759363478.jpg">1515759363478</a></p>
+<p>包装上没有任何豪雅的资料，电话问了豪雅的人确定确实egg有用，找工作人员，工作人员加了我微信，说可以给我一个我自己镜片的豪雅证明，里面也会specify具体是哪一款豪雅镜片。</p>
+<p>总之是一次特别棒的体验</p>
+<h4 id="更新-1"><a href="#更新-1" class="headerlink" title="更新"></a>更新</h4><p>本着所有东西都要体验一下的高尚理想，这次(2019.10)配眼镜选了另外一种方法…网上听热门的 日本JINS网店 海淘。</p>
+<p>因为自己海淘的挺多，加之性价比确实蛮高的，500+可以有一个1.74折射率的HOYA眼镜，还是钛金属的镜框（镜架是塑料。。）也是挺满意的说。</p>
+<p>另外打算下次配眼镜要么去日本线下？顺便还可以去玩下。要么就去知乎的深圳眼镜热店。</p>
+<p>生活就是折腾才有意思啊哈哈~</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://wadmes.github.io/2018/01/09/CSCI5030-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/liwei3.jpg">
+      <meta itemprop="name" content="Li Wei">
+      <meta itemprop="description" content="人生注定是一个人的旅行，但就算孤独也要做一直前行的人啊">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NEWAY">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/01/09/CSCI5030-1/" class="post-title-link" itemprop="url">CSCI5030 1</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-01-09 15:26:26" itemprop="dateCreated datePublished" datetime="2018-01-09T15:26:26+08:00">2018-01-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-03-21 21:27:56" itemprop="dateModified" datetime="2019-03-21T21:27:56+08:00">2019-03-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/study/" itemprop="url" rel="index"><span itemprop="name">study</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2018/01/09/CSCI5030-1/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2018/01/09/CSCI5030-1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>CUHK CSCI5030</p>
+<p>instructor: XU Lei</p>
+<p>来自 交大 的大佬教授。</p>
+<p>大佬就是大佬，直接用中文。</p>
+<p>四年来第一次上中问的专业课，感觉exciting。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://wadmes.github.io/2018/01/08/STAT2006-01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/liwei3.jpg">
+      <meta itemprop="name" content="Li Wei">
+      <meta itemprop="description" content="人生注定是一个人的旅行，但就算孤独也要做一直前行的人啊">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NEWAY">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/01/08/STAT2006-01/" class="post-title-link" itemprop="url">STAT2006_01</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-01-08 14:54:43" itemprop="dateCreated datePublished" datetime="2018-01-08T14:54:43+08:00">2018-01-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-03-21 21:36:19" itemprop="dateModified" datetime="2019-03-21T21:36:19+08:00">2019-03-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/study/" itemprop="url" rel="index"><span itemprop="name">study</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2018/01/08/STAT2006-01/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2018/01/08/STAT2006-01/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h1><h4 id="Probability-distributions"><a href="#Probability-distributions" class="headerlink" title="Probability distributions"></a>Probability distributions</h4><ul>
+<li>Uniform</li>
+<li>Poisson <ul>
+<li>Discrete</li>
+<li>Parameter: $\lambda$ </li>
+<li>$P(X = k) = \frac {e^{-\lambda}\lambda^k}{k!}$</li>
+</ul>
+</li>
+<li>Normal</li>
+<li><strong>t-dis???</strong></li>
+<li>Chi-square 卡方分布<ul>
+<li><strong>k</strong>个<a href="https://zh.wikipedia.org/wiki/%E7%B5%B1%E8%A8%88%E7%8D%A8%E7%AB%8B" target="_blank" rel="noopener">独立</a>的标准<a href="https://zh.wikipedia.org/wiki/%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83" target="_blank" rel="noopener">正态分布</a>变量的平方和</li>
+<li>parameter:k</li>
+</ul>
+</li>
+<li>Cauchy</li>
+</ul>
+<h4 id="Benford’s-Law"><a href="#Benford’s-Law" class="headerlink" title="Benford’s Law"></a>Benford’s Law</h4><p>$P(d) = log<em>{10}(d+1)-log</em>{10}(d)$, where d is the case that <em>the first digit of the data is d</em></p>
+<h1 id="Ch-1"><a href="#Ch-1" class="headerlink" title="Ch 1"></a>Ch 1</h1><p><strong>Sample space:</strong> $S$</p>
+<p><strong>event</strong>: </p>
+<ul>
+<li>subset of $S$</li>
+<li>measurable, (can assign a probability)</li>
+<li>subset is NOT event</li>
+</ul>
+<h4 id="Conditional-Probability"><a href="#Conditional-Probability" class="headerlink" title="Conditional Probability:"></a>Conditional Probability:</h4><p>$P(A|B) = \frac{P(A\cap B)}{P(B)}$</p>
+<h4 id="Bayes-theorem"><a href="#Bayes-theorem" class="headerlink" title="Bayes theorem"></a>Bayes theorem</h4><p>$P(A) = \sum{P(A\cap B_i)}$</p>
+<p>Now: We want to know: if A happened, what are the p of different B?</p>
+<p>$P(B_j|A) = \frac{P(A\cap B_j)}{P(A)}$</p>
+<p>$P(A\cap B_j) = P(A|B_j)P(B_j)$</p>
+<h5 id="Bayes-theorem-definition"><a href="#Bayes-theorem-definition" class="headerlink" title="Bayes theorem definition:"></a>Bayes theorem definition:</h5><p>Consider a partition $B_j$ of $S$ and event $A$:</p>
+<p>$P(B_j|A) = \frac{P(A\cap B_j)}{P(A)}= \frac{P(A|B_j)P(B_j)}{\sum{P(A|B_i)P(B_i)}}​$</p>
+<h5 id="Monty-Hall-Problem"><a href="#Monty-Hall-Problem" class="headerlink" title="Monty Hall Problem"></a>Monty Hall Problem</h5><p>$B_j = C_2|X_1, A = H_3|X_1$</p>
+<h1 id="Ch-2-Discrete-Random-Variables"><a href="#Ch-2-Discrete-Random-Variables" class="headerlink" title="Ch 2 Discrete Random Variables"></a>Ch 2 Discrete Random Variables</h1><p><strong>Mean</strong> is the quantity a that minimizes $min_aE(X-a)^2$</p>
+<p><strong>Variance</strong> $(x-E(x))^2$</p>
+<p><strong>Moment generating function</strong> = mgf = summary of the overall random behavior</p>
+<p><strong>median</strong> $min_b |x-b|$</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://wadmes.github.io/2018/01/01/Happy-Newyear/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/liwei3.jpg">
+      <meta itemprop="name" content="Li Wei">
+      <meta itemprop="description" content="人生注定是一个人的旅行，但就算孤独也要做一直前行的人啊">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NEWAY">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/01/01/Happy-Newyear/" class="post-title-link" itemprop="url">Happy Newyear</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2018-01-01 08:37:59" itemprop="dateCreated datePublished" datetime="2018-01-01T08:37:59+08:00">2018-01-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-03-21 21:32:52" itemprop="dateModified" datetime="2019-03-21T21:32:52+08:00">2019-03-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/life/" itemprop="url" rel="index"><span itemprop="name">life</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2018/01/01/Happy-Newyear/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2018/01/01/Happy-Newyear/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          my favorite LOL player?
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/01/01/Happy-Newyear/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://wadmes.github.io/2017/12/29/Extract-kernel-from-tensorflow-pretrained-model/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/liwei3.jpg">
+      <meta itemprop="name" content="Li Wei">
+      <meta itemprop="description" content="人生注定是一个人的旅行，但就算孤独也要做一直前行的人啊">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NEWAY">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/12/29/Extract-kernel-from-tensorflow-pretrained-model/" class="post-title-link" itemprop="url">Extract kernel from tensorflow pretrained model</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2017-12-29 20:34:35" itemprop="dateCreated datePublished" datetime="2017-12-29T20:34:35+08:00">2017-12-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-03-21 21:31:42" itemprop="dateModified" datetime="2019-03-21T21:31:42+08:00">2019-03-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/code/" itemprop="url" rel="index"><span itemprop="name">code</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2017/12/29/Extract-kernel-from-tensorflow-pretrained-model/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2017/12/29/Extract-kernel-from-tensorflow-pretrained-model/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="Tensor-to-numpy-array"><a href="#Tensor-to-numpy-array" class="headerlink" title="Tensor to numpy array"></a>Tensor to numpy array</h4><p>In Tensorflow, kernel (<code>tf.Variable</code>) can be easily accessed by <code>slim.get_model_variables()</code> (return a <em>list</em> of <code>tf.Variable</code>)if using <em>slim</em> package. Also, if we want to access corresponding</p>
+<ul>
+<li>name: simply by <code>.name</code></li>
+<li>value: <code>sess.run</code></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">   weights = slim.get_model_variables()</span><br><span class="line">   <span class="comment">#sturcture: list of variable name</span></span><br><span class="line">structure = []</span><br><span class="line">   <span class="keyword">for</span> i <span class="keyword">in</span> range(len(weights)):</span><br><span class="line">       structure.append(weights[i].name)</span><br><span class="line">   <span class="comment">#weights: list of variable value(numpy array)</span></span><br><span class="line">   weights = self.sess.run(weights,feed_dict=&#123;&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="Numpy-array-to-file"><a href="#Numpy-array-to-file" class="headerlink" title="Numpy array to file"></a>Numpy array to file</h4><h5 id="BAD-TRY-numpy-savetxt"><a href="#BAD-TRY-numpy-savetxt" class="headerlink" title="BAD TRY: numpy.savetxt"></a>BAD TRY: numpy.savetxt</h5><p>Extracted numpy array is usually multi-dimentional, therefore <code>numpy.savetxt</code> is not applicable, because it requires a 1-d or 2-d array.</p>
+<h5 id="BAD-TRY-numpy-save"><a href="#BAD-TRY-numpy-save" class="headerlink" title="BAD TRY: numpy.save"></a>BAD TRY: numpy.save</h5><p>pretty easy to use, but only applicable when we only need to load the file using <em>Python</em>, but we need to implement a <em>C</em> code in our project</p>
+<h5 id="SUCCESSFUL-scipy-io-loadmat"><a href="#SUCCESSFUL-scipy-io-loadmat" class="headerlink" title="SUCCESSFUL: scipy.io.loadmat"></a>SUCCESSFUL: scipy.io.loadmat</h5><p><code>numpy</code> to <code>.mat</code> file,  need a <code>dic</code> to generate the file, therefore we need the name of <code>tf.variable</code> above.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> scipy.io</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">extractor</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,filepath)</span>:</span></span><br><span class="line">        self.filepath = filepath</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">tensor_to_file</span><span class="params">(self,tensor_list,structure)</span>:</span></span><br><span class="line">        mat_dict = &#123;&#125;</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(tensor_list)):</span><br><span class="line">            mat_dict.update(&#123;structure[i]:tensor_list[i]&#125;)</span><br><span class="line">        scipy.io.savemat(self.filepath,mdict=mat_dict)</span><br><span class="line">        <span class="keyword">print</span> <span class="string">'.mat file has been saved.'</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">file_to_tensor</span><span class="params">(self)</span>:</span></span><br><span class="line">        tensor_dic = scipy.io.loadmat(self.filepath)</span><br><span class="line">        <span class="keyword">print</span> <span class="string">'.mat file has been loaded.'</span></span><br><span class="line">        <span class="keyword">return</span> tensor_dic</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://wadmes.github.io/2017/12/27/advantages-of-ReLU/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/liwei3.jpg">
+      <meta itemprop="name" content="Li Wei">
+      <meta itemprop="description" content="人生注定是一个人的旅行，但就算孤独也要做一直前行的人啊">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NEWAY">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/12/27/advantages-of-ReLU/" class="post-title-link" itemprop="url">Advantages of ReLU</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2017-12-27 17:50:29" itemprop="dateCreated datePublished" datetime="2017-12-27T17:50:29+08:00">2017-12-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-03-21 21:18:15" itemprop="dateModified" datetime="2019-03-21T21:18:15+08:00">2019-03-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/study/" itemprop="url" rel="index"><span itemprop="name">study</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2017/12/27/advantages-of-ReLU/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2017/12/27/advantages-of-ReLU/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ul>
+<li>speed up trainning:<ul>
+<li>gradient computation -&gt; 0 or 1</li>
+<li>computation of ReLU is also easy, 0 or original</li>
+</ul>
+</li>
+<li>vanishing gradient problem</li>
+<li>sparse output, reduce overfitting, (like L1 reg)</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://wadmes.github.io/2017/12/27/happiness/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -576,830 +1637,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://wadmes.github.io/2017/12/24/csci3230-HW3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/liwei3.jpg">
-      <meta itemprop="name" content="Li Wei">
-      <meta itemprop="description" content="人生注定是一个人的旅行，但就算孤独也要做一直前行的人啊">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="NEWAY">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/12/24/csci3230-HW3/" class="post-title-link" itemprop="url">CSCI3230 HW3</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2017-12-24 16:10:25" itemprop="dateCreated datePublished" datetime="2017-12-24T16:10:25+08:00">2017-12-24</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-12 12:14:01" itemprop="dateModified" datetime="2019-12-12T12:14:01+08:00">2019-12-12</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/study/" itemprop="url" rel="index"><span itemprop="name">study</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2017/12/24/csci3230-HW3/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2017/12/24/csci3230-HW3/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>CSCI3230 HW3 Li Wei  1155062148</p>
-<p>test!</p>
-<h4 id="1-Information-Theory-and-Logic"><a href="#1-Information-Theory-and-Logic" class="headerlink" title="1. Information Theory and Logic"></a>1. Information Theory and Logic</h4><h5 id="a"><a href="#a" class="headerlink" title="a."></a>a.</h5><p>define $P<em>{front}$ and $P</em>{back}$ as the possibilities of front and back respectively. And we have:</p>
-<p>$P<em>{front}+P</em>{back} = 1$</p>
-<p>$I(V) = 0$: The coin flipping result must be front/ back, which means its possibility is 1. $P<em>{front} \ or \ P</em>{back} =1$ so that $I(V) = - 0\times log_2 0  - 1\times log_21 = 0$ </p>
-<p>$I(V) = log<em>2n$: The possibility of front and back are same, which is 0.5 respectively. $P</em>{front}  =P_{back} =0.5$  so that $I(V) = - 0.5\times log_2 0.5  - 0.5\times log_20.5 = log_22=1$</p>
-<h5 id="b"><a href="#b" class="headerlink" title="b."></a>b.</h5><p>R1:</p>
-<p> $Pass(x,computer) \wedge Win(x,prize)\rightarrow Happy(x)\Rightarrow $</p>
-<p>$\neg(Pass(x,computer) \wedge Win(x,prize)) \vee Happy(x) \Rightarrow$</p>
-<p>$\neg Pass(x,computer) \vee \neg Win(x,prize) \vee Happy(x) $</p>
-<p>R2:</p>
-<p>$Study(y) \vee Lucky(y) \rightarrow Pass(y,z) \Rightarrow$</p>
-<p>$\neg(Study(y) \vee Lucky(y)) \vee Pass(y,z) \Rightarrow$</p>
-<p>$(\neg Study(y) \wedge \neg Lucky(y)) \vee Pass(y,z) \Rightarrow$</p>
-<p>$(\neg Study(y) \vee Pass(y,z)) \wedge(\neg Lucky(y)\vee Pass(y,z))$</p>
-<p>R3:</p>
-<p>$Lucky(w) \rightarrow Win(w,prize) \Rightarrow$</p>
-<p>$\neg Lucky(w) \vee Win(w,prize) $</p>
-<p><img src="images\hw3_1.jpg" alt="hw3_1"></p>
-<h4 id="2-Neural-Network"><a href="#2-Neural-Network" class="headerlink" title="2. Neural Network"></a>2. Neural Network</h4><h5 id="a-1"><a href="#a-1" class="headerlink" title="a."></a>a.</h5><p>$O = f(\sum_{j=1}^{n} (w_jI_j)+ w_o)$</p>
-<h5 id="b-1"><a href="#b-1" class="headerlink" title="b."></a>b.</h5><p>$h<em>{i,k} = f(\sum</em>{j = 1}^{H<em>{i-1}}(w</em>{i-1,j,k}h_{i-1,j}))$</p>
-<p>$O<em>m =f(\sum</em>{j = 1}^{H<em>{K}}(w</em>{K,j,m}h_{K,j})) $</p>
-<h5 id="c"><a href="#c" class="headerlink" title="c."></a>c.</h5><p>$f’(z) = (\frac{1}{1+e^{-z}})’ = \frac{e^{-z}}{(1+e^{-z})^2} = \frac{1}{1+e^{-z}}\times \frac{e^{-z}}{1+e^{-z}}= f(z)(1-f(z))$</p>
-<h5 id="d"><a href="#d" class="headerlink" title="d."></a>d.</h5><p>Learning rate represents the <strong>impact of the correction</strong> applied following a training step. The bigger the learning rate, the more drastic the changes at each step. And if we set learning rate  as 1, which means no learning rate, we’ll mostly likely start diverging away from the minimum. Therefore, we need a learning rate to control the changing velocity of weights and it is better to use a smaller learning rate.</p>
-<h5 id="e"><a href="#e" class="headerlink" title="e."></a>e.</h5><ol>
-<li><p>$\frac{\delta E}{\delta w<em>{K,j,k}} = \frac{\delta E}{\delta O_k}\cdot \frac{\delta O_k}{\delta w</em>{K,j,k}}= (O<em>k - T_k)\cdot O_k\cdot(1-O_k)\cdot h</em>{K,j}​$ (because $E = 0.5\sum<em>{m=1}^{H</em>{K+1}}(O<em>m - T_m)^2 \ and\ O</em> k=f(\sum<em>{j = 1}^{H</em>{K}}(w<em>{K,j,k}h</em>{K,j}) ) ​$)</p>
-</li>
-<li><p>considering $E=F(h<em>{i+2,1}+ …+ h</em>{i+2,H<em>{i-2}})$ and $h</em>{i+2,j} = G(h_{i+1,k})$, according to the multivariate chain rule:</p>
-<p>$\frac{\delta E}{\delta h<em>{i+1,k}} = \sum</em>{j=1}^{H<em>{i+2}}(\frac{\delta E}{\delta h</em>{i+2,j}} \cdot \frac{\delta h<em>{i+2,j}}{\delta h</em>{i+1},k})$</p>
-<p>$=\sum<em>{j=1}^{H</em>{i+2}}(\frac{\delta E}{\delta h<em>{i+2,j}}\cdot h</em>{i+2,k}\cdot (1-h<em>{i+2,k})\cdot w</em>{i+1,k,j}) = \sum<em>{j=1}^{H</em>{i+2}}\Delta<em>{i+2,j} \cdot w</em>{i+1,k,j}$</p>
-</li>
-<li><p>According to chain rule, we have</p>
-<p>$\frac{\delta E}{\delta w<em>{i,j,k}} = \frac{\delta E}{\delta h</em>{i+1},k} \cdot \frac{\delta h<em>{i+1},k}{w</em>{i,j,k}}$</p>
-<p>And $\frac{\delta h<em>{i+1,k}}{w</em>{i,j,k}} = f’(\sum<em>{j = 1}^{H</em>{i}}(w<em>{i,j,k}h</em>{i,j}))\cdot h<em>{i,j}= h</em>{i+1,k}\cdot (1-h<em>{i+1,k})\cdot h</em>{i,j}​$</p>
-<p>Therefore, the result is:</p>
-<p>$\frac{\delta E}{\delta w<em>{i,j,k}} = (\sum</em>{j=1}^{H<em>{i+2}}\Delta</em>{i+2,j} \cdot w<em>{i+1,k,j})\cdot h</em>{i+1,k}\cdot (1-h<em>{i+1,k})\cdot h</em>{i,j} $ </p>
-<hr>
-</li>
-<li><p>def <strong>BP</strong>(<em>network,examples,a</em>) return a modified network:<br><strong>INPUTS</strong>:<br>  network, a multilayer network<br>  examples, a set of data/label pairs<br>  a, learning rate</p>
-<p><strong>Repeat:</strong></p>
-<p><strong>for each</strong> e <strong>in</strong> examples:<br>  $O \leftarrow Run(Network, e)$<br>  <strong>for each</strong> neuron <strong>in</strong> network:</p>
-<pre><code> $\Delta_{K+1,k} \leftarrow (O_k - T_k)\cdot O_k\cdot(1-O_k)\cdot h_{K,j}$
-</code></pre><p>​    <strong>for each</strong> weight <strong>connected to</strong> corresponding neuron:</p>
-<p>​        $W<em>{K,j,k} \leftarrow W</em>{K,j,k} - a\cdot \Delta<em>{K+1,k} \cdot h</em>{K,j}$</p>
-<p>  <strong>for each</strong> sub-layer <strong>except the first layer</strong>:</p>
-<p>​    <strong>for each </strong> neuron <strong>in</strong> sub layer:</p>
-<p>​        $\Delta<em>{i,k}= (\sum</em>{j=1}^{H<em>{i+1}}\Delta</em>{i+1,j} \cdot w<em>{i,k,j})\cdot h</em>{i,k}\cdot (1-h_{i,k})\cdot $</p>
-<p>​        <strong>for each</strong> weight <strong>connected to</strong> corresponding neuron <strong>in</strong> current sublayer:</p>
-<p>​            $W<em>{i,j,k} \leftarrow W</em>{i,j,k} - a\cdot \Delta<em>{i+1,k} \cdot h</em>{i,j}$</p>
-<p><strong>Until</strong> network <strong>has converged</strong></p>
-<p><strong>return</strong> network</p>
-<hr>
-</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://wadmes.github.io/2017/12/18/ESTR%203108%20Review/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/liwei3.jpg">
-      <meta itemprop="name" content="Li Wei">
-      <meta itemprop="description" content="人生注定是一个人的旅行，但就算孤独也要做一直前行的人啊">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="NEWAY">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/12/18/ESTR%203108%20Review/" class="post-title-link" itemprop="url">ESTR 3108 review</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2017-12-18 00:00:00" itemprop="dateCreated datePublished" datetime="2017-12-18T00:00:00+08:00">2017-12-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-03-21 21:31:29" itemprop="dateModified" datetime="2019-03-21T21:31:29+08:00">2019-03-21</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/study/" itemprop="url" rel="index"><span itemprop="name">study</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2017/12/18/ESTR%203108%20Review/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2017/12/18/ESTR%203108%20Review/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="ESTR-3108-Review"><a href="#ESTR-3108-Review" class="headerlink" title="ESTR 3108 Review"></a>ESTR 3108 Review</h1><h2 id="Agents"><a href="#Agents" class="headerlink" title="Agents"></a>Agents</h2><p><strong><em>Agents</em></strong> include humans,robots, softbots, thermostats, etc.</p>
-<p>The <strong><em>agent function</em></strong> maps from percept histories(sequences) to actions $P-&gt;A$</p>
-<p><strong><em>agent program</em></strong> runs on the physical architecture to produce f. (prescode)</p>
-<ul>
-<li><strong>Percepts</strong> :sensor reading</li>
-<li><strong>Actions</strong> : output</li>
-<li><strong>Goals</strong> : performance measure ( to achieve the goal )</li>
-<li><strong>Environment</strong> : external world</li>
-</ul>
-<p><strong><em>Rational agent</em></strong>: For each possible percept sequence, a rational agent should choose an action<br>that is expected to <strong><em>maximize its performance measure</em></strong>, given the evidence provided by the <strong><em>percept sequence</em></strong> and whatever <strong><em>built-in knowledge (environment) (capabilities(actions))</em></strong> it has</p>
-<p>Basic types of agents in order of <strong><em>increasing</em></strong> generality:</p>
-<h3 id="Simple-reflex-agents"><a href="#Simple-reflex-agents" class="headerlink" title="Simple reflex agents"></a>Simple reflex agents</h3><p>Agents with <strong><em>condition-action rules</em></strong> </p>
-<h3 id="Model-based-Reflex-agents-with-state"><a href="#Model-based-Reflex-agents-with-state" class="headerlink" title="Model based Reflex agents with state"></a>Model based Reflex agents with state</h3><p>Simple agents that maintain some sort of <strong><em>internal state</em></strong>(arg: state,action,percept,model) of the world (and a model) in order to choose an action.</p>
-<h3 id="Model-based-Goal-based-agents"><a href="#Model-based-Goal-based-agents" class="headerlink" title="Model-based, Goal-based agents"></a>Model-based, Goal-based agents</h3><p>Knowing about the current state of the environment is not always enough to decide what to do.The agent need a GOAL describing the desirable situations. </p>
-<h3 id="Model-based-Utility-based-agents"><a href="#Model-based-Utility-based-agents" class="headerlink" title="Model-based, Utility-based agents"></a>Model-based, Utility-based agents</h3><p>Goals alone are not really enough to generate high-quality behavior. (eg: quicker? safer? cheaper?) }We<br>can only achieve some utilities, or have a compromise action.</p>
-<h3 id="Learning-Agents"><a href="#Learning-Agents" class="headerlink" title="Learning Agents"></a>Learning Agents</h3><p>The <strong><em>learning element</em></strong> responsible for making improvements to the performance element.</p>
-<p>The <strong><em>performance element</em></strong> = previously entire agent: it takes in percepts and decides on actions.</p>
-<p>The <strong><em>critic</em></strong> tells the learning element how well the agent is doing w.r.t. a fixed standard of performance. Necessary because the percepts themselves provide no indication of agent’s success.</p>
-<p>The <strong><em>problem generator</em></strong> - responsible for suggesting problems &amp; actions for new and informative experiences.</p>
-<h3 id="Problem-solving-agents"><a href="#Problem-solving-agents" class="headerlink" title="Problem-solving agents"></a>Problem-solving agents</h3><ol>
-<li>Goal Formation</li>
-<li>Problem formulation: to decide what <em>actions</em> and <em>states</em> to consider</li>
-<li>Search</li>
-<li>Execution</li>
-</ol>
-<h3 id="4-problem-types"><a href="#4-problem-types" class="headerlink" title="4 problem types"></a>4 problem types</h3><h4 id="single-state-problems"><a href="#single-state-problems" class="headerlink" title="single-state problems"></a>single-state problems</h4><p>deterministic, fully observable: consider a single state at a time</p>
-<h4 id="Multiple-state-problems"><a href="#Multiple-state-problems" class="headerlink" title="Multiple state problems"></a>Multiple state problems</h4><p>non-observable: reason about sets of states that it might get to.</p>
-<h4 id="Contingency（偶然性）-problems"><a href="#Contingency（偶然性）-problems" class="headerlink" title="Contingency（偶然性） problems"></a>Contingency（偶然性） problems</h4><p>nondeterministic and/or partially observable: calculates a whole tree of actions rather than a single action sequence</p>
-<h4 id="Exploration-problems"><a href="#Exploration-problems" class="headerlink" title="Exploration problems"></a>Exploration problems</h4><p>unknown state space: agent must experiment, discovering the actions and states.</p>
-<p><strong><em>state space</em></strong> : The set of all states reachable from the initial state by any sequence of actions</p>
-<h2 id="Tree-Search-alg"><a href="#Tree-Search-alg" class="headerlink" title="Tree Search alg"></a>Tree Search alg</h2><p>Basic idea: </p>
-<p>Current state - generate a new set of states (expanding the state) - choose one (expanding state) by a search strategy to expand - search tree with search nodes</p>
-<h3 id="Evaluation-methods"><a href="#Evaluation-methods" class="headerlink" title="Evaluation methods"></a>Evaluation methods</h3><ul>
-<li>completeness. Always find a solution if exists?</li>
-<li>time complexity: number of nodes</li>
-<li>space complexity: maximum number of nodes in memory</li>
-<li>optimality: always find a least-cost solution?</li>
-</ul>
-<h3 id="BFS"><a href="#BFS" class="headerlink" title="BFS"></a>BFS</h3><ul>
-<li>FIFO queue</li>
-<li>complete</li>
-<li>time and space: O($b^{d+1}$) b: branching factor, d:depth of optimal solution</li>
-<li>optimal(if cost = 1 per step)</li>
-</ul>
-<h3 id="Uniform-cost-search"><a href="#Uniform-cost-search" class="headerlink" title="Uniform cost search"></a>Uniform cost search</h3><ul>
-<li>expand the lowerst-cost node rather than lowest-depth node.</li>
-<li>complete </li>
-<li>time: number of nodes with g &lt;= cost of optimal solution. g: path cost</li>
-<li>space: number of nodes with g &lt;= cost of optimal solution</li>
-<li>optimal</li>
-</ul>
-<h3 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h3><ul>
-<li>LIFO queue</li>
-<li>not complete, fail in infinite depth spaces</li>
-<li>O($b^m$) m: max depth of search tree, b: branching factor</li>
-<li>space: O(bm)</li>
-<li>optimal if cost same per step</li>
-</ul>
-<h3 id="Depth-limited-search"><a href="#Depth-limited-search" class="headerlink" title="Depth limited search"></a>Depth limited search</h3><p>depth first search with depth limit L</p>
-<h3 id="Iterative-deepening-search"><a href="#Iterative-deepening-search" class="headerlink" title="Iterative deepening search"></a>Iterative deepening search</h3><p>iterate limit L from 0 to infinite</p>
-<ul>
-<li>complete</li>
-<li>time: O($b^d$)</li>
-<li>space: O(bd)</li>
-<li>optimal if cost same per step</li>
-</ul>
-<h3 id="Best-first-search"><a href="#Best-first-search" class="headerlink" title="Best first search"></a>Best first search</h3><p>Nodes are <strong><em>ordered</em></strong> so that the best evaluation is <strong><em>expanded first</em></strong>. </p>
-<h4 id="Greedy-search"><a href="#Greedy-search" class="headerlink" title="Greedy search"></a>Greedy search</h4><ul>
-<li>Evaluation function = estimation of cost from node n to the closest goal, h(n)</li>
-<li>h can be any function as long as h(n) = 0 when n = goal such as 直线距离</li>
-<li>greedy search: best first search that uses h to select the next node to expand</li>
-<li>not complete(stuck in loop)</li>
-<li>time, space: O($b^m$), m: max depth of search tree ( keep all node in memory )</li>
-<li>not optimal</li>
-</ul>
-<h4 id="A-search"><a href="#A-search" class="headerlink" title="A search"></a>A search</h4><ul>
-<li>evaluation function  f = g(n) + h(n) g:cost so far to reach n</li>
-<li>0&lt;=h(n)&lt;= true cost from n to goal</li>
-<li>complete, unless inifinity nodes with f&lt;= f(Goal)</li>
-<li>time, exponential in [error in h * length of solution]</li>
-<li>space. keep all nodes</li>
-<li>optimal </li>
-<li>no other optimal alg is is guaranteed to expand fewer nodes than A (没expand all f 小于goal的 node， 就有可能miss optimal solution)</li>
-</ul>
-<h5 id="Dominance"><a href="#Dominance" class="headerlink" title="Dominance"></a>Dominance</h5><p>if h2 &gt; h1 for all n, then h2 dominates h1 and is better</p>
-<p>$N = 1 + b^1 + b^2 + … + b^d $</p>
-<p>N:total number of expanded nodes, b: effective branching factor d: solution depth. use b to determine the h’s overall usefulness.</p>
-<h3 id="Recursive-Best-First-Search-RBFS"><a href="#Recursive-Best-First-Search-RBFS" class="headerlink" title="Recursive Best First Search RBFS"></a>Recursive Best First Search RBFS</h3><pre><code>          1.Deterministic2.Stochastic
-</code></pre><p>Single point    Hill-climbing     Simulator A</p>
-<p>Multiple poi  Multi-start     GA</p>
-<p>Mul: Send whole class to search </p>
-<h3 id="Hill-climbing"><a href="#Hill-climbing" class="headerlink" title="Hill climbing"></a>Hill climbing</h3><p>如果邻居最大值 &lt; current -&gt; return</p>
-<p>else current = 邻居最大值</p>
-<p>problem: stuck on local max</p>
-<h3 id="Simulated-annealing"><a href="#Simulated-annealing" class="headerlink" title="Simulated annealing"></a>Simulated annealing</h3><ul>
-<li>escape local max by allowing some “ bad “ moves ( next = randomly selected) but gradually decrease their size and frequency</li>
-<li>if next = better, always excuted</li>
-<li>$p = e^{\Delta E/T}$ </li>
-</ul>
-<h3 id="Genetic-algorithms"><a href="#Genetic-algorithms" class="headerlink" title="Genetic algorithms"></a>Genetic algorithms</h3><p>选择初始生命种群(initial population)</p>
-<p>​    评价种群中的个体适应度(fitness function)</p>
-<p>​    以比例原则（分数高的挑中机率也较高）选择产生下一个种群。不仅仅挑分数最高的的原因是这么做可能收敛到局部的最佳点，而非整体的。</p>
-<p>​    改变该种群（交叉和变异）(crossover mutation)</p>
-<p>直到停止循环的条件满足</p>
-<h2 id="Game-play"><a href="#Game-play" class="headerlink" title="Game play"></a>Game play</h2><h3 id="Minimax"><a href="#Minimax" class="headerlink" title="Minimax"></a>Minimax</h3><ul>
-<li>complete if tree is finite</li>
-<li>optimal if opponent is optimal</li>
-<li>time ：$O(b^m)$</li>
-<li>space: O(bm) depth first</li>
-</ul>
-<p>Resource limits: cutoff test: depth limit ; evaluation function:= estimated desirability of position</p>
-<h4 id="Evaluation-function"><a href="#Evaluation-function" class="headerlink" title="Evaluation function"></a>Evaluation function</h4><ul>
-<li>agree with the utility function on terminal states</li>
-<li>not too long</li>
-<li>accurately reflect the actual chances of winning</li>
-</ul>
-<h3 id="Qui’escence-search"><a href="#Qui’escence-search" class="headerlink" title="Qui’escence search"></a>Qui’escence search</h3><p>Expand non-quiescent(静) positions until quiescent positions are reached.</p>
-<h4 id="Alpha-Beta-pruning"><a href="#Alpha-Beta-pruning" class="headerlink" title="Alpha-Beta pruning"></a>Alpha-Beta pruning</h4><p>compute the correct minimax decision without looking at every node in the search tree.</p>
-<p>perfect order: time = $O(b^{m/2})$</p>
-<h2 id="Logic"><a href="#Logic" class="headerlink" title="Logic"></a>Logic</h2><p><strong><em>Syntax</em></strong> defines the sentences in the language</p>
-<p><strong><em>Semantics</em></strong> define the meaning of sentences </p>
-<p>m is a  <strong><em>model</em></strong> of a sentence s if s in true in m</p>
-<p>M(s) = set of all models of s</p>
-<p>KB entails s  iff M(KB) belongs to M(s)</p>
-<ul>
-<li>Soundness: i is sound if whenever KB entails(i) s, then KB entails s</li>
-<li>Completeness: i is complete if whenever KB entails s, then Kb entails(i) s. Derivations can produce all entailed sentences </li>
-</ul>
-<p>Valid: true in all models</p>
-<p>Satisfiable: true in some models</p>
-<p>Unsatisfiable: true in no models</p>
-<h3 id="Horn-Form"><a href="#Horn-Form" class="headerlink" title="Horn Form"></a>Horn Form</h3><p>conjunction of Horn clauses</p>
-<p><strong><em>Horn clauses</em></strong></p>
-<p>proposition symbol || conjucton of symbols -&gt; symbol</p>
-<h3 id="Backward-chaining"><a href="#Backward-chaining" class="headerlink" title="Backward chaining"></a>Backward chaining</h3><p>1.check if q is known already </p>
-<p>2.prove by BC all premises of some rules concluding q</p>
-<ul>
-<li><strong>Forward chaining</strong><ul>
-<li>data-driven</li>
-<li>may do lots of works that is irrelevant to the goal</li>
-</ul>
-</li>
-<li><strong>Backward chaining</strong><ul>
-<li>goal-driven</li>
-<li>complexity of BC can be much less than linear in size of KB</li>
-</ul>
-</li>
-</ul>
-<h3 id="Resolution"><a href="#Resolution" class="headerlink" title="Resolution"></a>Resolution</h3><h4 id="CNF-universal"><a href="#CNF-universal" class="headerlink" title="CNF-universal"></a>CNF-universal</h4><p>conjunction of “disjunctions of literals”</p>
-<ul>
-<li>$ a\leftrightarrow b\Rightarrow(a\rightarrow b) \wedge(b\rightarrow a)$</li>
-<li>$a\rightarrow b\Rightarrow \neg a \vee b$</li>
-<li>$ \neg( a \vee b)\Rightarrow \neg a \wedge \neg b$</li>
-<li>$(a \wedge b) \vee c \Rightarrow (a \vee c) \wedge ( b \vee c)$</li>
-</ul>
-<h4 id="Resolution-inference-rule"><a href="#Resolution-inference-rule" class="headerlink" title="Resolution inference rule"></a>Resolution inference rule</h4><p>sound and complete</p>
-<p>To proof Kb entails a , by contradiction, show that Kb and not a unsatisfiable</p>
-<h2 id="First-Order-Logic"><a href="#First-Order-Logic" class="headerlink" title="First Order Logic"></a>First Order Logic</h2><ul>
-<li>Terms: Function(Term,…) | constant | variable</li>
-<li>atomic sentences: a predicate symbol followed by a parenthesized list of terms.(also an equality)</li>
-<li>complex sentences: logical connectives (and or) </li>
-<li>Quantifier, for all, exist one</li>
-</ul>
-<p><strong>well formed formula/wff</strong>: for sentences that have all their variables properly introduced.</p>
-<p>FOL: one can quantify over objects but not over relations or functions on these object</p>
-<p>Higher order logic : quantify over relations and functions</p>
-<p>$(\lambda x,y\ x^2-y^2)(25,24) = 25^2 - 24^2 = 49$</p>
-<p>E! = unique</p>
-<h3 id="Universal-instantiation-Existential-instantiation"><a href="#Universal-instantiation-Existential-instantiation" class="headerlink" title="Universal instantiation / Existential instantiation"></a>Universal instantiation / Existential instantiation</h3><p>UI can be applied several times to <strong>add</strong> new sentences, the new KB is <strong>logically equivalent</strong></p>
-<p>to the old</p>
-<p>EI can be applied <strong>once</strong> to <strong>replace</strong> the existential sentence, the new KB is <strong>not</strong> equivalent to the old.</p>
-<h3 id="Unification"><a href="#Unification" class="headerlink" title="Unification"></a>Unification</h3><p>UNIFY(p,q) = theta where SUBST(theta,p) = SUBST(theta, q)</p>
-<h3 id="Backward-channing-and-FC"><a href="#Backward-channing-and-FC" class="headerlink" title="Backward channing and FC"></a>Backward channing and FC</h3><ul>
-<li>BWC<ul>
-<li>space is linear in size of proof</li>
-<li>incomplete due to infinite loops(checking current goal against every goal on stack)</li>
-<li>inefficient due to repeated sub goals ( caching previous results)</li>
-</ul>
-</li>
-<li>FWC<ul>
-<li>sound and complete</li>
-<li>may not terminate in general if alpha is not entailed</li>
-<li>entailment with definite clauses is semi-decidable</li>
-</ul>
-</li>
-</ul>
-<h2 id="Learning-From-Examples"><a href="#Learning-From-Examples" class="headerlink" title="Learning From Examples"></a>Learning From Examples</h2><p><strong>Decision Tree</strong> not a good way to represent the function because the truth table is exponentially large in the number of attributes</p>
-<ul>
-<li>If there are no examples left, it means that no such example has been observed, and we return the majority classification of the node’s parent.</li>
-<li>If there are no attributes left, but both +ve and -ve examples, which means that these examples have exactly the same description, but different classifications. This happens when <ul>
-<li>noise</li>
-<li>not fully describe</li>
-<li>the domain is non-deterministic</li>
-</ul>
-</li>
-</ul>
-<p><strong>Ockham’s razor.</strong>The most likely hypothesis is the simplest one that is consistent with all observations.</p>
-<p><strong>Information content I</strong></p>
-<p>$I(P(v_1),…,P(v_n)) = \sum-P(v_i)log_2P(v_i)$</p>
-<p>P is smaller, then -log P is bigger</p>
-<p>$Gain(A) = I(p/(p+n), n/(n+p)) - Reminder(A)$</p>
-<p>$Reminder(A) = \sum\frac{p_i+n_i}{p+n}I(p_i/{p_i+n_i},n_i/p_i+n_i)$</p>
-<p>We select features with largest Gain.</p>
-<ul>
-<li>Fasle negative: the hypothesis must generalization: C2(x) implies C1(x). C2 is to be generalized<ul>
-<li>Dropping conditions || add OR conditions</li>
-</ul>
-</li>
-<li>False positive: specialization. special = contradiction</li>
-</ul>
-<p><strong>Sample Size</strong>: $m &gt;= 1/e ( ln 1/o + ln|H|)$</p>
-<p>e = max error o = error’s probablity H= number of possible hypothesis</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://wadmes.github.io/2017/09/08/%E6%B8%AF%E7%8B%AC%E8%80%8C%E8%AE%BA/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/liwei3.jpg">
-      <meta itemprop="name" content="Li Wei">
-      <meta itemprop="description" content="人生注定是一个人的旅行，但就算孤独也要做一直前行的人啊">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="NEWAY">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/09/08/%E6%B8%AF%E7%8B%AC%E8%80%8C%E8%AE%BA/" class="post-title-link" itemprop="url">致楼上港独言论</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2017-09-08 17:50:29" itemprop="dateCreated datePublished" datetime="2017-09-08T17:50:29+08:00">2017-09-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-03-21 21:37:33" itemprop="dateModified" datetime="2019-03-21T21:37:33+08:00">2019-03-21</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/life/" itemprop="url" rel="index"><span itemprop="name">life</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2017/09/08/%E6%B8%AF%E7%8B%AC%E8%80%8C%E8%AE%BA/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2017/09/08/%E6%B8%AF%E7%8B%AC%E8%80%8C%E8%AE%BA/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          my favorite LOL player?
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2017/09/08/%E6%B8%AF%E7%8B%AC%E8%80%8C%E8%AE%BA/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://wadmes.github.io/2014/09/19/%E4%BD%A0%E4%BB%AC%E8%A2%AB%E5%86%99%E5%9C%A8%E6%88%91%E7%9A%84%E5%BF%83%E9%87%8C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/liwei3.jpg">
-      <meta itemprop="name" content="Li Wei">
-      <meta itemprop="description" content="人生注定是一个人的旅行，但就算孤独也要做一直前行的人啊">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="NEWAY">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2014/09/19/%E4%BD%A0%E4%BB%AC%E8%A2%AB%E5%86%99%E5%9C%A8%E6%88%91%E7%9A%84%E5%BF%83%E9%87%8C/" class="post-title-link" itemprop="url">你们被写在我的心里</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2014-09-19 16:58:19" itemprop="dateCreated datePublished" datetime="2014-09-19T16:58:19+08:00">2014-09-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-03-21 21:37:00" itemprop="dateModified" datetime="2019-03-21T21:37:00+08:00">2019-03-21</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/life/" itemprop="url" rel="index"><span itemprop="name">life</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2014/09/19/%E4%BD%A0%E4%BB%AC%E8%A2%AB%E5%86%99%E5%9C%A8%E6%88%91%E7%9A%84%E5%BF%83%E9%87%8C/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2014/09/19/%E4%BD%A0%E4%BB%AC%E8%A2%AB%E5%86%99%E5%9C%A8%E6%88%91%E7%9A%84%E5%BF%83%E9%87%8C/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          my favorite LOL player?
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2014/09/19/%E4%BD%A0%E4%BB%AC%E8%A2%AB%E5%86%99%E5%9C%A8%E6%88%91%E7%9A%84%E5%BF%83%E9%87%8C/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://wadmes.github.io/2014/08/01/%E6%83%9F%E6%84%BF%E6%AD%A4%E5%BF%83%E6%97%A0%E6%80%A8%E5%B0%A4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/liwei3.jpg">
-      <meta itemprop="name" content="Li Wei">
-      <meta itemprop="description" content="人生注定是一个人的旅行，但就算孤独也要做一直前行的人啊">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="NEWAY">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2014/08/01/%E6%83%9F%E6%84%BF%E6%AD%A4%E5%BF%83%E6%97%A0%E6%80%A8%E5%B0%A4/" class="post-title-link" itemprop="url">惟愿此心无怨尤</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2014-08-01 17:02:25" itemprop="dateCreated datePublished" datetime="2014-08-01T17:02:25+08:00">2014-08-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-03-21 21:37:24" itemprop="dateModified" datetime="2019-03-21T21:37:24+08:00">2019-03-21</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/life/" itemprop="url" rel="index"><span itemprop="name">life</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2014/08/01/%E6%83%9F%E6%84%BF%E6%AD%A4%E5%BF%83%E6%97%A0%E6%80%A8%E5%B0%A4/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2014/08/01/%E6%83%9F%E6%84%BF%E6%AD%A4%E5%BF%83%E6%97%A0%E6%80%A8%E5%B0%A4/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          my favorite LOL player?
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2014/08/01/%E6%83%9F%E6%84%BF%E6%AD%A4%E5%BF%83%E6%97%A0%E6%80%A8%E5%B0%A4/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://wadmes.github.io/2014/06/14/%E6%88%91%E7%9A%84%E9%AB%98%E4%B8%AD/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/liwei3.jpg">
-      <meta itemprop="name" content="Li Wei">
-      <meta itemprop="description" content="人生注定是一个人的旅行，但就算孤独也要做一直前行的人啊">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="NEWAY">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2014/06/14/%E6%88%91%E7%9A%84%E9%AB%98%E4%B8%AD/" class="post-title-link" itemprop="url">我的高中</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2014-06-14 17:05:40" itemprop="dateCreated datePublished" datetime="2014-06-14T17:05:40+08:00">2014-06-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-03-21 21:37:28" itemprop="dateModified" datetime="2019-03-21T21:37:28+08:00">2019-03-21</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/life/" itemprop="url" rel="index"><span itemprop="name">life</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/2014/06/14/%E6%88%91%E7%9A%84%E9%AB%98%E4%B8%AD/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2014/06/14/%E6%88%91%E7%9A%84%E9%AB%98%E4%B8%AD/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          my favorite LOL player?
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2014/06/14/%E6%88%91%E7%9A%84%E9%AB%98%E4%B8%AD/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span>
+    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1466,7 +1707,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">109</span>
+          <span class="site-state-item-count">116</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
